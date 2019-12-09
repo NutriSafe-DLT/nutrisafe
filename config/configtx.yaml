@@ -1,0 +1,168 @@
+#####################################################################################################################
+# DESCRIPTION
+# This file describes the configuration of the container for the ordering services, provided by the Unibw.
+#
+# 
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Reimers, Andreas Hermann
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://github.com/hyperledger/fabric-samples) by IBM Corp:
+# License SPDX-License-Identifier: Apache-2.0
+#
+#
+######################################################################################################################
+
+
+#####################################################################################################################
+# Parameters                                                                                                        #
+#####################################################################################################################
+
+# -------------------------------------------------------------------------------------------------------------------
+#   Section: Organizations
+#   This section defines the different organizational identities which will be referenced later in the configuration.
+# -------------------------------------------------------------------------------------------------------------------
+Organizations:
+    ### Here you should define the organisations which are part of the network ###
+    - &Unibw
+        ### Insert the organisation name here ###
+        Name: Unibw
+
+        ### Name of the organisational MSP ###
+        ID: UnibwMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/msp
+        
+        
+    ### Here you should define the organisations which are part of the network ###   
+    - &Deoni
+        ### Insert the organisation name here ###
+        Name: Deoni
+
+        ### Name of the organisational MSP ###
+        ID: DeoniMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/msp
+    
+    ### Here you should define the organisations which are part of the network ###   
+    - &Salers
+        ### Insert the organisation name here ###
+        Name: Salers
+
+        ### Name of the organisational MSP ###
+        ID: SalersMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/msp
+        
+    ### Here you should define the organisations which are part of the network ###   
+    - &Brangus
+        ### Insert the organisation name here ###
+        Name: Brangus
+
+        ### Name of the organisational MSP ###
+        ID: BrangusMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/msp
+        
+    ### Here you should define the organisations which are part of the network ###   
+    - &Pinzgauer
+        ### Insert the organisation name here ###
+        Name: Pinzgauer
+
+        ### Name of the organisational MSP ###
+        ID: PinzgauerMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/msp
+        
+    ### Here you should define the organisations which are part of the network ###   
+    - &Tuxer
+        ### Insert the organisation name here ###
+        Name: Tuxer
+
+        ### Name of the organisational MSP ###
+        ID: TuxerMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/msp
+
+# -------------------------------------------------------------------------------------------------------------------
+#   Section: Application
+#   This section defines the values to encode into a config transaction or genesis block for application 
+#   related parameters
+# -------------------------------------------------------------------------------------------------------------------
+Application: &ApplicationDefaults
+
+    # Organizations is the list of orgs which are defined as participants on
+    # the application side of the network
+    Organizations:
+
+# -------------------------------------------------------------------------------------------------------------------
+#   Section: Orderer
+#   This section defines the values to encode into a config transaction or genesis block for orderer 
+#   related parameters
+# -------------------------------------------------------------------------------------------------------------------
+Orderer: &OrdererDefaults
+
+    # Orderer Type: The orderer implementation to start, available types are "solo" and "kafka" #
+    OrdererType: solo
+
+    Addresses:
+        ### Container name and access port on the host machine ###
+        - orderer.unibw.de:7050
+
+    # Batch Timeout: The amount of time to wait before creating a batch #
+    BatchTimeout: 2s
+
+    # Batch Size: Controls the number of messages batched into a block #
+    BatchSize:
+
+        # Max Message Count: The maximum number of messages to permit in a batch #
+        MaxMessageCount: 10
+
+        # Absolute Max Bytes: The absolute maximum number of bytes allowed forthe serialized messages in a batch. #
+        AbsoluteMaxBytes: 99 MB
+
+        # Preferred Max Bytes: The preferred maximum number of bytes allowed for the serialized messages in a batch. # 
+        # A message larger than the preferred max bytes will result in a batch larger than preferred max bytes. #
+        PreferredMaxBytes: 512 KB
+
+
+    # Organizations is the list of orgs which are defined as participants on the orderer side of the network #
+    Organizations:
+
+# -------------------------------------------------------------------------------------------------------------------
+#   Section: Profiles
+#   Different configuration profiles may be encoded here to be specified as parameters to the configtxgen tool
+# -------------------------------------------------------------------------------------------------------------------
+Profiles:
+
+    OneOrgOrdererGenesis:
+        Orderer:
+            ### Reference to the orderer section ###
+            <<: *OrdererDefaults
+            Organizations:
+            ### Reference to the organisation section ###
+                - *Unibw
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                ### Reference to the organisation section ###
+                    - *Unibw
+                    
+    MoreOrgChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Unibw
+                - *Deoni

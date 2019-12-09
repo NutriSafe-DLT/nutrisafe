@@ -1,0 +1,31 @@
+#####################################################################################################################
+# DESCRIPTION                                                                                                       #
+# This file describes the configuration for creating the crypto material for one orderer organisation (unibw).      #                                                                          #
+#                                                                                                                   #
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Reimers, Andreas Hermann
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://github.com/hyperledger/fabric-samples) by IBM Corp:
+# License SPDX-License-Identifier: Apache-2.0
+#####################################################################################################################
+
+
+#####################################################################################################################
+# Parameters                                                                                                        #
+#####################################################################################################################
+
+# ---------------------------------------------------------------------------
+# "OrdererOrgs" - Definition of organizations managing orderer nodes
+# ---------------------------------------------------------------------------
+OrdererOrgs:
+  - Name: Orderer
+    ### Has to be changed to the organisational domain ###
+    Domain: unibw.de
+    Specs:
+      - Hostname: orderer
