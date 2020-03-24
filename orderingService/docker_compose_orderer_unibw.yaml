@@ -5,7 +5,7 @@
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Hoiß, Andreas Hermann
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -30,7 +30,7 @@ services:
   orderer.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer.unibw.de 
-    image: hyperledger/fabric-orderer
+    image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=info 
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
