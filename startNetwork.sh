@@ -78,7 +78,7 @@ docker exec cli.deoni.de peer channel update -f Salers_update_in_envelope.pb -c 
 ### Peer join a channel ###
 echo -e "\n \n Peer Salers joining channel"
 docker exec cli.salers.de peer channel fetch oldest -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
-docker exec cli.salers.de peer channel join -b ./cheese_oldest.block 
+docker exec cli.salers.de peer channel join -b ./cheese_oldest.block --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 
 
 echo -e "\n \n Organisation Tuxer joining channel"
@@ -90,7 +90,7 @@ docker exec cli.salers.de peer channel update -f Tuxer_update_in_envelope.pb -c 
 ### Peer join a channel ###
 echo -e "\n \n Peer Tuxer joining channel"
 docker exec cli.tuxer.de peer channel fetch oldest -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
-docker exec cli.tuxer.de peer channel join -b ./cheese_oldest.block 
+docker exec cli.tuxer.de peer channel join -b ./cheese_oldest.block --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 
 
 echo -e "\n \n Organisation Brangus joining channel"
@@ -101,7 +101,7 @@ docker exec cli.tuxer.de peer channel update -f Brangus_update_in_envelope.pb -c
 ### Peer join a channel ###
 echo -e "\n \n Peer Brangus joining channel"
 docker exec cli.brangus.de peer channel fetch oldest -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
-docker exec cli.brangus.de peer channel join -b ./cheese_oldest.block
+docker exec cli.brangus.de peer channel join -b ./cheese_oldest.block --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 
 
 echo -e "\n \n Organisation Pinzgauer joining channel"
@@ -112,4 +112,4 @@ docker exec cli.brangus.de peer channel update -f Pinzgauer_update_in_envelope.p
 ### Peer join a channel ###
 echo -e "\n \n Peer Pinzgauer joining channel"
 docker exec cli.pinzgauer.de peer channel fetch oldest -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
-docker exec cli.pinzgauer.de peer channel join -b ./cheese_oldest.block
+docker exec cli.pinzgauer.de peer channel join -b ./cheese_oldest.block --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
