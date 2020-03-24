@@ -36,4 +36,6 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 
 docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 sleep 10
-docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block"
+docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block" --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+
+CHANNEL_ID=cheese
