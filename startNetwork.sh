@@ -60,7 +60,7 @@ echo -e "\n \n Creating channel"
 cd ../channelOperation/
 ./create_channel_cheese.sh
 docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
-sleep 10s
+
 
 
 ### Peer join a channel ###
@@ -83,7 +83,7 @@ docker exec cli.salers.de peer channel join -b ./cheese_oldest.block --tls --caf
 
 echo -e "\n \n Organisation Tuxer joining channel"
 ./org_join_channel.sh -o Tuxer -c cli.salers.de
-sleep 4s
+
 
 docker exec cli.deoni.de peer channel signconfigtx -f Tuxer_update_in_envelope.pb 
 docker exec cli.salers.de peer channel update -f Tuxer_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
