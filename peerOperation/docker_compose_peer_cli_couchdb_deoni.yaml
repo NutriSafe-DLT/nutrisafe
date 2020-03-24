@@ -23,7 +23,7 @@ services:
 
   peer0.deoni.de:
     container_name: peer0.deoni.de
-    image: hyperledger/fabric-peer
+    image: hyperledger/fabric-peer:1.4.6
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.doeni.de
@@ -59,7 +59,7 @@ services:
 
   couchdb.deoni.de:
     container_name: couchdb.deoni.de
-    image: hyperledger/fabric-couchdb
+    image: hyperledger/fabric-couchdb:0.4.20
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -72,7 +72,7 @@ services:
 
   cli.deoni.de:
     container_name: cli.deoni.de
-    image: hyperledger/fabric-tools
+    image: hyperledger/fabric-tools:1.4.6
     tty: true
     environment:
       - GOPATH=/opt/gopath
@@ -102,7 +102,7 @@ services:
 
   peer0.salers.de:
     container_name: peer0.salers.de
-    image: hyperledger/fabric-peer
+    image: hyperledger/fabric-peer:1.4.6
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.salers.de
@@ -138,7 +138,7 @@ services:
     
   couchdb.salers.de:
     container_name: couchdb.salers.de
-    image: hyperledger/fabric-couchdb
+    image: hyperledger/fabric-couchdb:0.4.20
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -151,7 +151,7 @@ services:
 
   cli.salers.de:
     container_name: cli.salers.de
-    image: hyperledger/fabric-tools
+    image: hyperledger/fabric-tools:1.4.6
     tty: true
     environment:
       - GOPATH=/opt/gopath
@@ -180,7 +180,7 @@ services:
 #############################################Brangus########################################################
   peer0.brangus.de:
     container_name: peer0.brangus.de
-    image: hyperledger/fabric-peer
+    image: hyperledger/fabric-peer:1.4.6
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.brangus.de
@@ -216,7 +216,7 @@ services:
     
   couchdb.brangus.de:
     container_name: couchdb.brangus.de
-    image: hyperledger/fabric-couchdb
+    image: hyperledger/fabric-couchdb:0.4.20
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -229,7 +229,7 @@ services:
 
   cli.brangus.de:
     container_name: cli.brangus.de
-    image: hyperledger/fabric-tools
+    image: hyperledger/fabric-tools:1.4.6
     tty: true
     environment:
       - GOPATH=/opt/gopath
@@ -257,7 +257,7 @@ services:
 #############################################Pinzgauer########################################################
   peer0.pinzgauer.de:
     container_name: peer0.pinzgauer.de
-    image: hyperledger/fabric-peer
+    image: hyperledger/fabric-peer:1.4.6
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.pinzgauer.de
@@ -293,7 +293,7 @@ services:
     
   couchdb.pinzgauer.de:
     container_name: couchdb.pinzgauer.de
-    image: hyperledger/fabric-couchdb
+    image: hyperledger/fabric-couchdb:0.4.20
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -306,7 +306,7 @@ services:
 
   cli.pinzgauer.de:
     container_name: cli.pinzgauer.de
-    image: hyperledger/fabric-tools
+    image: hyperledger/fabric-tools:1.4.6
     tty: true
     environment:
       - GOPATH=/opt/gopath
@@ -335,7 +335,7 @@ services:
 #############################################Tuxer########################################################
   peer0.tuxer.de:
     container_name: peer0.tuxer.de
-    image: hyperledger/fabric-peer
+    image: hyperledger/fabric-peer:1.4.6
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.tuxer.de
@@ -371,7 +371,7 @@ services:
     
   couchdb.tuxer.de:
     container_name: couchdb.tuxer.de
-    image: hyperledger/fabric-couchdb
+    image: hyperledger/fabric-couchdb:0.4.20
     # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
     # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
     environment:
@@ -384,7 +384,7 @@ services:
 
   cli.tuxer.de:
     container_name: cli.tuxer.de
-    image: hyperledger/fabric-tools
+    image: hyperledger/fabric-tools:1.4.6
     tty: true
     environment:
       - GOPATH=/opt/gopath
