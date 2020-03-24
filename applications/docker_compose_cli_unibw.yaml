@@ -31,6 +31,8 @@ services:
       - CORE_PEER_LOCALMSPID=UnibwMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/orderer/msp
       - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/orderer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
     command: /bin/bash
     volumes:
