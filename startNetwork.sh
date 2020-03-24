@@ -46,7 +46,7 @@ cd ../applications/
 echo -e "\n \n Organisation joining consortium"
 cd ../orderingService/consortium/
 ./org_join_consortium.sh
-docker exec cli.unibw.de peer channel update -f Deoni_update_in_envelope.pb -c nutrisafesystemchannel -o orderer.unibw.de:7050
+docker exec cli.unibw.de peer channel update -f Deoni_update_in_envelope.pb -c nutrisafesystemchannel -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 
 ### Starting peer, couchdb, cli containers for the organisations ###
 ### Use of DOCKER_COMPOSE_FILE, DOCKER_SERVICES ###
@@ -59,7 +59,7 @@ cd ../../peerOperation/
 echo -e "\n \n Creating channel"
 cd ../channelOperation/
 ./create_channel_cheese.sh
-docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese
+docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 sleep 10s
 
 
