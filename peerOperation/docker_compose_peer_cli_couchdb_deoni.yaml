@@ -1,7 +1,7 @@
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Hoiß, Andreas Hermann
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -87,7 +87,7 @@ services:
       - CORE_PEER_LOCALMSPID=DeoniMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
       - CORE_CHAINCODE_KEEPALIVE=10
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
