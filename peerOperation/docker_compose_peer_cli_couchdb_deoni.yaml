@@ -173,7 +173,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
@@ -257,7 +257,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
@@ -340,7 +340,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
@@ -424,7 +424,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
