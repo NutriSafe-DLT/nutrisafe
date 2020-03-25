@@ -34,9 +34,9 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 # Code                                                                                                              #
 #####################################################################################################################
 
-docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt 
 sleep 10
 echo "Peer joiningesss Channel/n"
-docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block" --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem 
+docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block" --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt 
 
 CHANNEL_ID=cheese
