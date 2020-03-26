@@ -39,6 +39,27 @@ Organizations:
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/msp
         
+        Policies: &UnibwPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Unibw.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Unibw.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Unibw.admin')"
+
+        # OrdererEndpoints is a list of all orderers this org runs which clients
+        # and peers may to connect to to push transactions and receive blocks respectively.
+        OrdererEndpoints:
+            - "orderer.unibw.de:7050"
         
     ### Here you should define the organisations which are part of the network ###   
     - &Deoni
@@ -50,6 +71,30 @@ Organizations:
 
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/msp
+        
+        Policies: &DeoniPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Deoni.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Deoni.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Deoni.admin')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: 137.193.65.44
+              Port: 7051
     
     ### Here you should define the organisations which are part of the network ###   
     - &Salers
@@ -62,6 +107,30 @@ Organizations:
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/msp
         
+        Policies: &SalersPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Salers.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Salers.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Salers.admin')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: 137.193.65.44
+              Port: 7061
+        
     ### Here you should define the organisations which are part of the network ###   
     - &Brangus
         ### Insert the organisation name here ###
@@ -72,6 +141,30 @@ Organizations:
 
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/msp
+        
+        Policies: &BrangusPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Brangus.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Brangus.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Brangus.admin')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: 137.193.65.44
+              Port: 7071
         
     ### Here you should define the organisations which are part of the network ###   
     - &Pinzgauer
@@ -84,6 +177,30 @@ Organizations:
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/msp
         
+        Policies: &PinzgauerPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Pinzgauer.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Pinzgauer.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Pinzgauer.admin')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: 137.193.65.44
+              Port: 7081
+        
     ### Here you should define the organisations which are part of the network ###   
     - &Tuxer
         ### Insert the organisation name here ###
@@ -94,6 +211,30 @@ Organizations:
 
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/msp
+        
+        Policies: &TuxerPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Tuxer.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Tuxer.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Tuxer.admin')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: 137.193.65.44
+              Port: 7081
 
 # -------------------------------------------------------------------------------------------------------------------
 #   Section: Application
@@ -114,11 +255,11 @@ Application: &ApplicationDefaults
 Orderer: &OrdererDefaults
 
     # Orderer Type: The orderer implementation to start, available types are "solo" and "kafka" #
-    OrdererType: solo
+    OrdererType: etcdraft
 
     Addresses:
         ### Container name and access port on the host machine ###
-        - orderer.unibw.de:7050
+        #- orderer.unibw.de:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch #
     BatchTimeout: 2s
