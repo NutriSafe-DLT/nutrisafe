@@ -55,28 +55,11 @@ Organizations:
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/msp
         
-        Policies: &DeoniPolicies
-            Readers:
-                Type: Signature
-                Rule: "OR('Deoni.member')"
-                # If your MSP is configured with the new NodeOUs, you might
-                # want to use a more specific rule like the following:
-                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
-            Writers:
-                Type: Signature
-                Rule: "OR('Deoni.member')"
-                # If your MSP is configured with the new NodeOUs, you might
-                # want to use a more specific rule like the following:
-                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
-            Admins:
-                Type: Signature
-                Rule: "OR('Deoni.admin')"
-
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
         # the genesis block in the Application section context.
         AnchorPeers:
-            - Host: 137.193.65.44
+            - Host: peer0.deoni.de
               Port: 7051
     
     ### Here you should define the organisations which are part of the network ###   
