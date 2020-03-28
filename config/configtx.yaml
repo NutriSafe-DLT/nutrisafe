@@ -277,10 +277,69 @@ Orderer: &OrdererDefaults
         # A message larger than the preferred max bytes will result in a batch larger than preferred max bytes. #
         PreferredMaxBytes: 512 KB
 
+    # EtcdRaft defines configuration which must be set when the "etcdraft"
+    # orderertype is chosen.
+    EtcdRaft:
+        # The set of Raft replicas for this network. For the etcd/raft-based
+        # implementation, we expect every replica to also be an OSN. Therefore,
+        # a subset of the host:port items enumerated in this list should be
+        # replicated under the Orderer.Addresses key above.
+        Consenters:
+            - Host: orderer.unibw.de
+              Port: 7050
+              ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
+              ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
+
+        # Options to be specified for all the etcd/raft nodes. The values here
+        # are the defaults for all new channels and can be modified on a
+        # per-channel basis via configuration updates.
+        Options:
+            # TickInterval is the time interval between two Node.Tick invocations.
+            TickInterval: 500ms
+
+            # ElectionTick is the number of Node.Tick invocations that must pass
+            # between elections. That is, if a follower does not receive any
+            # message from the leader of current term before ElectionTick has
+            # elapsed, it will become candidate and start an election.
+            # ElectionTick must be greater than HeartbeatTick.
+            ElectionTick: 10
+
+            # HeartbeatTick is the number of Node.Tick invocations that must
+            # pass between heartbeats. That is, a leader sends heartbeat
+            # messages to maintain its leadership every HeartbeatTick ticks.
+            HeartbeatTick: 1
+
+            # MaxInflightBlocks limits the max number of in-flight append messages
+            # during optimistic replication phase.
+            MaxInflightBlocks: 5
+
+            # SnapshotIntervalSize defines number of bytes per which a snapshot is taken
+            SnapshotIntervalSize: 20 MB
 
     # Organizations is the list of orgs which are defined as participants on the orderer side of the network #
     Organizations:
 
+
+    # Policies defines the set of policies at this level of the config tree
+    # For Orderer policies, their canonical path is
+    #   /Channel/Orderer/<PolicyName>
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        # BlockValidation specifies what signatures must be included in the block
+        # from the orderer for the peer to validate it.
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+            
+           
 # -------------------------------------------------------------------------------------------------------------------
 #   Section: Profiles
 #   Different configuration profiles may be encoded here to be specified as parameters to the configtxgen tool
@@ -291,19 +350,40 @@ Profiles:
         Orderer:
             ### Reference to the orderer section ###
             <<: *OrdererDefaults
+            OrdererType: etcdraft
             Organizations:
             ### Reference to the organisation section ###
-                - *Unibw
+                - <<: *Unibw
+                  Policies:
+                      <<: *UnibwPolicies
+                      Admins:
+                          Type: Signature
+                          Rule: "OR('Unibw.member')"
         Consortiums:
             SampleConsortium:
                 Organizations:
                 ### Reference to the organisation section ###
-                    - *Unibw
+                    - <<: *Unibw
+                      Policies:
+                          <<: *UnibwPolicies
+                          Admins:
+                              Type: Signature
+                              Rule: "OR('Unibw.member')"
                     
     MoreOrgChannel:
         Consortium: SampleConsortium
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - *Unibw
-                - *Deoni
+                - <<: *Unibw
+                  Policies:
+                      <<: *UnibwPolicies
+                      Admins:
+                          Type: Signature
+                          Rule: "OR('Unibw.member')"
+                - <<: *Deoni
+                  Policies:
+                      <<: *DeoniPolicies
+                      Admins:
+                          Type: Signature
+                          Rule: "OR('Deoni.member')"
