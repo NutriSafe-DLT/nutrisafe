@@ -437,11 +437,6 @@ Profiles:
                 Organizations:
                 ### Reference to the organisation section ###
                     - <<: *Unibw
-                      Policies:
-                          <<: *UnibwPolicies
-                          Admins:
-                              Type: Signature
-                              Rule: "OR('Unibw.member')"
                     
     MoreOrgChannel:
         Consortium: SampleConsortium
@@ -449,14 +444,4 @@ Profiles:
             <<: *ApplicationDefaults
             Organizations:
                 - <<: *Unibw
-                  Policies:
-                      <<: *UnibwPolicies
-                      Admins:
-                          Type: Signature
-                          Rule: "OR('Unibw.member')"
                 - <<: *Deoni
-                  Policies:
-                      <<: *DeoniPolicies
-                      Admins:
-                          Type: Signature
-                          Rule: "OR('Deoni.member')"
