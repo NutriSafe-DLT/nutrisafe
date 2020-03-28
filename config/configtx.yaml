@@ -38,24 +38,7 @@ Organizations:
 
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/msp
-        
-        Policies: &UnibwPolicies
-            Readers:
-                Type: Signature
-                Rule: "OR('Unibw.member')"
-                # If your MSP is configured with the new NodeOUs, you might
-                # want to use a more specific rule like the following:
-                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
-            Writers:
-                Type: Signature
-                Rule: "OR('Unibw.member')"
-                # If your MSP is configured with the new NodeOUs, you might
-                # want to use a more specific rule like the following:
-                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
-            Admins:
-                Type: Signature
-                Rule: "OR('Unibw.admin')"
-
+       
         # OrdererEndpoints is a list of all orderers this org runs which clients
         # and peers may to connect to to push transactions and receive blocks respectively.
         #OrdererEndpoints:
