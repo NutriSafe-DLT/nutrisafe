@@ -449,11 +449,6 @@ Profiles:
             Organizations:
             ### Reference to the organisation section ###
                 - <<: *Unibw
-                  Policies:
-                      <<: *UnibwPolicies
-                      Admins:
-                          Type: Signature
-                          Rule: "OR('Unibw.member')"
         Consortiums:
             SampleConsortium:
                 Organizations:
