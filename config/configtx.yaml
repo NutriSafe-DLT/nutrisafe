@@ -259,7 +259,7 @@ Orderer: &OrdererDefaults
 
     Addresses:
         ### Container name and access port on the host machine ###
-        #- orderer.unibw.de:7050
+        - orderer.unibw.de:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch #
     BatchTimeout: 2s
