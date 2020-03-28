@@ -423,6 +423,12 @@ Orderer: &OrdererDefaults
             Type: ImplicitMeta
             Rule: "ANY Writers"
             
+    # Capabilities describes the orderer level capabilities, see the
+    # dedicated Capabilities section elsewhere in this file for a full
+    # description
+    Capabilities:
+        <<: *OrdererCapabilities
+            
            
 # -------------------------------------------------------------------------------------------------------------------
 #   Section: Profiles
