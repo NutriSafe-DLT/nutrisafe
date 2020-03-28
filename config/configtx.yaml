@@ -58,8 +58,8 @@ Organizations:
 
         # OrdererEndpoints is a list of all orderers this org runs which clients
         # and peers may to connect to to push transactions and receive blocks respectively.
-        OrdererEndpoints:
-            - "orderer.unibw.de:7050"
+        #OrdererEndpoints:
+            #- "orderer.unibw.de:7050"
         
     ### Here you should define the organisations which are part of the network ###   
     - &Deoni
