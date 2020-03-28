@@ -334,20 +334,6 @@ Application: &ApplicationDefaults
     # network.
     Organizations:
 
-    # Policies defines the set of policies at this level of the config tree
-    # For Application policies, their canonical path is
-    #   /Channel/Application/<PolicyName>
-    Policies: &ApplicationDefaultPolicies
-        Readers:
-            Type: ImplicitMeta
-            Rule: "ANY Readers"
-        Writers:
-            Type: ImplicitMeta
-            Rule: "ANY Writers"
-        Admins:
-            Type: ImplicitMeta
-            Rule: "MAJORITY Admins"
-
     # Capabilities describes the application level capabilities, see the
     # dedicated Capabilities section elsewhere in this file for a full
     # description
