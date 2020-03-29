@@ -2,14 +2,14 @@
 #
 #####################################################################################################################
 # DESCRIPTION                                                                                                       #
-# This script creates a transaction to add an organisation to an existing channel.                                  #
+# This script creates a transaction to add an orderer node to an existing raft cluster.                             #
 # Crypto material has be created before.                                                                            #
 # After creating the transaction is has to be signed and committed                                                  #
 #                                                                                                                   #
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Hoiß, Andreas Hermann
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -22,20 +22,19 @@
 #####################################################################################################################
 
 ### The fabric configuration path has to be set to the configtx.yaml ###
-CFG_PATH=../../config
+CFG_PATH=../config
 ### The name of the Organisation specified in the configtx.yaml ###
 JOINING_ORGANISATION=Deoni
 ### Name of the docker container where we executed the commands, it should be a cli container of an organisation ###
-### which has the rights to allow an organisation to join the channel.                                           ###
+### which has the rights to allow the ordering node to join the system channel.                                  ###
 CONTAINER_NAME=cli.unibw.de
-### Name of the  channel ###
+### Name of the system channel ###
 CHANNEL_ID=nutrisafesystemchannel
 ### Address of an orderer node ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
 ### Name of the transaction file ###
 TRANSACTION_FILE=./$JOINING_ORGANISATION"_update_in_envelope.pb"
-### Name of the consortium to be joined ###
-CONSORTIUM_NAME=SampleConsortium
+
 
 
 
@@ -53,7 +52,7 @@ export FABRIC_CFG_PATH=$CFG_PATH
 
 
 # Generate the json representation of the organisation #
-configtxgen -printOrg $JOINING_ORGANISATION > ../../configTransactions/org.json
+# configtxgen -printOrg $JOINING_ORGANISATION > ../../configTransactions/org.json
 
 
 # Echo all environment variables on the docker container #
