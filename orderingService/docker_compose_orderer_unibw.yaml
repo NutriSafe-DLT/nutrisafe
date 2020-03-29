@@ -65,7 +65,7 @@ services:
       - FABRIC_LOGGING_SPEC=info 
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/ordererConfig/config_block1.pb
       ### Has to be changed to the organisational MSP ###
       - ORDERER_GENERAL_LOCALMSPID=UnibwMSP 
       - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
