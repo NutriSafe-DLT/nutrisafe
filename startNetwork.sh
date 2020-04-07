@@ -34,6 +34,8 @@
 echo "Starting intitialize ordering service"
 cd orderingService/
 ./initialize_ordering_service.sh
+echo "Sleeping for 5 seconds"
+sleep 5s
 
 ### Starting an cli container for the ordering organization to interact with the network ###
 ### Use of DOCKER_COMPOSE_FILE, DOCKER_SERVICES ###
@@ -61,7 +63,8 @@ cd ../channelOperation/
 ./create_channel_cheese.sh
 docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 
-sleep 4s
+echo "Sleeping for 8 seconds"
+sleep 8s
 
 ### Peer join a channel ###
 ### Use of CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS ###
