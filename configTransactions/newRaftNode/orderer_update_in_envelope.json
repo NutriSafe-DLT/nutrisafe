@@ -1,0 +1,78 @@
+{
+  "payload": {
+    "header": {
+      "channel_header": {
+        "channel_id": "nutrisafesystemchannel",
+        "type": 2
+      }
+    },
+    "data": {
+      "config_update": {
+        "channel_id": "nutrisafesystemchannel",
+        "isolated_data": {},
+        "read_set": {
+          "groups": {
+            "Orderer": {
+              "groups": {},
+              "mod_policy": "",
+              "policies": {},
+              "values": {},
+              "version": "0"
+            }
+          },
+          "mod_policy": "",
+          "policies": {},
+          "values": {},
+          "version": "0"
+        },
+        "write_set": {
+          "groups": {
+            "Orderer": {
+              "groups": {},
+              "mod_policy": "",
+              "policies": {},
+              "values": {
+                "ConsensusType": {
+                  "mod_policy": "Admins",
+                  "value": {
+                    "metadata": {
+                      "consenters": [
+                        {
+                          "client_tls_cert": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNUekNDQWZhZ0F3SUJBZ0lRZTFYZEdWRVpNcFAzM1dtVDRsNm5wekFLQmdncWhrak9QUVFEQWpCbU1Rc3cKQ1FZRFZRUUdFd0pWVXpFVE1CRUdBMVVFQ0JNS1EyRnNhV1p2Y201cFlURVdNQlFHQTFVRUJ4TU5VMkZ1SUVaeQpZVzVqYVhOamJ6RVJNQThHQTFVRUNoTUlkVzVwWW5jdVpHVXhGekFWQmdOVkJBTVREblJzYzJOaExuVnVhV0ozCkxtUmxNQjRYRFRJd01ETXlPVEV6TURZd01Gb1hEVE13TURNeU56RXpNRFl3TUZvd1ZqRUxNQWtHQTFVRUJoTUMKVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCR2NtRnVZMmx6WTI4eApHakFZQmdOVkJBTVRFVzl5WkdWeVpYSXhMblZ1YVdKM0xtUmxNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBECkFRY0RRZ0FFYmI4LzRoeHEvbCsvdTBkem1GRHFWR0dLUVRHcTh2QUlHdnhUUXo3M2JWT1Q2ZUtCenRDNXQ5T2IKbVRNd3IvY1lkdzhxQ28zNFdSMVZBbGplb2JpMUJhT0JsVENCa2pBT0JnTlZIUThCQWY4RUJBTUNCYUF3SFFZRApWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHQVFVRkJ3TUNNQXdHQTFVZEV3RUIvd1FDTUFBd0t3WURWUjBqCkJDUXdJb0FncGdrcnpMRFZ4SWkwSHM2TmNoZmgvY2tpMFl0UjNRNVkxZ0pzbStrSnBqb3dKZ1lEVlIwUkJCOHcKSFlJUmIzSmtaWEpsY2pFdWRXNXBZbmN1WkdXQ0NHOXlaR1Z5WlhJeE1Bb0dDQ3FHU000OUJBTUNBMGNBTUVRQwpJR2hBZ2VNeVRmbzRwY1ZucmxUUzVIejZ1SlNmbzRDQkNZK1h2RVZFUGxYMUFpQmN5VGU2RjhkYzAra0k0OW1MCnlhQTFpOWJwMkcwcGdCMG1hTGhHeFFoeTVBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==",
+                          "host": "orderer1.unibw.de",
+                          "port": 7060,
+                          "server_tls_cert": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNUekNDQWZhZ0F3SUJBZ0lRZTFYZEdWRVpNcFAzM1dtVDRsNm5wekFLQmdncWhrak9QUVFEQWpCbU1Rc3cKQ1FZRFZRUUdFd0pWVXpFVE1CRUdBMVVFQ0JNS1EyRnNhV1p2Y201cFlURVdNQlFHQTFVRUJ4TU5VMkZ1SUVaeQpZVzVqYVhOamJ6RVJNQThHQTFVRUNoTUlkVzVwWW5jdVpHVXhGekFWQmdOVkJBTVREblJzYzJOaExuVnVhV0ozCkxtUmxNQjRYRFRJd01ETXlPVEV6TURZd01Gb1hEVE13TURNeU56RXpNRFl3TUZvd1ZqRUxNQWtHQTFVRUJoTUMKVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCR2NtRnVZMmx6WTI4eApHakFZQmdOVkJBTVRFVzl5WkdWeVpYSXhMblZ1YVdKM0xtUmxNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBECkFRY0RRZ0FFYmI4LzRoeHEvbCsvdTBkem1GRHFWR0dLUVRHcTh2QUlHdnhUUXo3M2JWT1Q2ZUtCenRDNXQ5T2IKbVRNd3IvY1lkdzhxQ28zNFdSMVZBbGplb2JpMUJhT0JsVENCa2pBT0JnTlZIUThCQWY4RUJBTUNCYUF3SFFZRApWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHQVFVRkJ3TUNNQXdHQTFVZEV3RUIvd1FDTUFBd0t3WURWUjBqCkJDUXdJb0FncGdrcnpMRFZ4SWkwSHM2TmNoZmgvY2tpMFl0UjNRNVkxZ0pzbStrSnBqb3dKZ1lEVlIwUkJCOHcKSFlJUmIzSmtaWEpsY2pFdWRXNXBZbmN1WkdXQ0NHOXlaR1Z5WlhJeE1Bb0dDQ3FHU000OUJBTUNBMGNBTUVRQwpJR2hBZ2VNeVRmbzRwY1ZucmxUUzVIejZ1SlNmbzRDQkNZK1h2RVZFUGxYMUFpQmN5VGU2RjhkYzAra0k0OW1MCnlhQTFpOWJwMkcwcGdCMG1hTGhHeFFoeTVBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ=="
+                        },
+                        {
+                          "client_tls_cert": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNUakNDQWZTZ0F3SUJBZ0lSQUlzMjJhaC9MVFg3MzB6cXRMVmt4RVV3Q2dZSUtvWkl6ajBFQXdJd1pqRUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHhFVEFQQmdOVkJBb1RDSFZ1YVdKM0xtUmxNUmN3RlFZRFZRUURFdzUwYkhOallTNTFibWxpCmR5NWtaVEFlRncweE9UQTNNall4TVRRMU1EQmFGdzB5T1RBM01qTXhNVFExTURCYU1GVXhDekFKQmdOVkJBWVQKQWxWVE1STXdFUVlEVlFRSUV3cERZV3hwWm05eWJtbGhNUll3RkFZRFZRUUhFdzFUWVc0Z1JuSmhibU5wYzJOdgpNUmt3RndZRFZRUURFeEJ2Y21SbGNtVnlMblZ1YVdKM0xtUmxNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBECkFRY0RRZ0FFL1JmMEZsSVAxOFR0b3lITVFyanlCWVhRYW9vVEo2RW9PYmZqZ1pta1JTNEN3Q2tqZUZ3eVZDcGUKR3lseTJJV3pydWN2NGVJbUFSMUJTMVhwZzZWYTNxT0JrekNCa0RBT0JnTlZIUThCQWY4RUJBTUNCYUF3SFFZRApWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHQVFVRkJ3TUNNQXdHQTFVZEV3RUIvd1FDTUFBd0t3WURWUjBqCkJDUXdJb0FncGdrcnpMRFZ4SWkwSHM2TmNoZmgvY2tpMFl0UjNRNVkxZ0pzbStrSnBqb3dKQVlEVlIwUkJCMHcKRzRJUWIzSmtaWEpsY2k1MWJtbGlkeTVrWllJSGIzSmtaWEpsY2pBS0JnZ3Foa2pPUFFRREFnTklBREJGQWlFQQpuSFQrVUx3bkpBRXdzdVowai82MU5sdUZUbFJiMnB1ZDZqQ0lJU2JFZDFRQ0lDaHFZSmJKUlpveWcyRHQ0Zi9YCm10d1ZxYnVEVkNlc0F1V2lyK1NKQ0lyZwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+                          "host": "orderer.unibw.de",
+                          "port": 7050,
+                          "server_tls_cert": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNUakNDQWZTZ0F3SUJBZ0lSQUlzMjJhaC9MVFg3MzB6cXRMVmt4RVV3Q2dZSUtvWkl6ajBFQXdJd1pqRUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHhFVEFQQmdOVkJBb1RDSFZ1YVdKM0xtUmxNUmN3RlFZRFZRUURFdzUwYkhOallTNTFibWxpCmR5NWtaVEFlRncweE9UQTNNall4TVRRMU1EQmFGdzB5T1RBM01qTXhNVFExTURCYU1GVXhDekFKQmdOVkJBWVQKQWxWVE1STXdFUVlEVlFRSUV3cERZV3hwWm05eWJtbGhNUll3RkFZRFZRUUhFdzFUWVc0Z1JuSmhibU5wYzJOdgpNUmt3RndZRFZRUURFeEJ2Y21SbGNtVnlMblZ1YVdKM0xtUmxNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBECkFRY0RRZ0FFL1JmMEZsSVAxOFR0b3lITVFyanlCWVhRYW9vVEo2RW9PYmZqZ1pta1JTNEN3Q2tqZUZ3eVZDcGUKR3lseTJJV3pydWN2NGVJbUFSMUJTMVhwZzZWYTNxT0JrekNCa0RBT0JnTlZIUThCQWY4RUJBTUNCYUF3SFFZRApWUjBsQkJZd0ZBWUlLd1lCQlFVSEF3RUdDQ3NHQVFVRkJ3TUNNQXdHQTFVZEV3RUIvd1FDTUFBd0t3WURWUjBqCkJDUXdJb0FncGdrcnpMRFZ4SWkwSHM2TmNoZmgvY2tpMFl0UjNRNVkxZ0pzbStrSnBqb3dKQVlEVlIwUkJCMHcKRzRJUWIzSmtaWEpsY2k1MWJtbGlkeTVrWllJSGIzSmtaWEpsY2pBS0JnZ3Foa2pPUFFRREFnTklBREJGQWlFQQpuSFQrVUx3bkpBRXdzdVowai82MU5sdUZUbFJiMnB1ZDZqQ0lJU2JFZDFRQ0lDaHFZSmJKUlpveWcyRHQ0Zi9YCm10d1ZxYnVEVkNlc0F1V2lyK1NKQ0lyZwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=="
+                        }
+                      ],
+                      "options": {
+                        "election_tick": 10,
+                        "heartbeat_tick": 1,
+                        "max_inflight_blocks": 5,
+                        "snapshot_interval_size": 20971520,
+                        "tick_interval": "500ms"
+                      }
+                    },
+                    "state": "STATE_NORMAL",
+                    "type": "etcdraft"
+                  },
+                  "version": "1"
+                }
+              },
+              "version": "0"
+            }
+          },
+          "mod_policy": "",
+          "policies": {},
+          "values": {},
+          "version": "0"
+        }
+      }
+    }
+  }
+}
