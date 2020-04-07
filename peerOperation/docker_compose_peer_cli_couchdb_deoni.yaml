@@ -32,6 +32,7 @@ services:
       - CORE_PEER_LOCALMSPID=DeoniMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.deoni.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -117,6 +118,7 @@ services:
       - CORE_PEER_LOCALMSPID=SalersMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.salers.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7061
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -201,6 +203,7 @@ services:
       - CORE_PEER_LOCALMSPID=BrangusMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.brangus.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7071
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -284,6 +287,7 @@ services:
       - CORE_PEER_LOCALMSPID=PinzgauerMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.pinzgauer.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7081
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -368,6 +372,7 @@ services:
       - CORE_PEER_LOCALMSPID=TuxerMSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.tuxer.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7091
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
