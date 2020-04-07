@@ -252,6 +252,8 @@ Orderer: &OrdererDefaults
     Addresses:
         ### Container name and access port on the host machine ###
         - orderer.unibw.de:7050
+        - orderer1.unibw.de:7060
+        - orderer2.unibw.de:7070
 
     # Batch Timeout: The amount of time to wait before creating a batch #
     BatchTimeout: 2s
@@ -281,6 +283,14 @@ Orderer: &OrdererDefaults
               Port: 7050
               ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
               ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
+            - Host: orderer1.unibw.de
+              Port: 7060
+              ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/tls/server.crt
+              ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/tls/server.crt
+            - Host: orderer2.unibw.de
+              Port: 7070
+              ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/tls/server.crt
+              ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/tls/server.crt
 
         # Options to be specified for all the etcd/raft nodes. The values here
         # are the defaults for all new channels and can be modified on a
