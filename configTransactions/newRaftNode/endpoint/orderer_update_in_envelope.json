@@ -1,0 +1,41 @@
+{
+  "payload": {
+    "header": {
+      "channel_header": {
+        "channel_id": "nutrisafesystemchannel",
+        "type": 2
+      }
+    },
+    "data": {
+      "config_update": {
+        "channel_id": "nutrisafesystemchannel",
+        "isolated_data": {},
+        "read_set": {
+          "groups": {},
+          "mod_policy": "",
+          "policies": {},
+          "values": {},
+          "version": "0"
+        },
+        "write_set": {
+          "groups": {},
+          "mod_policy": "",
+          "policies": {},
+          "values": {
+            "OrdererAddresses": {
+              "mod_policy": "/Channel/Orderer/Admins",
+              "value": {
+                "addresses": [
+                  "orderer.unibw.de:7050",
+                  "orderer1.unibw.de:7050"
+                ]
+              },
+              "version": "1"
+            }
+          },
+          "version": "0"
+        }
+      }
+    }
+  }
+}

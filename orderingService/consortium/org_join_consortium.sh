@@ -63,7 +63,7 @@ configtxgen -printOrg $JOINING_ORGANISATION > ../../configTransactions/org.json
 #docker exec $CONTAINER_NAME echo $CORE_PEER_ADDRESS
 
 # Fetch the newest config block on the cli container #
-docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID"
+docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt "
 
 
 # Translate the protobuf into json and removing irrelevant parts #

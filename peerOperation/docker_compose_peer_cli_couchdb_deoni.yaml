@@ -1,7 +1,7 @@
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Hoiß, Andreas Hermann
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -30,8 +30,9 @@ services:
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       - CORE_PEER_LOCALMSPID=DeoniMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.deoni.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -43,6 +44,10 @@ services:
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
@@ -51,7 +56,7 @@ services:
       - 7053:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/peers/peer0.deoni.de/msp:/etc/hyperledger/msp/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/peers/peer0.deoni.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.deoni.de
     networks:
@@ -81,7 +86,9 @@ services:
       - CORE_PEER_ID=cli.deoni.de
       - CORE_PEER_ADDRESS=peer0.deoni.de:7051
       - CORE_PEER_LOCALMSPID=DeoniMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@deoni.de/msp/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
       - CORE_CHAINCODE_KEEPALIVE=10
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
@@ -89,7 +96,7 @@ services:
       - /var/run/:/host/var/run/
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/users/Admin@deoni.de/msp:/etc/hyperledger/msp/users/Admin@deoni.de/msp/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/users/Admin@deoni.de/:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:
@@ -109,8 +116,9 @@ services:
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       - CORE_PEER_LOCALMSPID=SalersMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.salers.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7061
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -122,6 +130,10 @@ services:
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
@@ -130,7 +142,7 @@ services:
       - 7063:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/peers/peer0.salers.de/msp:/etc/hyperledger/msp/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/peers/peer0.salers.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.salers.de
     networks:
@@ -160,15 +172,17 @@ services:
       - CORE_PEER_ID=cli.salers.de
       - CORE_PEER_ADDRESS=peer0.salers.de:7051
       - CORE_PEER_LOCALMSPID=SalersMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@salers.de/msp/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/users/Admin@salers.de/msp:/etc/hyperledger/msp/users/Admin@salers.de/msp/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/users/Admin@salers.de:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:
@@ -187,8 +201,9 @@ services:
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       - CORE_PEER_LOCALMSPID=BrangusMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.brangus.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7071
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -200,6 +215,10 @@ services:
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
@@ -208,7 +227,7 @@ services:
       - 7073:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/peers/peer0.brangus.de/msp:/etc/hyperledger/msp/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/peers/peer0.brangus.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.brangus.de
     networks:
@@ -238,15 +257,17 @@ services:
       - CORE_PEER_ID=cli.brangus.de
       - CORE_PEER_ADDRESS=peer0.brangus.de:7051
       - CORE_PEER_LOCALMSPID=BrangusMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@brangus.de/msp/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/users/Admin@brangus.de/msp:/etc/hyperledger/msp/users/Admin@brangus.de/msp/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/users/Admin@brangus.de:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:
@@ -264,8 +285,9 @@ services:
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       - CORE_PEER_LOCALMSPID=PinzgauerMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.pinzgauer.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7081
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -277,6 +299,10 @@ services:
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
@@ -285,7 +311,7 @@ services:
       - 7083:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/peers/peer0.pinzgauer.de/msp:/etc/hyperledger/msp/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/peers/peer0.pinzgauer.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.pinzgauer.de
     networks:
@@ -315,15 +341,17 @@ services:
       - CORE_PEER_ID=cli.pinzgauer.de
       - CORE_PEER_ADDRESS=peer0.pinzgauer.de:7051
       - CORE_PEER_LOCALMSPID=PinzgauerMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@pinzgauer.de/msp/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/users/Admin@pinzgauer.de/msp:/etc/hyperledger/msp/users/Admin@pinzgauer.de/msp/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/users/Admin@pinzgauer.de:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:
@@ -342,8 +370,9 @@ services:
       - FABRIC_LOGGING_SPEC=info
       - CORE_CHAINCODE_LOGGING_LEVEL=info
       - CORE_PEER_LOCALMSPID=TuxerMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.tuxer.de:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=137.193.65.44:7091
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
       # # https://docs.docker.com/compose/networking/
@@ -355,6 +384,10 @@ services:
       # match the username and password set for the associated CouchDB.
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
@@ -363,7 +396,7 @@ services:
       - 7093:7053
     volumes:
       - /var/run/:/host/var/run/
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/peers/peer0.tuxer.de/msp:/etc/hyperledger/msp/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/peers/peer0.tuxer.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.tuxer.de
     networks:
@@ -393,15 +426,17 @@ services:
       - CORE_PEER_ID=cli.tuxer.de
       - CORE_PEER_ADDRESS=peer0.tuxer.de:7051
       - CORE_PEER_LOCALMSPID=TuxerMSP
-      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@tuxer.de/msp/
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
       - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
-      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/users/Admin@tuxer.de/msp:/etc/hyperledger/msp/users/Admin@tuxer.de/msp/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/users/Admin@tuxer.de:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:

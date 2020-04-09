@@ -28,7 +28,7 @@ CHANNEL_ID=nutrisafesystemchannel
 ### Docker-compose file ###
 DOCKER_COMPOSE_FILE=docker_compose_orderer_unibw.yaml
 ### Docker services to start ###
-DOCKER_SERVICES=orderer.unibw.de
+DOCKER_SERVICES="orderer.unibw.de orderer1.unibw.de orderer2.unibw.de"
 ### The fabric configuration path has to be set to the configtx.yaml ###
 CFG_PATH=../config
 
