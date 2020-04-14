@@ -30,6 +30,7 @@ services:
   orderer.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer.unibw.de 
+    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=debug
@@ -67,7 +68,8 @@ services:
       ### Name of the services, has to be changed with every new ordering node ###
   orderer1.unibw.de: 
     ### Name of the container, has to changed for every new container ###
-    container_name: orderer1.unibw.de 
+    container_name: orderer1.unibw.de
+    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=info 
@@ -104,7 +106,8 @@ services:
             ### Name of the services, has to be changed with every new ordering node ###
   orderer2.unibw.de: 
     ### Name of the container, has to changed for every new container ###
-    container_name: orderer2.unibw.de 
+    container_name: orderer2.unibw.de
+    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=info 
