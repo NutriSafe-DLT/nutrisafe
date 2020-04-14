@@ -28,4 +28,4 @@ OrdererOrgs:
     ### Has to be changed to the organisational domain ###
     Domain: unibw.de
     Specs:
-      - Hostname: orderer2
+      - Hostname: orderer3
