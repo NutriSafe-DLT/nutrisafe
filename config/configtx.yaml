@@ -284,11 +284,11 @@ Orderer: &OrdererDefaults
               ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
               ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/tls/server.crt
             - Host: orderer1.unibw.de
-              Port: 7050
+              Port: 7060
               ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/tls/server.crt
               ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/tls/server.crt
             - Host: orderer2.unibw.de
-              Port: 7050
+              Port: 7070
               ClientTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/tls/server.crt
               ServerTLSCert: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/tls/server.crt
 
