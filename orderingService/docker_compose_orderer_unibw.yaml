@@ -54,8 +54,8 @@ services:
       - 7050:7050
     extra_hosts:
       - "orderer3.unibw.de:137.193.68.145"
-      - "orderer1.unibw.de:127.0.0.1"
-      - "orderer2.unibw.de:127.0.0.1"
+      - "orderer1.unibw.de:127.18.0.1"
+      - "orderer2.unibw.de:127.18.0.1"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
@@ -91,8 +91,8 @@ services:
       - 7060:7050
     extra_hosts:
       - "orderer3.unibw.de:137.193.68.145"
-      - "orderer.unibw.de:127.0.0.1"
-      - "orderer2.unibw.de:127.0.0.1"
+      - "orderer.unibw.de:127.18.0.1"
+      - "orderer2.unibw.de:127.18.0.1"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
@@ -128,8 +128,8 @@ services:
       - 7070:7050
     extra_hosts:
       - "orderer3.unibw.de:137.193.68.145"
-      - "orderer.unibw.de:127.0.0.1"
-      - "orderer1.unibw.de:127.0.0.1"
+      - "orderer.unibw.de:127.18.0.1"
+      - "orderer1.unibw.de:127.18.0.1"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
