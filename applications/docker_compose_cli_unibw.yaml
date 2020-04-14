@@ -47,3 +47,33 @@ services:
     #  - orderer.example.com
     #  - peer0.org1.example.com
     #  - couchdb
+    
+  cli2.unibw.de:
+    container_name: cli2.unibw.de
+    image: hyperledger/fabric-tools:1.4.6
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_PEER_ID=cli2.unibw.de
+      - CORE_PEER_ADDRESS=orderer3.unibw.de:7050
+      - CORE_PEER_LOCALMSPID=UnibwMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/orderer/msp
+      - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/orderer/tls/ca.crt
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/github.com/
+      - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/orderer
+      #Has to changed to crypto-material of the Admin (unibw)
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/users/Admin@unibw.de/:/etc/hyperledger/msp/orderer
+    networks:
+      - orderingservice_basic
+    #depends_on:
+    #  - orderer.example.com
+    #  - peer0.org1.example.com
+    #  - couchdb
