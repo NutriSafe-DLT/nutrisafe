@@ -50,7 +50,9 @@ services:
     command: orderer
     ports:
     ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
-      - 7050:7050 
+      - 7050:7050
+    extra_hosts:
+      - "orderer3.unibw.de:137.193.68.145"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
@@ -83,7 +85,9 @@ services:
     command: orderer
     ports:
     ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
-      - 7060:7050 
+      - 7060:7050
+    extra_hosts:
+      - "orderer3.unibw.de:137.193.68.145"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
@@ -116,11 +120,54 @@ services:
     command: orderer
     ports:
     ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
-      - 7070:7050 
+      - 7070:7050
+    extra_hosts:
+      - "orderer3.unibw.de:137.193.68.145"
     volumes:
       ### Here we should mount the directory from the host where we store the genesis.block file ###
       - ../configTransactions/:/etc/hyperledger/configtx               
       ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
       - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/:/etc/hyperledger/msp/orderer  
+    networks:
+      - basic
+
+  orderer3.unibw.de: 
+    ### Name of the container, has to changed for every new container ###
+    container_name: orderer3.unibw.de 
+    image: hyperledger/fabric-orderer:1.4.6
+    environment:
+      - FABRIC_LOGGING_SPEC=info 
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      ### Has to be changed to the organisational MSP ###
+      - ORDERER_GENERAL_LOCALMSPID=UnibwMSP 
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+    ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
+      - 7050:7050
+    extra_hosts:
+      - "orderer.unibw.de:137.193.65.4"
+      - "orderer1.unibw.de:137.193.65.4"
+      - "orderer2.unibw.de:137.193.65.4"
+      - "peer0.deoni.de:137.193.65.4"
+      - "peer0.salers.de:137.193.65.4"
+      - "peer0.pinzgauer.de:137.193.65.4"
+      - "peer0.tuxer.de:137.193.65.4"
+      - "peer0.brangus.de:137.193.65.4"
+    volumes:
+      ### Here we should mount the directory from the host where we store the genesis.block file ###
+      - ../configTransactions/:/etc/hyperledger/configtx               
+      ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer3.unibw.de/:/etc/hyperledger/msp/orderer  
     networks:
       - basic
