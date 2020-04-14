@@ -30,7 +30,6 @@ services:
   orderer.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer.unibw.de 
-    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=debug
@@ -62,12 +61,13 @@ services:
       - ../configTransactions/:/etc/hyperledger/configtx               
       ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
       - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/:/etc/hyperledger/msp/orderer  
-      
+    networks:
+      - basic
+     
       ### Name of the services, has to be changed with every new ordering node ###
   orderer1.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer1.unibw.de
-    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=info 
@@ -98,13 +98,13 @@ services:
       - ../configTransactions/:/etc/hyperledger/configtx               
       ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
       - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/:/etc/hyperledger/msp/orderer  
-
+    networks:
+      - basic
       
             ### Name of the services, has to be changed with every new ordering node ###
   orderer2.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer2.unibw.de
-    network_mode: host
     image: hyperledger/fabric-orderer:1.4.6
     environment:
       - FABRIC_LOGGING_SPEC=info 
@@ -135,7 +135,8 @@ services:
       - ../configTransactions/:/etc/hyperledger/configtx               
       ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
       - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/:/etc/hyperledger/msp/orderer  
-
+    networks:
+      - basic
 
   orderer3.unibw.de: 
     ### Name of the container, has to changed for every new container ###
