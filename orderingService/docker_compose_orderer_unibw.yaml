@@ -143,7 +143,8 @@ services:
     container_name: orderer3.unibw.de 
     image: hyperledger/fabric-orderer:1.4.6
     environment:
-      - FABRIC_LOGGING_SPEC=info 
+      - FABRIC_LOGGING_SPEC=debug 
+      - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
