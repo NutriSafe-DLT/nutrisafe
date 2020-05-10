@@ -48,12 +48,14 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
     ports:
       - 7051:7051
       - 7053:7053
+      - 9443:9443
     volumes:
       - /var/run/:/host/var/run/
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/peers/peer0.deoni.de:/etc/hyperledger/msp/peer
@@ -134,12 +136,14 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
     ports:
       - 7061:7051
       - 7063:7053
+      - 9443:9443
     volumes:
       - /var/run/:/host/var/run/
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/peers/peer0.salers.de:/etc/hyperledger/msp/peer
@@ -219,12 +223,14 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
     ports:
       - 7071:7051
       - 7073:7053
+      - 9443:9443
     volumes:
       - /var/run/:/host/var/run/
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/peers/peer0.brangus.de:/etc/hyperledger/msp/peer
@@ -303,12 +309,14 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
     ports:
       - 7081:7051
       - 7083:7053
+      - 9443:9443
     volumes:
       - /var/run/:/host/var/run/
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/peers/peer0.pinzgauer.de:/etc/hyperledger/msp/peer
@@ -388,12 +396,14 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     # command: peer node start --peer-chaincodedev=true
     ports:
       - 7091:7051
       - 7093:7053
+      - 9443:9443
     volumes:
       - /var/run/:/host/var/run/
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/peers/peer0.tuxer.de:/etc/hyperledger/msp/peer

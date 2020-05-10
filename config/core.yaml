@@ -1,0 +1,37 @@
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Hoiß, Andreas Hermann, Prabhakar Mishra
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://hyperledger-fabric.readthedocs.io/en/release-1.4/operations_service.html):
+# License SPDX-License-Identifier: Apache-2.0
+
+operations:
+  # host and port for the operations server
+  listenAddress: 127.0.0.1:9443
+
+  # TLS configuration for the operations endpoint
+  tls:
+    # TLS enabled
+    enabled: false
+
+    # path to PEM encoded server certificate for the operations server
+    cert:
+      file: tls/server.crt
+
+    # path to PEM encoded server key for the operations server
+    key:
+      file: tls/server.key
+
+    # most operations service endpoints require client authentication when TLS
+    # is enabled. clientAuthRequired requires client certificate authentication
+    # at the TLS layer to access all resources.
+    clientAuthRequired: false
+
+    # paths to PEM encoded ca certificates to trust for client authentication
+    clientRootCAs:
+      files: []
