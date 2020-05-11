@@ -35,3 +35,9 @@ operations:
     # paths to PEM encoded ca certificates to trust for client authentication
     clientRootCAs:
       files: []
+      
+#####################################################################################################################
+# Metrics                                                                                                        #
+#####################################################################################################################
+metrics:
+  provider: prometheus
