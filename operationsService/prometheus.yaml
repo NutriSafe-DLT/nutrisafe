@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 10s
+    static_configs:
+    - targets: ['localhost:9090']
+  - job_name: 'hyperledger_metrics'
+    scrape_interval: 10s
+    static_configs:
+      - targets: [
+        'peer0.deoni.de:9443',
+        'peer0.salers.de:9453',
+        'peer0.brangus.de:9463',
+        'peer0.pinzgauer.de:9473',
+        'peer0.tuxer.de:9483',
+        'orderer.example.com:9443'  #this needs to be changed to actual orderer value
+        ]
