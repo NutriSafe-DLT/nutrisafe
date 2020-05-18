@@ -37,3 +37,5 @@ docker rm $(docker ps -aq)
 cd configTransactions/
 shopt -s extglob
 sudo rm !(README.md)
+
+echo "See you next time! 👋"

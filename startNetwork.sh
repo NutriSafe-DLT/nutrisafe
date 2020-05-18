@@ -121,3 +121,9 @@ sleep 2s
 echo -e "\n Peer Pinzgauer joining channel"
 docker exec cli.pinzgauer.de peer channel fetch oldest -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 docker exec cli.pinzgauer.de peer channel join -b ./cheese_oldest.block
+
+sleep 2s
+cd ../operationsService/
+./start_prometheus.sh
+
+echo -e "🚀 Successfully started 🚀"
