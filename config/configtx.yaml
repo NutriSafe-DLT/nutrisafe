@@ -576,8 +576,8 @@ Channel: &ChannelDefaults
 Profiles:
 
     OneOrgOrdererGenesis:
+        <<: *ChannelDefaults
         Orderer:
-            ### Reference to the orderer section ###
             <<: *OrdererDefaults
             OrdererType: etcdraft
             Organizations:
@@ -590,6 +590,7 @@ Profiles:
                     - <<: *Unibw
                     
     MoreOrgChannel:
+        <<: *ChannelDefaults
         Consortium: SampleConsortium
         Application:
             <<: *ApplicationDefaults
