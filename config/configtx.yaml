@@ -35,8 +35,6 @@ Organizations:
 
         ### Name of the organisational MSP ###
         ID: UnibwMSP
-        
-        SkipAsForeign: false
 
         ### MSPDir is the filesystem path which contains the MSP configuration ###
         MSPDir: ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/msp
