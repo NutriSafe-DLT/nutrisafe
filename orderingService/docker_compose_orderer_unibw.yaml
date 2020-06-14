@@ -30,7 +30,7 @@ services:
   orderer.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer.unibw.de 
-    image: hyperledger/fabric-orderer:1.4.6
+    image: hyperledger/fabric-orderer:2.1.1
     environment:
       - FABRIC_LOGGING_SPEC=info 
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -65,7 +65,7 @@ services:
   orderer1.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer1.unibw.de 
-    image: hyperledger/fabric-orderer:1.4.6
+    image: hyperledger/fabric-orderer:2.1.1
     environment:
       - FABRIC_LOGGING_SPEC=info 
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -100,7 +100,7 @@ services:
   orderer2.unibw.de: 
     ### Name of the container, has to changed for every new container ###
     container_name: orderer2.unibw.de 
-    image: hyperledger/fabric-orderer:1.4.6
+    image: hyperledger/fabric-orderer:2.1.1
     environment:
       - FABRIC_LOGGING_SPEC=info 
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
