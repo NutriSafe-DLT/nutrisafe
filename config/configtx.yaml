@@ -43,22 +43,22 @@ Organizations:
         Policies: &UnibwPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Unibw.member')"
+                Rule: "OR('UnibwMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Unibw.member')"
+                Rule: "OR('UnibwMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Unibw.admin')"
+                Rule: "OR('UnibwMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Unibw.member')"
+                Rule: "OR('UnibwMSP.member')"
                 
         # OrdererEndpoints is a list of all orderers this org runs which clients
         # and peers may to connect to to push transactions and receive blocks respectively.
@@ -81,22 +81,22 @@ Organizations:
         Policies: &DeoniPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Deoni.member')"
+                Rule: "OR('DeoniMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Deoni.member')"
+                Rule: "OR('DeoniMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Deoni.admin')"
+                Rule: "OR('DeoniMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Deoni.member')"
+                Rule: "OR('DeoniMSP.member')"
         
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
@@ -119,22 +119,22 @@ Organizations:
         Policies: &SalersPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Salers.member')"
+                Rule: "OR('SalersMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Salers.member')"
+                Rule: "OR('SalersMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Salers.admin')"
+                Rule: "OR('SalersMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Salers.member')"
+                Rule: "OR('SalersMSP.member')"
 
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
@@ -157,22 +157,22 @@ Organizations:
         Policies: &BrangusPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Brangus.member')"
+                Rule: "OR('BrangusMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Brangus.member')"
+                Rule: "OR('BrangusMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Brangus.admin')"
+                Rule: "OR('BrangusMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Brangus.member')"
+                Rule: "OR('BrangusMSP.member')"
 
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
@@ -195,22 +195,22 @@ Organizations:
         Policies: &PinzgauerPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Pinzgauer.member')"
+                Rule: "OR('PinzgauerMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Pinzgauer.member')"
+                Rule: "OR('PinzgauerMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Pinzgauer.admin')"
+                Rule: "OR('PinzgauerMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Pinzgauer.member')"
+                Rule: "OR('PinzgauerMSP.member')"
 
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
@@ -233,22 +233,22 @@ Organizations:
         Policies: &TuxerPolicies
             Readers:
                 Type: Signature
-                Rule: "OR('Tuxer.member')"
+                Rule: "OR('TuxerMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('Tuxer.member')"
+                Rule: "OR('TuxerMSP.member')"
                 # If your MSP is configured with the new NodeOUs, you might
                 # want to use a more specific rule like the following:
                 # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('Tuxer.admin')"
+                Rule: "OR('TuxerMSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Tuxer.member')"
+                Rule: "OR('TuxerMSP.member')"
         
         # AnchorPeers defines the location of peers which can be used for
         # cross-org gossip communication. Note, this value is only encoded in
