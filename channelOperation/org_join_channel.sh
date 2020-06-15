@@ -18,6 +18,7 @@
 CFG_PATH=../config
 ### The name of the Organisation specified in the configtx.yaml ###
 JOINING_ORGANISATION=Salers
+JOINING_ORGANISATION_LOWER=$(echo ${JOINING_ORGANISATION} | tr '[:upper:]' '[:lower:]')
 ### Name of the docker container where we executed the commands, it should be a cli container of an organisation ###
 ### which has the rights to allow an organisation to join the channel.                                           ###
 CONTAINER_NAME=cli.deoni.de
@@ -86,7 +87,7 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_decode --input ./config_b
 # Adding the json representation of the adding organisation #
 ##### Not sure if it's right #####
 docker exec $CONTAINER_NAME sh -c "jq -s '.[0] * {\"channel_group\":{\"groups\":{\"Application\":{\"groups\": {'$JOINING_ORGANISATION':.[1]}}}}}' ./config.json ./org.json > ./modified_config1.json"
-docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION'.de\",\"port\": 7051}]},\"version\": \"0\"}}' ./modified_config1.json > ./modified_config.json"
+docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION_LOWER'.de\",\"port\": 7051}]},\"version\": \"0\"}}' ./modified_config1.json > ./modified_config.json"
 
 
 # enconding both new files to protobufs and computing the update #
