@@ -18,7 +18,7 @@
 CFG_PATH=../config
 ### The name of the Organisation specified in the configtx.yaml ###
 JOINING_ORGANISATION=Salers
-JOINING_ORGANISATION_LOWER=$(echo ${JOINING_ORGANISATION} | tr '[:upper:]' '[:lower:]')
+
 ### Name of the docker container where we executed the commands, it should be a cli container of an organisation ###
 ### which has the rights to allow an organisation to join the channel.                                           ###
 CONTAINER_NAME=cli.deoni.de
@@ -53,6 +53,7 @@ while getopts "h?o:c:x" opt; do
   esac
 done
 
+JOINING_ORGANISATION_LOWER=$(echo ${JOINING_ORGANISATION} | tr '[:upper:]' '[:lower:]')
 
 
 # Crypto material has to be generated before #
