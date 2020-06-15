@@ -70,6 +70,7 @@ sleep 8s
 ### Use of CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS ###
 echo -e "\n \n Peer joining channel"
 ./peer_channel_join.sh 
+./anchorPeerUpdate.sh -o Deoni -c cli.deoni.de
 
 ### Org join a channel ###
 ### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS,TRANSACTION_FILE ###
