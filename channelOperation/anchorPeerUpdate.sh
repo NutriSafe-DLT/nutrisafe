@@ -81,7 +81,7 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_decode --input ./config_b
 
 
 # Adding the json representation of the adding organisation #
-docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION_LOWER'.de\",\"port\": 7051}]},\"version\": \"0\"}}'| jq . > ./modified_config.json"
+docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION_LOWER'.de\",\"port\": 7051}]},\"version\": \"0\"}}' ./config.json > ./modified_config.json"
 
 
 # enconding both new files to protobufs and computing the update #
