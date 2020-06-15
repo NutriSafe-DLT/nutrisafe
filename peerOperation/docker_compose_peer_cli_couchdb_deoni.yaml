@@ -49,6 +49,7 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_METRICS_PROVIDER=prometheus
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
@@ -138,6 +139,7 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_METRICS_PROVIDER=prometheus
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
@@ -226,6 +228,7 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_METRICS_PROVIDER=prometheus
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
@@ -313,6 +316,7 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_METRICS_PROVIDER=prometheus
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
@@ -401,6 +405,7 @@ services:
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_METRICS_PROVIDER=prometheus
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
