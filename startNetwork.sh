@@ -72,7 +72,7 @@ echo -e "\n \n Peer joining channel"
 ./peer_channel_join.sh 
 ./anchorPeerUpdate.sh -o Deoni -c cli.deoni.de
 docker exec cli.deoni.de peer channel update -f Deoni_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
-
+sleep 2s
 
 ### Org join a channel ###
 ### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS,TRANSACTION_FILE ###
