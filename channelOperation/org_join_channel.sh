@@ -86,7 +86,7 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_decode --input ./config_b
 # Adding the json representation of the adding organisation #
 ##### Not sure if it's right #####
 docker exec $CONTAINER_NAME sh -c "jq -s '.[0] * {\"channel_group\":{\"groups\":{\"Application\":{\"groups\": {'$JOINING_ORGANISATION':.[1]}}}}}' ./config.json ./org.json > ./modified_config.json"
-docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION'.de\",\"port\": 7051}]},\"version\": \"0\"}}' ./modified_config.json > ./modified_config.json"
+docker exec $CONTAINER_NAME sh -c "jq -s '.[0] * {\"channel_group\":{\"groups\":{\"Application\":{\"groups\": {'$JOINING_ORGANISATION':{\"values\": {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION'.de\",\"port\": 7051}]},\"version\": \"0\"}}}}}}}}' ./modified_config.json > ./modified_config.json"
 
 
 
