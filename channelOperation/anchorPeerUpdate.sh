@@ -103,7 +103,6 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_encode --input ./org_upda
 
 
 # Deleting the files #
-docker exec $CONTAINER_NAME sh -c "rm ./org.json"
 docker exec $CONTAINER_NAME sh -c "rm ./config_block.pb"
 docker exec $CONTAINER_NAME sh -c "rm ./config.json"
 docker exec $CONTAINER_NAME sh -c "rm ./modified_config.json"
