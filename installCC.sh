@@ -33,10 +33,10 @@ echo "Start Packaging"
 cd chaincode/nutrisafecc
 sudo rm go.sum
 sudo rm -R vendor
-GO111MODULE=on go mod vendor
+docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && GO111MODULE=on go mod vendor"
 sleep 2s
 echo "Packaging..."
-docker exec cli.deoni.de sh -c "peer lifecycle chaincode package /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
+docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && peer lifecycle chaincode package nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
 echo "Finished Packaging"
 
 
