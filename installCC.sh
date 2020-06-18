@@ -45,12 +45,12 @@ array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
   echo "Install on '$i'"
-  docker exec $i echo '$FABRIC_CFG_PATH'
   docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz"
   sleep 2s
-  docker exec $i bash -c "export CC_PACKAGE_ID=$(peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1)"
+  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1")  echo "Env = '$CC_PACKAGE_ID'"
+  echo "Chaincode ID '$CC_PACKAGE_ID'"
   echo "Approve on '$i'"
-  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
+  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --package-id '$CC_PACKAGE_ID' --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 done
 
 
