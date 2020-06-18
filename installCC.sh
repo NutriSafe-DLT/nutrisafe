@@ -35,7 +35,6 @@ sudo rm go.sum
 sudo rm -R vendor
 docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && GO111MODULE=on go mod vendor"
 sleep 2s
-docker exec cli.deoni.de sh -c "export FABRIC_CFG_PATH=$PWD/config/"
 echo "Packaging..."
 docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && peer lifecycle chaincode package nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
 echo "Finished Packaging"
@@ -46,6 +45,7 @@ array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
   echo "Install on '$i'"
+  docker exec $i sh -c "echo $FABRIC_CFG_PATH"
   docker exec $i sh -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz"
   sleep 2s
   docker exec $i sh -c "export CC_PACKAGE_ID=$(peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1)"
