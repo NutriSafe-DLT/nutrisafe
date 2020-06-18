@@ -44,13 +44,17 @@ echo "Finished Packaging"
 array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
+  echo "Install on '$i'"
   docker exec $i sh -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz"
+  sleep 2s
   docker exec $i sh -c "export CC_PACKAGE_ID=$(peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1)"
+  echo "Approve on '$i'"
   docker exec $i sh -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 done
 
 
 #### Commit Chaincode
+echo "Commit Chaincode"
 docker exec cli.deoni.de sh -c "peer lifecycle chaincode checkcommitreadiness --channelID cheese --name nutrisafecc --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --output json"
 docker exec cli.deoni.de sh -c "peer lifecycle chaincode commit -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
 docker exec cli.deoni.de sh -c "peer lifecycle chaincode querycommitted --channelID cheese --name nutrisafecc --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
