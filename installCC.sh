@@ -35,6 +35,7 @@ sudo rm go.sum
 sudo rm -R vendor
 docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && GO111MODULE=on go mod vendor"
 sleep 2s
+docker exec cli.deoni.de sh -c "export FABRIC_CFG_PATH=$PWD/config/"
 echo "Packaging..."
 docker exec cli.deoni.de sh -c "cd /opt/gopath/src/github.com/nutrisafecc/ && peer lifecycle chaincode package nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
 echo "Finished Packaging"
