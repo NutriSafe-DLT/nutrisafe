@@ -30,7 +30,8 @@
 
 #### Package Chaincode
 cd chaincode/nutrisafecc
-rm go.sum
+sudo rm go.sum
+sudo rm -R vendor
 GO111MODULE=on go mod vendor
 docker exec cli.deoni.de sh -c "peer lifecycle chaincode package /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
 
