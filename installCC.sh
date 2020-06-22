@@ -20,7 +20,14 @@
 # Parameters                                                                                                        #
 #####################################################################################################################
 
+# CCNAME has to be a directory under chaincode 
 
+LANGUAGE="golang"
+LABEL="nutrisafecc_1"
+CCNAME="nutrisafecc"
+CCVERSION="1.0"
+CHANNEL="cheese"
+CCSEQUENCE=1
 
 
 #####################################################################################################################
@@ -30,13 +37,13 @@
 
 #### Package Chaincode
 echo "Start Packaging"
-cd chaincode/nutrisafecc
+cd chaincode/$CCNAME
 sudo rm go.sum
 sudo rm -R vendor
-docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/nutrisafecc/ && GO111MODULE=on go mod vendor"
+docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/'$CCNAME'/ && GO111MODULE=on go mod vendor"
 sleep 2s
 echo "Packaging..."
-docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/nutrisafecc/ && peer lifecycle chaincode package nutrisafecc.tar.gz --path ./ --lang golang --label nutrisafecc_1"
+docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/'$CCNAME'/ && peer lifecycle chaincode package '$CCNAME'.tar.gz --path ./ --lang '$LANGUAGE' --label" $LABEL
 echo "Finished Packaging"
 
 
@@ -45,20 +52,20 @@ array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
   echo "Install on '$i'"
-  docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/nutrisafecc.tar.gz"
+  docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/'$CCNAME'.tar.gz"
   sleep 2s
   CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
   echo "Approve on '$i'"
-  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --package-id '${CC_PACKAGE_ID}' --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
+  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$CCSEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 done
 
 
 #### Commit Chaincode
 echo "Commit Chaincode"
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode checkcommitreadiness --channelID cheese --name nutrisafecc --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --output json"
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit -o orderer.unibw.de:7050 --channelID cheese --name nutrisafecc --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID cheese --name nutrisafecc --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode checkcommitreadiness --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$CCSEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --output json"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$CCSEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID '$CHANNEL' --name '$CCNAME' --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
 echo -e "🚀 Successfully installed and committed 🚀"
