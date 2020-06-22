@@ -30,6 +30,25 @@ CHANNEL="cheese"
 CCSEQUENCE=1
 
 
+# Parameters for organization and container
+while getopts "h?l:c:v:s:q" opt; do
+  case "$opt" in
+  l)
+    LABEL=$OPTARG
+    ;;
+  c)
+    CCNAME=$OPTARG
+    ;;
+  v)
+    CCVERSION=$OPTARG
+    ;;
+  s)
+    CCSEQUENCE=$OPTARG
+    ;;
+  esac
+done
+
+
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
@@ -54,7 +73,7 @@ do
   echo "Install on '$i'"
   docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/'$CCNAME'.tar.gz"
   sleep 2s
-  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1")
+  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
   echo "Approve on '$i'"
   docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$CCSEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
