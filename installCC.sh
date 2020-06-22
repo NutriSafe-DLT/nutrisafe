@@ -43,7 +43,7 @@ sudo rm -R vendor
 docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/'$CCNAME'/ && GO111MODULE=on go mod vendor"
 sleep 2s
 echo "Packaging..."
-docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/'$CCNAME'/ && peer lifecycle chaincode package '$CCNAME'.tar.gz --path ./ --lang '$LANGUAGE' --label" $LABEL
+docker exec cli.deoni.de bash -c "cd /opt/gopath/src/github.com/'$CCNAME'/ && peer lifecycle chaincode package '$CCNAME'.tar.gz --path ./ --lang '$LANGUAGE' --label '$LABEL'"
 echo "Finished Packaging"
 
 
