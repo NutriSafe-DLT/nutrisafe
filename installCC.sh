@@ -71,7 +71,7 @@ array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
   echo "Install on '$i'"
-  docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/nutrisafecc/'$CCNAME'.tar.gz"
+  docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/'$CCNAME'/'$CCNAME'.tar.gz"
   sleep 2s
   CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
