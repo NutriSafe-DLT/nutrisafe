@@ -4,7 +4,7 @@ ARGS="[\"PRO123\",\"BROT\",\"Brot mit Belag!\", \"1234568789\"]"
 CLI=cli.deoni.de
 
 # Parameters for organization and container
-while getopts "h?l:a:f:n:i" opt; do
+while getopts "h?l:a:f:n:i:q" opt; do
   case "$opt" in
   a)
     ARGS=$OPTARG
