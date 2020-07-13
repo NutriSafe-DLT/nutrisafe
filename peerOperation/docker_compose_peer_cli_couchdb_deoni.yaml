@@ -33,6 +33,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.deoni.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.deoni.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.salers.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.de:7051 peer0.tuxer.de:7051]
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.deoni.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -123,6 +124,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.salers.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.salers.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.de:7051 peer0.tuxer.de:7051]
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.salers.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -212,6 +214,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.brangus.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.brangus.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.pinzgauer.de:7051 peer0.tuxer.de:7051]
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.brangus.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -300,6 +303,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.pinzgauer.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.pinzgauer.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051] 
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.pinzgauer.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -389,6 +393,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.tuxer.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.tuxer.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.de:7051] 
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.tuxer.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
