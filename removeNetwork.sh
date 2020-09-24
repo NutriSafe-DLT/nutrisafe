@@ -33,6 +33,9 @@ docker stop $(docker ps -aq)
 ### Remove all docker containers
 docker rm $(docker ps -aq)
 
+### Remove old chaincode images
+docker rmi $(docker images | grep dev | tr -s ' ' | cut -d ' ' -f 3)
+
 ### Remove all files from configTransactions
 cd configTransactions/
 shopt -s extglob
