@@ -58,4 +58,8 @@ done
 # -------------------------------------------------------------------------------------------------------------------
 rm -rf "./crypto-config/"$ORGANISATION_TYPE"/"$ORGANISATION_DOMAIN/*
 
-cryptogen generate --config=$PATH_TO_YAML_FILE
+if cryptogen generate --config=$PATH_TO_YAML_FILE ; then
+  echo "Successfully generated crypto material!"
+else
+  echo "Something went wrong with the crypto material generation, please check output and logs."
+fi

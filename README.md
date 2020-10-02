@@ -14,9 +14,10 @@ channel named "mychannel".
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
 
+Instructions for setting up the development environment for linux and for MacOS.
 
-# Development
-## Environment
+# Development LINUX
+## Environment 
 We used an UBUNTU 18.04 Server instance.
 
 After setting up the server, the connections and the development environment, we started to install the necessary tools for a running Hyperledger Fabric network (see <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html">HL Fabric Docs</a>).
@@ -46,7 +47,10 @@ sudo apt-key fingerprint 0EBFCD88
 
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable"
 
+#Older package names - if this does not work try the line below
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+#NEW Package names
+sudo apt-get install docker-compose
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
@@ -76,14 +80,34 @@ $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ```
 
 ### Download hyperledger/fabric-samples
+The script below will create a fabric-samples directory in your current directory and automatically downloads the LATEST version of the Fabric. If you want a specific version see below.
+
+You can see what the script does at https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh or execute it in unshortened form without the bit.ly link.
 ```
 curl -sSL http://bit.ly/2ysbOFE | bash -s
 ```
+#### Install specific hyperledger fabric and ca version
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
+```
 
-### Clone GIT Repository
+In order to run further scripts e.g. cryptogen etc. you need to add the fabric-samples/bin to the PATH environment variable.
+```
+export PATH=<path to download location>/bin:$PATH
+```
+### Clone NutriSafe GIT Repository
+
+git clone <path_to_nutrisafe_repo>
 
 ### NutriSafe Network
-1. Generate crytpo materials
+1. Generate crypto materials
+Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
+```
+cd creatingCryptoMaterial
+for filename in ./*.yaml ; do
+  ./create_crypto_peer_organisation.sh -f $filename
+done
+```
 2. Start Network
 ```
 ./startNetwork.sh
@@ -117,4 +141,50 @@ docker rm $(docker ps -a -q)
 4. execute https://github.com/hyperledger/fabric/blob/release-1.4/scripts/bootstrap.sh
 
 
+# Development MacOS
 
+## Environment
+Please note that this configuration has been tested with macOS 10.15, it may also work with previous versions.
+
+## Prerequisites
+git is usually included with the Xcode SDK, so you may not need to install it explicitly if you have the SDK active. If you use brew as a package manager you probably already have this installed.
+
+````
+xcode-select --install
+```
+
+Docker can be obtained in the macOS-Version on the official website, please note that docker-composer will be installed automatically when installing docker.
+
+As a package manager we also recommend brew or ports. In this documentation we have tested with brew, so make sure you have this installed on your mac (you need _admin_ permissions to do this, so do not attempt to install with user permissions only).
+
+````
+brew install jq
+```
+
+### Install Go (golang)
+First go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation)
+
+OR with brew (if installed correctly NO admin permissions are needed):
+````
+brew install golang
+```
+## Clone NutriSafe GIT Repository
+
+git clone <path_to_nutrisafe_repo>
+
+## NutriSafe Network
+1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
+````
+cd creatingCryptoMaterial
+for filename in ./*.yaml ; do
+  ./create_crypto_peer_organisation.sh -f $filename
+done
+```
+2. Start Network
+```
+./startNetwork.sh
+```
+3. Stop Network
+```
+./stopNetwork.sh
+```

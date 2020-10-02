@@ -1,0 +1,4 @@
+**/*.pem
+**/*_sk
+
+creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/ca/ca.pinzgauer.de-cert.pem
