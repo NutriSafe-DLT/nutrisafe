@@ -1,0 +1,5 @@
+fabric-version2x/configTransactions/cheese_creation.tx
+fabric-version2x/configTransactions/*.block
+fabric-version2x/configTransactions/*.pb
+fabric-version2x/.DS_Store
+fabric-version2x/chaincode/nutrisafe-chaincode
