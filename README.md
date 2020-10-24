@@ -7,6 +7,10 @@ This repository contains the scripts for deploying a Hyperledger Fabric Network.
 - creating a node
 - joining a channel
 
+# Note for Docker for macOS
+IMPORTANT: gRPC FUSE-Option MUST be deactivated in Docker Desktop and Docker restarted or Chaincode Installation will NOT work!
+(Link to Jira Issue)[https://jira.hyperledger.org/browse/FAB-18134]
+
 # Hyperledger Fabric version 1.x
 Please see the fabric-version1x folder 
 
