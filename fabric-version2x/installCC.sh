@@ -83,6 +83,16 @@ for i in "${array[@]}"
 do
   echo "Install on '$i'"
   docker exec $i bash -c "peer lifecycle chaincode install /opt/gopath/src/github.com/'$CCNAME'/'$CCNAME'.tar.gz"
+  if [ $? -eq 1 ]
+  then
+     echo "There was an error reported during install. Continue? (y/n)"
+     read -s key
+     if [ $key = n ]
+     then
+         echo "Exiting..."
+         exit 1
+     fi
+  fi
   sleep 2s
  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
