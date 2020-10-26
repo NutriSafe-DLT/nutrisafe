@@ -1,0 +1,50 @@
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Hoiß, Andreas Hermann
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://github.com/hyperledger/fabric-samples) by IBM Corp:
+# License SPDX-License-Identifier: Apache-2.0
+
+
+version: "2"
+
+networks:
+  orderingservice_basic:
+    external: true
+
+services:
+  cli.unibw.de:
+    container_name: cli.unibw.de
+    image: hyperledger/fabric-tools:1.4.6
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_PEER_ID=cli.unibw.de
+      - CORE_PEER_ADDRESS=orderer.unibw.de:7050
+      - CORE_PEER_LOCALMSPID=UnibwMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/orderer/msp
+      - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - CORE_OPERATIONS_LISTENADDRESS=cli.unibw.de:9443
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/github.com/
+      - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/orderer
+      #Has to changed to crypto-material of the Admin (unibw)
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/users/Admin@unibw.de/:/etc/hyperledger/msp/orderer
+    networks:
+      - orderingservice_basic
+    #depends_on:
+    #  - orderer.example.com
+    #  - peer0.org1.example.com
+    #  - couchdb
