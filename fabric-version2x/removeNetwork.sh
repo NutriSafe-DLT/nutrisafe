@@ -39,6 +39,6 @@ docker rmi $(docker images | grep dev | tr -s ' ' | cut -d ' ' -f 3)
 ### Remove all files from configTransactions
 cd configTransactions/
 shopt -s extglob
-sudo rm !(README.md)
+su rm !(README.md)
 
 echo "See you next time! 👋"

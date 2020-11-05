@@ -3,3 +3,9 @@ fabric-version2x/configTransactions/*.block
 fabric-version2x/configTransactions/*.pb
 fabric-version2x/.DS_Store
 fabric-version2x/chaincode/nutrisafe-chaincode
+fabric-version2x/chaincode/*.pb
+fabric-version2x/chaincode/hyperledger/fabric/peer/sequence.txt
+fabric-version2x/applications/.DS_Store
+fabric-version2x/chaincode/hyperledger/fabric/.DS_Store
+fabric-version2x/chaincode/hyperledger/fabric/orderer/Deoni_update_in_envelope.pb
+fabric-version2x/configTransactions/org.json
