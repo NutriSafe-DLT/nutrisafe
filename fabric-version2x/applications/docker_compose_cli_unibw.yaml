@@ -20,7 +20,7 @@ networks:
 services:
   cli.unibw.de:
     container_name: cli.unibw.de
-    image: hyperledger/fabric-tools:2.2
+    image: hyperledger/fabric-tools:2.2.1
     tty: true
     environment:
       - GOPATH=/opt/gopath
