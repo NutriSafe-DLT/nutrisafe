@@ -71,7 +71,7 @@ fi
 
 
 # Get sequence value from first org or use default values
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID $CHANNEL --name '$CCNAME'>&sequence.txt"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID $CHANNEL --name '$CCNAME'">&sequence.txt
 if [ $? -eq 0 ]
 then
   seq=$(awk '{for(i=1;i<=NF;i++)if($i=="Sequence:")print $(i+1)}' sequence.txt)
