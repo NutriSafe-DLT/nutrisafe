@@ -90,10 +90,10 @@ docker exec cli.salers.de peer channel join -b ./cheese_oldest.block
 
 
 echo -e "\n \n Organisation Brangus joining channel"
-./org_join_channel.sh -o Brangus -c cli.tuxer.de
+./org_join_channel.sh -o Brangus -c cli.salers.de
 docker exec cli.deoni.de peer channel signconfigtx -f Brangus_update_in_envelope.pb
 docker exec cli.salers.de peer channel signconfigtx -f Brangus_update_in_envelope.pb
-docker exec cli.tuxer.de peer channel update -f Brangus_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec cli.salers.de peer channel update -f Brangus_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 ### Peer join a channel ###
 sleep 2s
 echo -e "\n \n Peer Brangus joining channel"
