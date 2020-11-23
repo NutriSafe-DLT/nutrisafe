@@ -27,7 +27,6 @@ LABEL="metaChain_"
 CCNAME="nutrisafe-chaincode"
 CCVERSION="1"
 CHANNEL="cheese"
-CCSEQUENCE=1
 
 
 # Parameters for organization and container
@@ -43,7 +42,7 @@ while getopts "h?l:c:v:s:q" opt; do
     CCVERSION=$OPTARG
     ;;
   s)
-    CCSEQUENCE=$OPTARG
+    NETSIZE=$OPTARG
     ;;
   esac
 done
@@ -52,6 +51,14 @@ done
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
+if test -f ./installCC.config ;
+then
+ . ./installCC.config 
+else
+ echo 'Error reading installCC.config, please make sure you have this file in the current script directory. The script will now EXIT!'
+ exit 1
+fi 
+
 
 cd chaincode/$CCNAME
 ###Build chaincode
@@ -88,6 +95,28 @@ else
   echo 'Incrementing sequence by 1 for chaincode '$CCNAME'. Sequence value to be installed is: '$SEQUENCE
 fi
 
+
+array = () # Used for deploying chaincode  
+peer_addresses = () 
+peer_certfiles = () 
+
+# Assume full net size if nothing specified
+if [ -z $NETSIZE ] ;
+then
+  SIGNATURE_POLICY = SIGNATURE_POLICY_ALL
+  array = LARGE_NETWORK_MEMBERS
+  peer_addresses = LARGE_PEER_ADDRESSES
+  peer_certfiles = LARGE_PEER_CERTFILES
+  echo 'Using ALL signature policy and addresses for LARGE network.'
+else
+  SIGNATURE_POLICY = SIGNATURE_POLICY_MINIMAL
+  array = SMALL_NETWORK_MEMBERS
+  peer_addresses = SMALL_PEER_ADDRESSES
+  peer_certfiles = SMALL_PEER_CERTFILES
+  echo 'Using MINIMAL signature policy and addresses for SMALL network.'
+fi
+
+
 #### Package Chaincode
 echo "Start Packaging"
 sleep 2s
@@ -97,7 +126,6 @@ echo "Finished Packaging"
 
 
 #### Install Chaincode on every CLI: 
-array=( cli.deoni.de cli.brangus.de cli.pinzgauer.de cli.tuxer.de cli.salers.de)
 for i in "${array[@]}"
 do
   echo "Install on '$i'"
@@ -116,7 +144,7 @@ do
  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
   echo "Approve on '$i'"
-  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050  --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$SEQUENCE' --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy \"OR('DeoniMSP.member','TuxerMSP.member','BrangusMSP.member','SalersMSP.member','PinzgauerMSP.member')\"  --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
+  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050  --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$SEQUENCE' --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy '$SIGNATURE_POLICY'  --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 done
 
 #--signature-policy \"OR('DeoniMSP.member','TuxerMSP.member','BrangusMSP.member','SalersMSP.member','PinzgauerMSP.member')\"
@@ -125,7 +153,14 @@ done
 #### Commit Chaincode
 echo "Commit Chaincode"
 docker exec cli.deoni.de bash -c "peer lifecycle chaincode checkcommitreadiness --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --output json"
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy \"OR('DeoniMSP.member','TuxerMSP.member','BrangusMSP.member','SalersMSP.member','PinzgauerMSP.member')\" -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
+#### Build Commit command
+PEER_CONFIG_COMMANDSEGMENT = ""
+for ((i=0;i<${peer_addresses[@]};++i)); 
+do
+  PEER_CONFIG_COMMANDSEGMENT = $PEER_CONFIG_COMMANDSEGMENT "--peerAddresses '${peer_addresses[i]}' --tlsRootCertFiles '${peer_certfiles[i]}'"
+done
+#docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy '$SIGNATURE_POLICY' -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy '$SIGNATURE_POLICY' -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem '$PEER_CONFIG_COMMANDSEGMENT'"
 docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID '$CHANNEL' --name '$CCNAME' --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
