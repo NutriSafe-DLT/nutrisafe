@@ -37,8 +37,8 @@ LARGE_PEER_ADDRESSES=(peer0.deoni.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.
 SMALL_PEER_ADDRESSES=(peer0.deoni.de:7051 peer0.brangus.de:7051 peer0.salers.de:7051)
 LARGE_PEER_CERTFILES=( /etc/hyperledger/msp/users/admin/tls/ca.crt ${TLS_CA_CERTS_FOLDER}/tlsca.brangus.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.pinzgauer.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.tuxer.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.salers.de-cert.pem )
 SMALL_PEER_CERTFILES=( /etc/hyperledger/msp/users/admin/tls/ca.crt ${TLS_CA_CERTS_FOLDER}/tlsca.brangus.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.salers.de-cert.pem )
-SMALL_COLLECTIONS_FILENAME="collections.json"
-LARGE_COLLECTIONS_FILENAME="collections_small.json"
+LARGE_COLLECTIONS_FILENAME="collections.json"
+SMALL_COLLECTIONS_FILENAME="collections_small.json"
 
 # Parameters for organization and container
 while getopts "h?l:c:v:s:q" opt; do
