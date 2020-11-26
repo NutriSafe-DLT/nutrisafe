@@ -37,7 +37,8 @@ LARGE_PEER_ADDRESSES=(peer0.deoni.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.
 SMALL_PEER_ADDRESSES=(peer0.deoni.de:7051 peer0.brangus.de:7051 peer0.salers.de:7051)
 LARGE_PEER_CERTFILES=( /etc/hyperledger/msp/users/admin/tls/ca.crt ${TLS_CA_CERTS_FOLDER}/tlsca.brangus.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.pinzgauer.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.tuxer.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.salers.de-cert.pem )
 SMALL_PEER_CERTFILES=( /etc/hyperledger/msp/users/admin/tls/ca.crt ${TLS_CA_CERTS_FOLDER}/tlsca.brangus.de-cert.pem ${TLS_CA_CERTS_FOLDER}/tlsca.salers.de-cert.pem )
-
+SMALL_COLLECTIONS_FILENAME="collections.json"
+LARGE_COLLECTIONS_FILENAME="collections_small.json"
 
 # Parameters for organization and container
 while getopts "h?l:c:v:s:q" opt; do
@@ -101,7 +102,8 @@ fi
 
 array=()  
 peer_addresses=() 
-peer_certfiles=() 
+peer_certfiles=()
+collections_filename=""
 
 # Assume full net size if nothing specified
 if [ -z $NETSIZE ] ;
@@ -110,12 +112,14 @@ then
   array=("${LARGE_NETWORK_MEMBERS[@]}")
   peer_addresses=("${LARGE_PEER_ADDRESSES[@]}")
   peer_certfiles=("${LARGE_PEER_CERTFILES[@]}")
+  collections_filename=$LARGE_COLLECTIONS_FILENAME
   echo 'Using ALL signature policy and addresses for LARGE network.'
 else
   SIGNATURE_POLICY=$SIGNATURE_POLICY_MINIMAL
   array=("${SMALL_NETWORK_MEMBERS[@]}")
   peer_addresses=("${SMALL_PEER_ADDRESSES[@]}")
   peer_certfiles=("${SMALL_PEER_CERTFILES[@]}")
+  collections_filename=$SMALL_COLLECTIONS_FILENAME
   echo 'Using MINIMAL signature policy and addresses for SMALL network.'
 fi
 
@@ -143,12 +147,10 @@ do
      fi
   fi
   sleep 2s
- CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
+ CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| sort -r| tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
   echo "Approve on '$i'"
-  #docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050  --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$SEQUENCE' --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy $SIGNATURE_POLICY  --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
-  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050  --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$SEQUENCE' --signature-policy $SIGNATURE_POLICY  --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
-
+  docker exec $i bash -c "peer lifecycle chaincode approveformyorg -o orderer.unibw.de:7050  --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --package-id '${CC_PACKAGE_ID}' --sequence '$SEQUENCE' --collections-config /opt/gopath/src/github.com/'$CCNAME'/$collections_filename --signature-policy $SIGNATURE_POLICY  --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 done
 
 #--signature-policy \"OR('DeoniMSP.member','TuxerMSP.member','BrangusMSP.member','SalersMSP.member','PinzgauerMSP.member')\"
@@ -165,9 +167,7 @@ do
   PEER_CONFIG_COMMANDSEGMENT+=" --peerAddresses ${peer_addresses[i]} --tlsRootCertFiles ${peer_certfiles[i]}"
 done
 echo $PEER_CONFIG_COMMANDSEGMENT
-#docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy '$SIGNATURE_POLICY' -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem --peerAddresses peer0.deoni.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/tls/ca.crt --peerAddresses peer0.tuxer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.tuxer.de-cert.pem --peerAddresses peer0.pinzgauer.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.pinzgauer.de-cert.pem --peerAddresses peer0.brangus.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.brangus.de-cert.pem --peerAddresses peer0.salers.de:7051 --tlsRootCertFiles /etc/hyperledger/msp/users/admin/msp/tlscacerts/tlsca.salers.de-cert.pem"
-#docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/collections.json --signature-policy $SIGNATURE_POLICY -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem $PEER_CONFIG_COMMANDSEGMENT"
-docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --signature-policy $SIGNATURE_POLICY -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem $PEER_CONFIG_COMMANDSEGMENT"
+docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/$collections_filename --signature-policy $SIGNATURE_POLICY -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem $PEER_CONFIG_COMMANDSEGMENT"
 docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID '$CHANNEL' --name '$CCNAME' --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
