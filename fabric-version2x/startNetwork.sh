@@ -61,7 +61,7 @@ cd ../../peerOperation/
 echo -e "\n \n Creating channel"
 cd ../channelOperation/
 ./create_channel.sh
-docker exec cli.unibw.de peer channel update -f ./trackandtrace_creation.tx -o orderer.unibw.de:7050 -c trackandtrace--tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
+docker exec cli.unibw.de peer channel update -f ./trackandtrace_creation.tx -o orderer.unibw.de:7050 -c trackandtrace --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 
 echo "Sleeping for 8 seconds"
 sleep 8s
