@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="822a2da2-3f0b-4099-9581-b84044ec26b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/channelOperation/anchorPeerUpdate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/channelOperation/anchorPeerUpdate.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/channelOperation/peer_channel_join.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/channelOperation/peer_channel_join.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/explorer/nutrisafe.json" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/explorer/nutrisafe.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/installCC.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/installCC.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/invokeCC.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/queryCC.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606991451680</updated>
-      <workItem from="1606991454357" duration="2318000" />
+      <workItem from="1606991454357" duration="2687000" />
     </task>
     <servers />
   </component>
