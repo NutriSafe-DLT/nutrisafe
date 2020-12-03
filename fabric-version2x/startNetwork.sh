@@ -78,7 +78,7 @@ sleep 2s
 ### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS,TRANSACTION_FILE ###
 
 echo -e "\n \n Organisation Salers joining channel"
-./org_join_channel.sh -o Salers -c cli.deoni.de
+./org_join_channel.sh -o Salers -n cli.deoni.de
 docker exec cli.unibw.de peer channel signconfigtx -f Salers_update_in_envelope.pb 
 docker exec cli.deoni.de peer channel update -f Salers_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 ### Peer join a channel ###
@@ -90,7 +90,7 @@ docker exec cli.salers.de peer channel join -b ./trackandtrace_oldest.block
 
 
 echo -e "\n \n Organisation Tuxer joining channel"
-./org_join_channel.sh -o Tuxer -c cli.salers.de
+./org_join_channel.sh -o Tuxer -n cli.salers.de
 
 
 docker exec cli.deoni.de peer channel signconfigtx -f Tuxer_update_in_envelope.pb 
@@ -103,7 +103,7 @@ docker exec cli.tuxer.de peer channel join -b ./trackandtrace_oldest.block
 
 
 echo -e "\n \n Organisation Brangus joining channel"
-./org_join_channel.sh -o Brangus -c cli.tuxer.de
+./org_join_channel.sh -o Brangus -n cli.tuxer.de
 docker exec cli.deoni.de peer channel signconfigtx -f Brangus_update_in_envelope.pb
 docker exec cli.salers.de peer channel signconfigtx -f Brangus_update_in_envelope.pb
 docker exec cli.tuxer.de peer channel update -f Brangus_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
@@ -115,7 +115,7 @@ docker exec cli.brangus.de peer channel join -b ./trackandtrace_oldest.block
 
 
 echo -e "\n \n Organisation Pinzgauer joining channel"
-./org_join_channel.sh -o Pinzgauer -c cli.brangus.de
+./org_join_channel.sh -o Pinzgauer -n cli.brangus.de
 docker exec cli.salers.de peer channel signconfigtx -f Pinzgauer_update_in_envelope.pb
 docker exec cli.tuxer.de peer channel signconfigtx -f Pinzgauer_update_in_envelope.pb
 docker exec cli.brangus.de peer channel update -f Pinzgauer_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem

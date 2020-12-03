@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="822a2da2-3f0b-4099-9581-b84044ec26b6" name="Default Changelist" comment="" />
+    <list default="true" id="822a2da2-3f0b-4099-9581-b84044ec26b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/channelOperation/anchorPeerUpdate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/channelOperation/anchorPeerUpdate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/channelOperation/peer_channel_join.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/channelOperation/peer_channel_join.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/explorer/nutrisafe.json" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/explorer/nutrisafe.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/installCC.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/installCC.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/invokeCC.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/queryCC.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1l8vIJcEbzaFkcuNyZs81HJnEpo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -31,8 +58,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606991451680</updated>
-      <workItem from="1606991454357" duration="2000" />
+      <workItem from="1606991454357" duration="2318000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
 </project>

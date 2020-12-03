@@ -26,7 +26,7 @@ LANGUAGE="java"
 LABEL="metaChain_"
 CCNAME="nutrisafe-chaincode"
 CCVERSION="1"
-CHANNEL="cheese"
+CHANNEL="trackandtrace"
 
 SIGNATURE_POLICY_ALL="\"OR('DeoniMSP.member','TuxerMSP.member','BrangusMSP.member','SalersMSP.member','PinzgauerMSP.member')\""
 SIGNATURE_POLICY_MINIMAL="\"OR('DeoniMSP.member','BrangusMSP.member','SalersMSP.member')\""
