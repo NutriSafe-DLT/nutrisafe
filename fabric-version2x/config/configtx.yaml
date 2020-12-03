@@ -258,6 +258,45 @@ Organizations:
               Port: 7081
 
 
+    ### Here you should define the organisations which are part of the network ###
+    - &Authority
+        ### Insert the organisation name here ###
+        Name: Authority
+
+        ### Name of the organisational MSP ###
+        ID: AuthorityMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/msp
+
+        Policies: &AuthorityPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('AuthorityMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('AuthorityMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('AuthorityMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('AuthorityMSP.member')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: peer0.authority.de
+              Port: 7101
+
+
 ################################################################################
 #
 #   CAPABILITIES

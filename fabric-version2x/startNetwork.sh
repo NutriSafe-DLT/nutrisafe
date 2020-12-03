@@ -124,6 +124,19 @@ echo -e "\n Peer Pinzgauer joining channel"
 docker exec cli.pinzgauer.de peer channel fetch oldest -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 docker exec cli.pinzgauer.de peer channel join -b ./trackandtrace_oldest.block
 
+
+echo -e "\n \n Organisation Authority joining channel"
+./org_join_channel.sh -o Authority -n cli.authority.de
+docker exec cli.salers.de peer channel signconfigtx -f Authority_update_in_envelope.pb
+docker exec cli.tuxer.de peer channel signconfigtx -f Authority_update_in_envelope.pb
+docker exec cli.brangus.de peer channel update -f Authority_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+### Peer join a channel ###
+sleep 2s
+echo -e "\n Peer Authority joining channel"
+docker exec cli.authority.de peer channel fetch oldest -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec cli.authority.de peer channel join -b ./trackandtrace_oldest.block
+
+
 sleep 2s
 cd ../operationsService/
 ./start_prometheus.sh
