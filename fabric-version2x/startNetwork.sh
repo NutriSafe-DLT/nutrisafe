@@ -79,7 +79,6 @@ sleep 2s
 
 echo -e "\n \n Organisation Salers joining channel"
 ./org_join_channel.sh -o Salers -n cli.deoni.de
-docker exec cli.unibw.de peer channel signconfigtx -f Salers_update_in_envelope.pb 
 docker exec cli.deoni.de peer channel update -f Salers_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 ### Peer join a channel ###
 
