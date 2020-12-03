@@ -24,7 +24,7 @@
 CFG_PATH=../config
 
 ### Name of the  channel ###
-CHANNEL_ID=cheese
+CHANNEL_ID=trackandtrace
 
 ### Name of the transaction file ###
 TRANSACTION_FILE="../configTransactions/"$CHANNEL_ID"_creation.tx"

@@ -60,7 +60,7 @@ cd ../../peerOperation/
 ### Use of CFG_PATH, CHANNEL_ID, TRANSACTION_FILE, CONFIG_PROFILE ###
 echo -e "\n \n Creating channel"
 cd ../channelOperation/
-./create_channel_cheese.sh
+./create_channel_trackAndTrace.sh
 docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 
 echo "Sleeping for 8 seconds"
