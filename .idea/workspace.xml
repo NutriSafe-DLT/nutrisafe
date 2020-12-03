@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="822a2da2-3f0b-4099-9581-b84044ec26b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/peers/peer0.authority.de/tls/tlsca.unibw.de-cert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/peers/peer0.duroc.de/tls/tlsca.unibw.de-cert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/peers/peer0.schwarzfuss.de/tls/tlsca.unibw.de-cert.pem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fabric-version2x/peerOperation/create_peer.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/peerOperation/create_peer.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" beforeDir="false" afterPath="$PROJECT_DIR$/fabric-version2x/startNetwork.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +32,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/peers/peer0.schwarzfuss.de/tls" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/users/Admin@authority.de/tls" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,6 +44,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/users/Admin@authority.de/tls" />
+      <recent name="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/users/Admin@duroc.de/tls" />
+      <recent name="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/users/Admin@schwarzfuss.de/tls" />
+      <recent name="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/peers/peer0.schwarzfuss.de/tls" />
+      <recent name="$PROJECT_DIR$/fabric-version2x/creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/peers/peer0.duroc.de/tls" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -57,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606991451680</updated>
-      <workItem from="1606991454357" duration="5282000" />
+      <workItem from="1606991454357" duration="5538000" />
     </task>
     <task id="LOCAL-00001" summary="Orgs changed">
       <created>1606999405276</created>
@@ -89,5 +95,9 @@
       <screen x="-2560" y="23" width="2560" height="1365" />
     </state>
     <state x="-1743" y="470" key="Vcs.Push.Dialog.v2/-2560.23.2560.1365/0.23.1440.877/1440.23.2560.1417@-2560.23.2560.1365" timestamp="1606999435699" />
+    <state x="-1678" y="400" width="670" height="676" key="search.everywhere.popup" timestamp="1607001865420">
+      <screen x="-2560" y="23" width="2560" height="1365" />
+    </state>
+    <state x="-1678" y="400" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1365/0.23.1440.877/1440.23.2560.1417@-2560.23.2560.1365" timestamp="1607001865420" />
   </component>
 </project>

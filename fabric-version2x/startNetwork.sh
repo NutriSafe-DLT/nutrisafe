@@ -126,7 +126,7 @@ docker exec cli.pinzgauer.de peer channel join -b ./trackandtrace_oldest.block
 
 
 echo -e "\n \n Organisation Authority joining channel"
-./org_join_channel.sh -o Authority -n cli.authority.de
+./org_join_channel.sh -o Authority -n cli.deoni.de
 docker exec cli.salers.de peer channel signconfigtx -f Authority_update_in_envelope.pb
 docker exec cli.tuxer.de peer channel signconfigtx -f Authority_update_in_envelope.pb
 docker exec cli.brangus.de peer channel update -f Authority_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
