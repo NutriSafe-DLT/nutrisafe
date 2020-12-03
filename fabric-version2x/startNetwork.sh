@@ -60,8 +60,8 @@ cd ../../peerOperation/
 ### Use of CFG_PATH, CHANNEL_ID, TRANSACTION_FILE, CONFIG_PROFILE ###
 echo -e "\n \n Creating channel"
 cd ../channelOperation/
-./create_channel_cheese.sh
-docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c cheese --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
+./create_channel_trackAndTrace.sh
+docker exec cli.unibw.de peer channel update -f ./cheese_creation.tx -o orderer.unibw.de:7050 -c trackandtrace--tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
 
 echo "Sleeping for 8 seconds"
 sleep 8s
@@ -71,7 +71,7 @@ sleep 8s
 echo -e "\n \n Peer joining channel"
 ./peer_channel_join.sh 
 ./anchorPeerUpdate.sh -o Deoni -c cli.deoni.de
-docker exec cli.deoni.de peer channel update -f Deoni_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec cli.deoni.de peer channel update -f Deoni_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 sleep 2s
 
 ### Org join a channel ###

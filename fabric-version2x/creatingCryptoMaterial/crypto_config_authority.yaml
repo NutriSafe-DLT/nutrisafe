@@ -1,0 +1,26 @@
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Reimers, Andreas Hermann
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://github.com/hyperledger/fabric-samples) by IBM Corp:
+# License SPDX-License-Identifier: Apache-2.0
+
+# ---------------------------------------------------------------------------
+# "PeerOrgs" - Definition of organizations managing peer nodes
+# ---------------------------------------------------------------------------
+PeerOrgs:
+  # ---------------------------------------------------------------------------
+  # Public Authority
+  # ---------------------------------------------------------------------------
+  - Name: authority
+    Domain: authority.de
+    EnableNodeOUs: false
+    Template:
+      Count: 1
+    Users:
+      Count: 1

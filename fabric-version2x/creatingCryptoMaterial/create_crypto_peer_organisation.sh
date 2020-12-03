@@ -19,9 +19,9 @@
 # Section:      Parameters
 # Description:  Default parameters
 # -------------------------------------------------------------------------------------------------------------------
-PATH_TO_YAML_FILE=./crypto_config_pinzgauer.yaml
+PATH_TO_YAML_FILE=./crypto_config_authority.yaml
 ORGANISATION_TYPE=peerOrganization
-ORGANISATION_DOMAIN=pinzgauer.de
+ORGANISATION_DOMAIN=authority.de
 
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      printHelp()

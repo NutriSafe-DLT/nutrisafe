@@ -587,7 +587,6 @@ Profiles:
             SampleConsortium:
                 Organizations:
                 ### Reference to the organisation section ###
-                    - <<: *Unibw
                     
     MoreOrgChannel:
         <<: *ChannelDefaults
@@ -595,5 +594,4 @@ Profiles:
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - <<: *Unibw
                 - <<: *Deoni
