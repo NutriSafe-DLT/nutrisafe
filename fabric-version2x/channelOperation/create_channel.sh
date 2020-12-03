@@ -46,12 +46,12 @@ export FABRIC_CFG_PATH=$CFG_PATH
 # -------------------------------------------------------------------------------------------------------------------
 function printHelp() {
   echo "Usage: "
-  echo "  create_channel_weichkaese.sh [-p <path for config directory>] [-f <path for .yaml file>] [-o <organisation name from .yaml file] [-c <cli Name>]>"
+  echo "  create_channel.sh [-p <path for config directory>] [-f <path for .yaml file>] [-o <organisation name from .yaml file] [-c <cli Name>]>"
   echo "    -p <Path for config dir> - specify config path"
   echo "    -f <Path to .yaml File> - specify yaml path"
   echo "    -o <Organisation Name from .yaml file> - organisation name from .yaml file"
   echo "    -c <cli Name> - cli Name"
-  echo "  create_channel_cheese.sh -h (print this message)"
+  echo "  create_channel.sh -h (print this message)"
 }
 
 # -------------------------------------------------------------------------------------------------------------------

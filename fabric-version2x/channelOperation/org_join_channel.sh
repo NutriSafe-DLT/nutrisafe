@@ -38,7 +38,7 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 
 
 # Parameters for organization and container
-while getopts "h?o:c:x" opt; do
+while getopts "h?o:c:n:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -47,8 +47,11 @@ while getopts "h?o:c:x" opt; do
   o)
     JOINING_ORGANISATION=$OPTARG
     ;;
-  c)
+  n)
     CONTAINER_NAME=$OPTARG
+    ;;
+  c)
+    CHANNEL_ID=$OPTARG
     ;;
   esac
 done
