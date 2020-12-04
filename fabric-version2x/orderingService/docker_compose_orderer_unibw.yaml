@@ -1,0 +1,132 @@
+#####################################################################################################################
+# DESCRIPTION                                                                                                       #
+# This file describes the configuration of the container for the ordering services, provided by the Unibw.          #                                                                          #
+#                                                                                                                   #
+# This work is licensed under a Creative Commons Attribution 4.0 International License
+# (http://creativecommons.org/licenses/by/4.0/).
+#
+# Author(s): Tim Hoiß, Andreas Hermann
+# NutriSafe Research Project
+# Institute for Protection and Dependability
+# Department of Computer Science
+# Bundeswehr University Munich
+#
+# Original file (from https://github.com/hyperledger/fabric-samples) by IBM Corp:
+# License SPDX-License-Identifier: Apache-2.0
+#####################################################################################################################
+
+
+#####################################################################################################################
+# Parameters                                                                                                        #
+#####################################################################################################################
+
+version: "2"
+
+networks:
+  basic:
+
+services:
+  ### Name of the services, has to be changed with every new ordering node ###
+  orderer.unibw.de: 
+    ### Name of the container, has to changed for every new container ###
+    container_name: orderer.unibw.de 
+    image: hyperledger/fabric-orderer:2.2.1
+    environment:
+      - FABRIC_LOGGING_SPEC=info 
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      ### Has to be changed to the organisational MSP ###
+      - ORDERER_GENERAL_LOCALMSPID=UnibwMSP 
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - ORDERER_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+    ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
+      - 7050:7050 
+    volumes:
+      ### Here we should mount the directory from the host where we store the genesis.block file ###
+      - ../configTransactions/:/etc/hyperledger/configtx               
+      ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer.unibw.de/:/etc/hyperledger/msp/orderer  
+    networks:
+      - basic
+      
+      ### Name of the services, has to be changed with every new ordering node ###
+  orderer1.unibw.de: 
+    ### Name of the container, has to changed for every new container ###
+    container_name: orderer1.unibw.de 
+    image: hyperledger/fabric-orderer:2.2.1
+    environment:
+      - FABRIC_LOGGING_SPEC=info 
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      ### Has to be changed to the organisational MSP ###
+      - ORDERER_GENERAL_LOCALMSPID=UnibwMSP 
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - ORDERER_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+    ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
+      - 7060:7050 
+    volumes:
+      ### Here we should mount the directory from the host where we store the genesis.block file ###
+      - ../configTransactions/:/etc/hyperledger/configtx               
+      ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer1.unibw.de/:/etc/hyperledger/msp/orderer  
+    networks:
+      - basic
+      
+            ### Name of the services, has to be changed with every new ordering node ###
+  orderer2.unibw.de: 
+    ### Name of the container, has to changed for every new container ###
+    container_name: orderer2.unibw.de 
+    image: hyperledger/fabric-orderer:2.2.1
+    environment:
+      - FABRIC_LOGGING_SPEC=info 
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      ### Has to be changed to the organisational MSP ###
+      - ORDERER_GENERAL_LOCALMSPID=UnibwMSP 
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_CLUSTER_ROOTCAS=/etc/hyperledger/msp/orderer/tls/ca.crt
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - ORDERER_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+    ### If we are using more ordering nodes on one instance we have to change the port on the Host e. g. 7150:7050 ###
+      - 7070:7050 
+    volumes:
+      ### Here we should mount the directory from the host where we store the genesis.block file ###
+      - ../configTransactions/:/etc/hyperledger/configtx               
+      ### Here we need to mount the msp directory for the ordering node, including the necessary certificates and keys ###
+      - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/orderers/orderer2.unibw.de/:/etc/hyperledger/msp/orderer  
+    networks:
+      - basic

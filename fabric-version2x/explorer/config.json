@@ -1,0 +1,10 @@
+{
+	"network-configs": {
+		"nutrisafe": {
+			"name": "nutrisafe",
+			"profile": "./connection-profile/nutrisafe.json",
+			"enableAuthentication": false
+		}
+	},
+	"license": "Apache-2.0"
+}
