@@ -1,0 +1,87 @@
+peer0.authority.de:
+    container_name: peer0.authority.de
+    image: hyperledger/fabric-peer:2.2.1
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.authority.de
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_CHAINCODE_LOGGING_LEVEL=info
+      - CORE_PEER_LOCALMSPID=AuthorityMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
+      - CORE_PEER_ADDRESS=peer0.authority.de:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.authority.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051]
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.authority.de:7051
+      # # the following setting starts chaincode containers on the same
+      # # bridge network as the peers
+      # # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=orderingservice_basic
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.authority.de:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - CORE_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    # command: peer node start --peer-chaincodedev=true
+    ports:
+      - 7101:7051
+      - 7103:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/peers/peer0.authority.de:/etc/hyperledger/msp/peer
+    depends_on:
+      - couchdb.authority.de
+    networks:
+      - orderingservice_basic
+
+  couchdb.authority.de:
+    container_name: couchdb.authority.de
+    image: hyperledger/fabric-couchdb:0.4.20
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 37984:5984
+    networks:
+      - orderingservice_basic
+
+  cli.authority.de:
+    container_name: cli.authority.de
+    image: hyperledger/fabric-tools:2.2.1
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_PEER_ID=cli.authority.de
+      - CORE_PEER_ADDRESS=peer0.authority.de:7051
+      - CORE_PEER_LOCALMSPID=AuthorityMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
+      - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/github.com/
+      - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/users/Admin@authority.de:/etc/hyperledger/msp/users/admin/
+    networks:
+      - orderingservice_basic
+    #depends_on:
+    #  - orderer.example.com
+    #  - peer0.org1.example.com
+    #  - couchdb

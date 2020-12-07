@@ -31,7 +31,7 @@
 
 ### Starting the ordering service with one ordering node ###
 ### Use of CONFIG_PROFILE, OUTPUT_FILE, CHANNEL_ID, DOCKER_COMPOSE_FILE, DOCKER_SERVICES, CFG_PATH ###
-echo "Starting intitialize ordering service"
+echo "Initializing ordering service"
 cd orderingService/
 ./initialize_ordering_service.sh
 echo "Sleeping for 5 seconds"
