@@ -25,4 +25,4 @@ ENV_TEST_USER=razvan
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
-ansible-playbook -i inventory.ini -u $ENV_TEST_USER createorg.yml
+ansible-playbook -i inventory.ini -u $ENV_TEST_USER createorg.yml --ask-become-pass
