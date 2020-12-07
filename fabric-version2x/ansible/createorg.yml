@@ -11,11 +11,9 @@
     apt: 
       force_apt_get: yes 
       name: 
-        - python-setuptools
-  - name: Install or update pip
-    community.general.easy_install: 
-      name: pip
-      state: latest
+        - python3
+        - python3-setuptools
+        - python3-pip
   - name: Install docker dependency for python
     pip: 
       name:
