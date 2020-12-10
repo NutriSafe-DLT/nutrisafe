@@ -297,6 +297,82 @@ Organizations:
               Port: 7101
 
 
+    ### Here you should define the organisations which are part of the network ###
+    - &Schwarzfuss
+        ### Insert the organisation name here ###
+        Name: Schwarzfuss
+
+        ### Name of the organisational MSP ###
+        ID: SchwarzfussMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/msp
+
+        Policies: &SchwarzfussPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('SchwarzfussMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('SchwarzfussMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('SchwarzfussMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('SchwarzfussMSP.member')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: peer0.schwarzfuss.de
+              Port: 7111
+
+    ### Here you should define the organisations which are part of the network ###
+    - &Duroc
+        ### Insert the organisation name here ###
+        Name: Duroc
+
+        ### Name of the organisational MSP ###
+        ID: DurocMSP
+
+        ### MSPDir is the filesystem path which contains the MSP configuration ###
+        MSPDir: ../creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/msp
+
+        Policies: &DurocPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('DurocMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.peer', 'SampleOrg.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('DurocMSP.member')"
+                # If your MSP is configured with the new NodeOUs, you might
+                # want to use a more specific rule like the following:
+                # Rule: "OR('SampleOrg.admin', 'SampleOrg.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('DurocMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('DurocMSP.member')"
+
+        # AnchorPeers defines the location of peers which can be used for
+        # cross-org gossip communication. Note, this value is only encoded in
+        # the genesis block in the Application section context.
+        AnchorPeers:
+            - Host: peer0.duroc.de
+              Port: 7121
+
 ################################################################################
 #
 #   CAPABILITIES
@@ -623,14 +699,22 @@ Profiles:
             ### Reference to the organisation section ###
                 - <<: *Unibw
         Consortiums:
-            SampleConsortium:
+            TrackAndTrace:
                 Organizations:
                 ### Reference to the organisation section ###
                     
     MoreOrgChannel:
         <<: *ChannelDefaults
-        Consortium: SampleConsortium
+        Consortium: TrackAndTrace
         Application:
             <<: *ApplicationDefaults
             Organizations:
                 - <<: *Deoni
+
+    NewChannel:
+        <<: *ChannelDefaults
+        Consortium: Logistics
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - <<: *Tuxer

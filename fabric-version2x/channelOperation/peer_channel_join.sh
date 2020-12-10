@@ -30,6 +30,38 @@ CHANNEL_ID=trackandtrace
 ORDERER_ADDRESS=orderer.unibw.de:7050
 
 
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      printHelp()
+# Description:  Print the usage message
+# -------------------------------------------------------------------------------------------------------------------
+function printHelp() {
+  echo "Usage: "
+  echo "  peer_channel_join.sh <[-f <path for .yaml file>]>"
+  echo "    TODO"
+  echo "  peer_channel_join.sh -h (print this message)"
+}
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      Parameters
+# Description:  List of script parameters
+# -------------------------------------------------------------------------------------------------------------------
+while getopts "h?o:c:n:x" opt; do
+  case "$opt" in
+  h | \?)
+    printHelp
+    exit 0
+    ;;
+  o)
+    ORDERER_ADDRESS=$OPTARG
+    ;;
+  c)
+    CHANNEL_ID=$OPTARG
+    ;;
+  n)
+    CONTAINER_NAME=$OPTARG
+    ;;
+  esac
+done
+
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################

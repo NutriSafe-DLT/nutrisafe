@@ -39,6 +39,34 @@ CONSORTIUM_NAME=SampleConsortium
 
 
 
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      printHelp()
+# Description:  Print the usage message
+# -------------------------------------------------------------------------------------------------------------------
+function printHelp() {
+  echo "Usage: "
+  echo "  org_join_consortium.sh <[-f <path for .yaml file>]>"
+  echo "    -o <Display name of organization> - e.g. Brangus"
+  echo "  org_join_consortium.sh -h (print this message)"
+}
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      Parameters
+# Description:  List of script parameters
+# -------------------------------------------------------------------------------------------------------------------
+while getopts "h?o:c:x" opt; do
+  case "$opt" in
+  h | \?)
+    printHelp
+    exit 0
+    ;;
+  o)
+    JOINING_ORGANISATION=$OPTARG
+    ;;
+  c)
+    CONSORTIUM_NAME=$OPTARG
+    ;;
+  esac
+done
 
 
 #####################################################################################################################

@@ -90,8 +90,6 @@ docker exec cli.salers.de peer channel join -b ./trackandtrace_oldest.block
 
 echo -e "\n \n Organisation Tuxer joining channel"
 ./org_join_channel.sh -o Tuxer -n cli.salers.de
-
-
 docker exec cli.deoni.de peer channel signconfigtx -f Tuxer_update_in_envelope.pb 
 docker exec cli.salers.de peer channel update -f Tuxer_update_in_envelope.pb -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 ### Peer join a channel ###
@@ -136,6 +134,59 @@ echo -e "\n Peer Authority joining channel"
 docker exec cli.authority.de peer channel fetch oldest -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 docker exec cli.authority.de peer channel join -b ./trackandtrace_oldest.block
 
+### Create new consortium
+echo -e "\n Create new consortium"
+cd ../orderingService/consortium
+./create_consortium.sh
+
+### Organisation Tuxer joining consortium
+echo -e "\n Tuxer joining new consortium"
+./org_join_consortium.sh -o Tuxer -c Logistics
+
+### Create Channel from the consortium ###
+### Use of CFG_PATH, CHANNEL_ID, TRANSACTION_FILE, CONFIG_PROFILE ###
+echo -e "\n \n Creating channel"
+cd ../../channelOperation/
+./create_channel.sh -o NewChannel -c logistics
+docker exec cli.tuxer.de peer channel update -f ./logistics_creation.tx -o orderer.unibw.de:7050 -c logistics --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+
+echo "Sleeping for 8 seconds"
+sleep 5s
+
+### Peer join a channel ###
+### Use of CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS ###
+echo -e "\n \n Peer joining channel"
+./peer_channel_join.sh -c logistics -n cli.tuxer.de
+./anchorPeerUpdate.sh -o Tuxer -c cli.tuxer.de -i logistics
+docker exec cli.tuxer.de peer channel update -f Tuxer_update_in_envelope.pb -c logistics -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+sleep 2s
+
+
+### Org join a channel ###
+### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS,TRANSACTION_FILE ###
+echo -e "\n \n Organisation Duroc joining channel"
+./org_join_channel.sh -o Duroc -n cli.tuxer.de -c logistics
+docker exec cli.tuxer.de peer channel update -f Duroc_update_in_envelope.pb -c logistics -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+### Peer join a channel ###
+
+sleep 2s
+echo -e "\n \n Peer Duroc joining channel"
+docker exec cli.duroc.de peer channel fetch oldest -c logistics -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec cli.duroc.de peer channel join -b ./logistics_oldest.block
+
+
+### Org join a channel ###
+### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS,TRANSACTION_FILE ###
+echo -e "\n \n Organisation Schwarzfuss joining channel"
+./org_join_channel.sh -o Schwarzfuss -n cli.duroc.de -c logistics
+docker exec cli.tuxer.de peer channel signconfigtx -f Schwarzfuss_update_in_envelope.pb
+docker exec cli.duroc.de peer channel update -f Schwarzfuss_update_in_envelope.pb -c logistics -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+### Peer join a channel ###
+
+sleep 2s
+echo -e "\n \n Peer Schwarzfuss joining channel"
+docker exec cli.schwarzfuss.de peer channel fetch oldest -c logistics -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec cli.schwarzfuss.de peer channel join -b ./logistics_oldest.block
 
 sleep 2s
 cd ../operationsService/

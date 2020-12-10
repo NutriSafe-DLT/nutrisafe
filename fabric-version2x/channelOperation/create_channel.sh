@@ -58,7 +58,7 @@ function printHelp() {
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?o:f:c:p:x" opt; do
+while getopts "h?o:c:p:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -66,9 +66,6 @@ while getopts "h?o:f:c:p:x" opt; do
     ;;
   p)
    CFG_PATH=$OPTARG
-    ;;
-  f)
-   TRANSACTION_FILE=$OPTARG
     ;;
   o)
     CONFIG_PROFILE=$OPTARG
