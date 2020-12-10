@@ -32,7 +32,7 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 ### Name of the consortium to be created ###
 CONSORTIUM_NAME=Logistics
 ### Name of the transaction file ###
-TRANSACTION_FILE=./$CONSORTIUM_NAME"_update_in_envelope.pb"
+TRANSACTION_FILE=./$CONSORTIUM_NAME"_creation.pb"
 
 
 

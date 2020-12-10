@@ -134,14 +134,23 @@ echo -e "\n Peer Authority joining channel"
 docker exec cli.authority.de peer channel fetch oldest -c trackandtrace -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 docker exec cli.authority.de peer channel join -b ./trackandtrace_oldest.block
 
+
+
+######################################################## Second Channel #####################################################################################
+
 ### Create new consortium
 echo -e "\n Create new consortium"
 cd ../orderingService/consortium
 ./create_consortium.sh
+docker exec cli.unibw.de peer channel update -f Logistics_creation.pb -c nutrisafesystemchannel -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
+
+
 
 ### Organisation Tuxer joining consortium
 echo -e "\n Tuxer joining new consortium"
 ./org_join_consortium.sh -o Tuxer -c Logistics
+docker exec cli.unibw.de peer channel update -f Tuxer_update_in_envelope.pb -c nutrisafesystemchannel -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt
+
 
 ### Create Channel from the consortium ###
 ### Use of CFG_PATH, CHANNEL_ID, TRANSACTION_FILE, CONFIG_PROFILE ###
