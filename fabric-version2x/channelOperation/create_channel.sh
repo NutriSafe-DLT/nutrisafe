@@ -57,7 +57,7 @@ function printHelp() {
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?p:o:c:x" opt; do
+while getopts "h?p:o:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
