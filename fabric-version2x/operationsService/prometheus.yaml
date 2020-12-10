@@ -15,6 +15,9 @@ scrape_configs:
         'peer0.brangus.de:9443',
         'peer0.pinzgauer.de:9443',
         'peer0.tuxer.de:9443',
+        'peer0.authority.de:9443',
+        'peer0.schwarzfuss.de:9443',
+        'peer0.duroc.de:9443',
         'orderer.unibw.de:9443',
         'orderer1.unibw.de:9443',
         'orderer2.unibw.de:9443'

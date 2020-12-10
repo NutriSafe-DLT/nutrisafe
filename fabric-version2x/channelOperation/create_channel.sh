@@ -26,8 +26,7 @@ CFG_PATH=../config
 ### Name of the  channel ###
 CHANNEL_ID=trackandtrace
 
-### Name of the transaction file ###
-TRANSACTION_FILE="../configTransactions/"$CHANNEL_ID"_creation.tx"
+
 
 ### Name of the profile defined in the configtx.yaml ###
 CONFIG_PROFILE=MoreOrgChannel
@@ -58,7 +57,7 @@ function printHelp() {
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?o:f:c:p:x" opt; do
+while getopts "h?p:o:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -66,9 +65,6 @@ while getopts "h?o:f:c:p:x" opt; do
     ;;
   p)
    CFG_PATH=$OPTARG
-    ;;
-  f)
-   TRANSACTION_FILE=$OPTARG
     ;;
   o)
     CONFIG_PROFILE=$OPTARG
@@ -79,6 +75,8 @@ while getopts "h?o:f:c:p:x" opt; do
   esac
 done
 
+### Name of the transaction file ###
+TRANSACTION_FILE="../configTransactions/"$CHANNEL_ID"_creation.tx"
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      rm
 # Description:  Remove and create config directory

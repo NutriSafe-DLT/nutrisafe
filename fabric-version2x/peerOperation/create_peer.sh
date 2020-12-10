@@ -22,7 +22,7 @@
 DOCKER_COMPOSE_FILE=docker_compose_peer_cli_couchdb_deoni.yaml
 
 ### Docker Services to start ###
-DOCKER_SERVICES="peer0.deoni.de cli.deoni.de couchdb.deoni.de peer0.salers.de cli.salers.de couchdb.salers.de peer0.brangus.de cli.brangus.de couchdb.brangus.de peer0.pinzgauer.de cli.pinzgauer.de couchdb.pinzgauer.de peer0.tuxer.de cli.tuxer.de couchdb.tuxer.de peer0.authority.de cli.authority.de couchdb.authority.de"
+DOCKER_SERVICES="peer0.deoni.de cli.deoni.de couchdb.deoni.de peer0.salers.de cli.salers.de couchdb.salers.de peer0.brangus.de cli.brangus.de couchdb.brangus.de peer0.pinzgauer.de cli.pinzgauer.de couchdb.pinzgauer.de peer0.tuxer.de cli.tuxer.de couchdb.tuxer.de peer0.authority.de cli.authority.de couchdb.authority.de peer0.schwarzfuss.de cli.schwarzfuss.de couchdb.schwarzfuss.de peer0.duroc.de cli.duroc.de couchdb.duroc.de"
 
 
 #####################################################################################################################

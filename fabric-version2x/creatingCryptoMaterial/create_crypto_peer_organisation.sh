@@ -64,6 +64,7 @@ done
 # RM command below is faulty.
 #rm -rf "./crypto-config/"$ORGANISATION_TYPE"/"$ORGANISATION_DOMAIN/*
 
+
 if cryptogen extend --config=$PATH_TO_YAML_FILE ; then
   echo "Successfully generated crypto material!"
   echo "Copying public certificates for Admin user..."

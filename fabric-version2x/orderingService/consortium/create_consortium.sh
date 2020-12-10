@@ -21,8 +21,7 @@
 # Parameters                                                                                                        #
 #####################################################################################################################
 
-### The fabric configuration path has to be set to the configtx.yaml ###
-CFG_PATH=../../config
+
 ### Name of the docker container where we executed the commands, it should be a cli container of an organisation ###
 ### which has the rights to allow an organisation to join the channel.                                           ###
 CONTAINER_NAME=cli.unibw.de
@@ -33,7 +32,7 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 ### Name of the consortium to be created ###
 CONSORTIUM_NAME=Logistics
 ### Name of the transaction file ###
-TRANSACTION_FILE=./$CONSORTIUM_NAME"_update_in_envelope.pb"
+TRANSACTION_FILE=./$CONSORTIUM_NAME"_creation.pb"
 
 
 
@@ -43,10 +42,6 @@ TRANSACTION_FILE=./$CONSORTIUM_NAME"_update_in_envelope.pb"
 #####################################################################################################################
 
 # Crypto material has to be generated before #
-
-
-# Set Fabric config Path #
- 
 
 
 # Fetch the newest config block on the cli container #
@@ -59,9 +54,8 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_decode --input ./config_b
 
 
 # Adding the json representation of the adding organisation #
-JSON='{"'$CONSORTIUM_NAME'":{"groups":{},"mod_policy":"/Channel/Orderer/Admins","policies":{},"values":{"ChannelCreationPolicy":{"mod_policy":"/Channel/Orderer/Admins","value":{"type":3,"value":{"rule":"ANY","sub_policy":"Admins"}},"version":"0"}},"version":"1"}}'
+docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Consortiums.groups |= . + {\"'$CONSORTIUM_NAME'\":{\"groups\":{},\"mod_policy\":\"/Channel/Orderer/Admins\",\"policies\":{},\"values\":{\"ChannelCreationPolicy\":{\"mod_policy\":\"/Channel/Orderer/Admins\",\"value\":{\"type\":3,\"value\":{\"rule\":\"ANY\",\"sub_policy\":\"Admins\"}},\"version\":\"0\"}},\"version\":\"1\"}}' ./config.json  > ./modified_config.json"
 
-docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Consortiums.groups |= . + '$JSON'' ./config.json  > ./modified_config.json"
 
 
 # enconding both new files to protobufs and computing the update #

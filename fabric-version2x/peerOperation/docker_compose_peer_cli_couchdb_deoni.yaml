@@ -19,7 +19,7 @@ networks:
 services:
 
 
-#############################################Deoni########################################################
+  #############################################Deoni########################################################
 
   peer0.deoni.de:
     container_name: peer0.deoni.de
@@ -108,9 +108,9 @@ services:
     #  - orderer.example.com
     #  - peer0.org1.example.com
     #  - couchdb
-    
-    
-#############################################Salers########################################################
+
+
+  #############################################Salers########################################################
 
   peer0.salers.de:
     container_name: peer0.salers.de
@@ -157,7 +157,7 @@ services:
       - couchdb.salers.de
     networks:
       - orderingservice_basic
-    
+
   couchdb.salers.de:
     container_name: couchdb.salers.de
     image: hyperledger/fabric-couchdb:0.4.20
@@ -201,7 +201,7 @@ services:
     #  - couchdb
 
 
-#############################################Brangus########################################################
+  #############################################Brangus########################################################
   peer0.brangus.de:
     container_name: peer0.brangus.de
     image: hyperledger/fabric-peer:2.2.1
@@ -247,7 +247,7 @@ services:
       - couchdb.brangus.de
     networks:
       - orderingservice_basic
-    
+
   couchdb.brangus.de:
     container_name: couchdb.brangus.de
     image: hyperledger/fabric-couchdb:0.4.20
@@ -289,8 +289,8 @@ services:
     #  - orderer.example.com
     #  - peer0.org1.example.com
     #  - couchdb
-    
-#############################################Pinzgauer########################################################
+
+  #############################################Pinzgauer########################################################
   peer0.pinzgauer.de:
     container_name: peer0.pinzgauer.de
     image: hyperledger/fabric-peer:2.2.1
@@ -303,7 +303,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.pinzgauer.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.pinzgauer.de:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051] 
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051]
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.pinzgauer.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -336,7 +336,7 @@ services:
       - couchdb.pinzgauer.de
     networks:
       - orderingservice_basic
-    
+
   couchdb.pinzgauer.de:
     container_name: couchdb.pinzgauer.de
     image: hyperledger/fabric-couchdb:0.4.20
@@ -378,9 +378,9 @@ services:
     #  - orderer.example.com
     #  - peer0.org1.example.com
     #  - couchdb
-    
-    
-#############################################Tuxer########################################################
+
+
+  #############################################Tuxer########################################################
   peer0.tuxer.de:
     container_name: peer0.tuxer.de
     image: hyperledger/fabric-peer:2.2.1
@@ -393,7 +393,7 @@ services:
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
       - CORE_PEER_ADDRESS=peer0.tuxer.de:7051
       - CORE_PEER_GOSSIP_ENDPOINT=peer0.tuxer.de:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.de:7051] 
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.pinzgauer.de:7051]
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.tuxer.de:7051
       # # the following setting starts chaincode containers on the same
       # # bridge network as the peers
@@ -426,7 +426,7 @@ services:
       - couchdb.tuxer.de
     networks:
       - orderingservice_basic
-    
+
   couchdb.tuxer.de:
     container_name: couchdb.tuxer.de
     image: hyperledger/fabric-couchdb:0.4.20
@@ -552,6 +552,186 @@ services:
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/users/Admin@authority.de:/etc/hyperledger/msp/users/admin/
+    networks:
+      - orderingservice_basic
+    #depends_on:
+    #  - orderer.example.com
+    #  - peer0.org1.example.com
+    #  - couchdb
+
+
+  #############################################schwarzfuss########################################################
+  peer0.schwarzfuss.de:
+    container_name: peer0.schwarzfuss.de
+    image: hyperledger/fabric-peer:2.2.1
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.schwarzfuss.de
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_CHAINCODE_LOGGING_LEVEL=info
+      - CORE_PEER_LOCALMSPID=SchwarzfussMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
+      - CORE_PEER_ADDRESS=peer0.schwarzfuss.de:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.schwarzfuss.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051]
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.schwarzfuss.de:7051
+      # # the following setting starts chaincode containers on the same
+      # # bridge network as the peers
+      # # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=orderingservice_basic
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.schwarzfuss.de:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - CORE_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    # command: peer node start --peer-chaincodedev=true
+    ports:
+      - 7111:7051
+      - 7113:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/peers/peer0.schwarzfuss.de:/etc/hyperledger/msp/peer
+    depends_on:
+      - couchdb.schwarzfuss.de
+    networks:
+      - orderingservice_basic
+
+  couchdb.schwarzfuss.de:
+    container_name: couchdb.schwarzfuss.de
+    image: hyperledger/fabric-couchdb:0.4.20
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 38084:5984
+    networks:
+      - orderingservice_basic
+
+  cli.schwarzfuss.de:
+    container_name: cli.schwarzfuss.de
+    image: hyperledger/fabric-tools:2.2.1
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_PEER_ID=cli.schwarzfuss.de
+      - CORE_PEER_ADDRESS=peer0.schwarzfuss.de:7051
+      - CORE_PEER_LOCALMSPID=SchwarzfussMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
+      - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/github.com/
+      - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/users/Admin@schwarzfuss.de:/etc/hyperledger/msp/users/admin/
+    networks:
+      - orderingservice_basic
+    #depends_on:
+    #  - orderer.example.com
+    #  - peer0.org1.example.com
+    #  - couchdb
+
+
+  #############################################duroc########################################################
+  peer0.duroc.de:
+    container_name: peer0.duroc.de
+    image: hyperledger/fabric-peer:2.2.1
+    environment:
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_PEER_ID=peer0.duroc.de
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_CHAINCODE_LOGGING_LEVEL=info
+      - CORE_PEER_LOCALMSPID=DurocMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/peer/msp/
+      - CORE_PEER_ADDRESS=peer0.duroc.de:7051
+      - CORE_PEER_GOSSIP_ENDPOINT=peer0.duroc.de:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=[peer0.deoni.de:7051 peer0.salers.de:7051 peer0.brangus.de:7051 peer0.tuxer.de:7051]
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.duroc.de:7051
+      # # the following setting starts chaincode containers on the same
+      # # bridge network as the peers
+      # # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=orderingservice_basic
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb.duroc.de:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/msp/peer/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/msp/peer/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/peer/tls/ca.crt
+      - ORDERER_CA=/etc/hyperledger/msp/peer/tls/tlsca.unibw.de-cert.pem
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+      - CORE_METRICS_PROVIDER=prometheus
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: peer node start
+    # command: peer node start --peer-chaincodedev=true
+    ports:
+      - 7121:7051
+      - 7123:7053
+    volumes:
+      - /var/run/:/host/var/run/
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/peers/peer0.duroc.de:/etc/hyperledger/msp/peer
+    depends_on:
+      - couchdb.duroc.de
+    networks:
+      - orderingservice_basic
+
+  couchdb.duroc.de:
+    container_name: couchdb.duroc.de
+    image: hyperledger/fabric-couchdb:0.4.20
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 38184:5984
+    networks:
+      - orderingservice_basic
+
+  cli.duroc.de:
+    container_name: cli.duroc.de
+    image: hyperledger/fabric-tools:2.2.1
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=info
+      - CORE_PEER_ID=cli.duroc.de
+      - CORE_PEER_ADDRESS=peer0.duroc.de:7051
+      - CORE_PEER_LOCALMSPID=DurocMSP
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/admin/msp/
+      - CORE_CHAINCODE_KEEPALIVE=10
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/msp/users/admin/tls/ca.crt
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./../chaincode/:/opt/gopath/src/github.com/
+      - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
+      - ../creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/users/Admin@duroc.de:/etc/hyperledger/msp/users/admin/
     networks:
       - orderingservice_basic
     #depends_on:

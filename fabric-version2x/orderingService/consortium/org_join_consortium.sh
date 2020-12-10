@@ -32,14 +32,43 @@ CONTAINER_NAME=cli.unibw.de
 CHANNEL_ID=nutrisafesystemchannel
 ### Address of an orderer node ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
+
+### Name of the consortium to be joined ###
+CONSORTIUM_NAME=TrackAndTrace
+
+
+
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      printHelp()
+# Description:  Print the usage message
+# -------------------------------------------------------------------------------------------------------------------
+function printHelp() {
+  echo "Usage: "
+  echo "  org_join_consortium.sh <[-f <path for .yaml file>]>"
+  echo "    -o <Display name of organization> - e.g. Brangus"
+  echo "  org_join_consortium.sh -h (print this message)"
+}
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      Parameters
+# Description:  List of script parameters
+# -------------------------------------------------------------------------------------------------------------------
+while getopts "h?o:c:x" opt; do
+  case "$opt" in
+  h | \?)
+    printHelp
+    exit 0
+    ;;
+  o)
+    JOINING_ORGANISATION=$OPTARG
+    ;;
+  c)
+    CONSORTIUM_NAME=$OPTARG
+    ;;
+  esac
+done
+
 ### Name of the transaction file ###
 TRANSACTION_FILE=./$JOINING_ORGANISATION"_update_in_envelope.pb"
-### Name of the consortium to be joined ###
-CONSORTIUM_NAME=SampleConsortium
-
-
-
-
 
 #####################################################################################################################
 # Code                                                                                                              #
