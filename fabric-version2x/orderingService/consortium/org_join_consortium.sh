@@ -32,8 +32,7 @@ CONTAINER_NAME=cli.unibw.de
 CHANNEL_ID=nutrisafesystemchannel
 ### Address of an orderer node ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
-### Name of the transaction file ###
-TRANSACTION_FILE=./$JOINING_ORGANISATION"_update_in_envelope.pb"
+
 ### Name of the consortium to be joined ###
 CONSORTIUM_NAME=TrackAndTrace
 
@@ -68,6 +67,8 @@ while getopts "h?o:c:x" opt; do
   esac
 done
 
+### Name of the transaction file ###
+TRANSACTION_FILE=./$JOINING_ORGANISATION"_update_in_envelope.pb"
 
 #####################################################################################################################
 # Code                                                                                                              #
