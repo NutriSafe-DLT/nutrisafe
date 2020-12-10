@@ -46,7 +46,7 @@ TRANSACTION_FILE=./$CONSORTIUM_NAME"_update_in_envelope.pb"
 
 
 # Set Fabric config Path #
-export FABRIC_CFG_PATH=$CFG_PATH
+ 
 
 
 # Fetch the newest config block on the cli container #
@@ -91,4 +91,3 @@ docker exec $CONTAINER_NAME sh -c "rm ./modified_config.pb"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update.pb"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update.json"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update_in_envelope.json"
-
