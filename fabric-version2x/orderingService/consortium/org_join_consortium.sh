@@ -35,7 +35,7 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 ### Name of the transaction file ###
 TRANSACTION_FILE=./$JOINING_ORGANISATION"_update_in_envelope.pb"
 ### Name of the consortium to be joined ###
-CONSORTIUM_NAME=SampleConsortium
+CONSORTIUM_NAME=TrackAndTrace
 
 
 
