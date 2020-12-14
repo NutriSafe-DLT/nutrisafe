@@ -73,12 +73,6 @@ export FABRIC_CFG_PATH=$CFG_PATH
 configtxgen -printOrg $JOINING_ORGANISATION > ../configTransactions/org.json
 
 
-# Echo all environment variables on the docker container #
-#docker exec $CONTAINER_NAME echo $CORE_PEER_MSPCONFIGPATH
-#docker exec $CONTAINER_NAME echo $CORE_PEER_LOCALMSPID
-#docker exec $CONTAINER_NAME echo $CORE_PEER_TLS_ROOTCERT_FILE
-#docker exec $CONTAINER_NAME echo $CORE_PEER_ADDRESS
-
 # Fetch the newest config block on the cli container #
 docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
@@ -89,7 +83,6 @@ docker exec $CONTAINER_NAME sh -c "configtxlator proto_decode --input ./config_b
 
 
 # Adding the json representation of the adding organisation #
-##### Not sure if it's right #####
 docker exec $CONTAINER_NAME sh -c "jq -s '.[0] * {\"channel_group\":{\"groups\":{\"Application\":{\"groups\": {'$JOINING_ORGANISATION':.[1]}}}}}' ./config.json ./org.json > ./modified_config1.json"
 docker exec $CONTAINER_NAME sh -c "jq '.channel_group.groups.Application.groups.'$JOINING_ORGANISATION'.values += {\"AnchorPeers\":{\"mod_policy\": \"Admins\",\"value\":{\"anchor_peers\": [{\"host\": \"peer0.'$JOINING_ORGANISATION_LOWER'.de\",\"port\": 7051}]},\"version\": \"0\"}}' ./modified_config1.json > ./modified_config.json"
 

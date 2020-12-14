@@ -58,21 +58,12 @@ done
 JOINING_ORGANISATION_LOWER=$(echo ${JOINING_ORGANISATION} | tr '[:upper:]' '[:lower:]')
 
 
-# Crypto material has to be generated before #
-
-
 ### Name of the transaction file ###
 TRANSACTION_FILE="./"$JOINING_ORGANISATION"_update_in_envelope.pb"
 
 # Set Fabric config Path #
 export FABRIC_CFG_PATH=$CFG_PATH
 
-
-# Echo all environment variables on the docker container #
-#docker exec $CONTAINER_NAME echo $CORE_PEER_MSPCONFIGPATH
-#docker exec $CONTAINER_NAME echo $CORE_PEER_LOCALMSPID
-#docker exec $CONTAINER_NAME echo $CORE_PEER_TLS_ROOTCERT_FILE
-#docker exec $CONTAINER_NAME echo $CORE_PEER_ADDRESS
 
 # Fetch the newest config block on the cli container #
 docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"

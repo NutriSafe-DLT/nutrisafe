@@ -15,10 +15,10 @@
 # Bundeswehr University Munich
 #####################################################################################################################
 
-parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-prometheus_container_name="ns_prometheus"
+PARENT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+PROMETHEUS_CONTAINER_NAME="ns_prometheus"
 
 echo -e "\n Starting prometheus.."
-docker run -d -p 9090:9090 -v $parent_path/prometheus.yaml:/prometheus.yaml --name $prometheus_container_name  prom/prometheus --config.file=/prometheus.yaml
+docker run -d -p 9090:9090 -v $PARENT_PATH/prometheus.yaml:/prometheus.yaml --name $PROMETHEUS_CONTAINER_NAME  prom/prometheus --config.file=/prometheus.yaml
 echo -e "\n Attaching prometheus container to nutrisafe blockchain container.."
-docker -v network connect orderingservice_basic $prometheus_container_name
+docker -v network connect orderingservice_basic $PROMETHEUS_CONTAINER_NAME

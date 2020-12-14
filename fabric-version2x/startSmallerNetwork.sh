@@ -41,7 +41,7 @@ sleep 5s
 ### Use of DOCKER_COMPOSE_FILE, DOCKER_SERVICES ###
 echo -e "\n \n Starting cli container"
 cd ../applications/
-./create_cli.sh
+./start_cli.sh
 
 ### Organisation joining an existing consortium ###
 ### Use of CFG_PATH, JOINING_ORGANISATION, CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS, TRANSACTION_FILE, CONSORTIUM_NAME ###
@@ -54,7 +54,7 @@ docker exec cli.unibw.de peer channel update -f Deoni_update_in_envelope.pb -c n
 ### Use of DOCKER_COMPOSE_FILE, DOCKER_SERVICES ###
 echo -e "\n \n Starting peer container"
 cd ../../peerOperation/
-./create_peer.sh 
+./start_peer.sh
 
 ### Create Channel from the consortium ###
 ### Use of CFG_PATH, CHANNEL_ID, TRANSACTION_FILE, CONFIG_PROFILE ###
@@ -70,7 +70,7 @@ sleep 8s
 ### Use of CONTAINER_NAME, CHANNEL_ID, ORDERER_ADDRESS ###
 echo -e "\n \n Peer joining channel"
 ./peer_channel_join.sh 
-./anchorPeerUpdate.sh -o Deoni -c cli.deoni.de
+./anchor_peer_update.sh -o Deoni -c cli.deoni.de
 docker exec cli.deoni.de peer channel update -f Deoni_update_in_envelope.pb -c cheese -o orderer.unibw.de:7050 --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
 sleep 2s
 

@@ -1,8 +1,7 @@
 #!/bin/bash
 #
 #####################################################################################################################
-# Description
-#
+# Description                                                                                                       #
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
@@ -18,10 +17,12 @@
 #####################################################################################################################
 # Parameters                                                                                                        #
 #####################################################################################################################
-### Path the docker-compose file ### 
-DOCKER_COMPOSE_FILE=./docker_compose_cli_unibw.yaml
-### Services to start ###
-DOCKER_SERVICES=cli.unibw.de
+
+### Path to the docker-compose file ###
+DOCKER_COMPOSE_FILE=docker_compose_peer_cli_couchdb_deoni.yaml
+
+### Docker Services to start ###
+DOCKER_SERVICES="peer0.deoni.de cli.deoni.de couchdb.deoni.de peer0.salers.de cli.salers.de couchdb.salers.de peer0.brangus.de cli.brangus.de couchdb.brangus.de peer0.pinzgauer.de cli.pinzgauer.de couchdb.pinzgauer.de peer0.tuxer.de cli.tuxer.de couchdb.tuxer.de peer0.authority.de cli.authority.de couchdb.authority.de peer0.schwarzfuss.de cli.schwarzfuss.de couchdb.schwarzfuss.de peer0.duroc.de cli.duroc.de couchdb.duroc.de"
 
 
 #####################################################################################################################
@@ -34,38 +35,39 @@ DOCKER_SERVICES=cli.unibw.de
 # -------------------------------------------------------------------------------------------------------------------
 function printHelp() {
   echo "Usage: "
-  echo "  create_cli.sh [-f <Path to docker compose cli .yaml File>] [-d <cli orderer domainname>]"
-  echo "    -f <Path to docker compose cli .yaml File> - specify yaml path"
-  echo "    -d <cli orderer domainname> - cli orderer domainname"
-  echo "  create_cli.sh -h (print this message)"
+  echo "  create_peer.sh [-f <path for .yaml file>] [-d <peer domain name] [-c <channelID name>]>"
+  echo "    -f <Path to .yaml File> - specify yaml path"
+  echo "    -d <Peer Domainname> - peer domain address"
+  echo "    -c <ChannelID Name> - ChannelID Name"
+  echo "  create_peer.sh -h (print this message)"
 }
 
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?d:f:x" opt; do
+while getopts "h?d:f:c:p:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
     exit 0
     ;;
   f)
-   CLI_YAML_FILE=$OPTARG
+   DOCKER_COMPOSE_FILE=$OPTARG
     ;;
   d)
-    CLI_ORDERER=$OPTARG
+   DOCKER_SERVICES=$OPTARG
     ;;
   esac
 done
 
 # -------------------------------------------------------------------------------------------------------------------
-# Section:      docker-compose, docker
-# Description:  Docker-Compose, docker
-# Parameter:    $PATH_CONFIG_DIR
-# Example:      create_cli.sh -f ./docker_compose_cli_unibw.yaml -d cliUnibwOrderer
+# Section:      docker-compose
+# Description:  Create new peer
+# Parameter:    $PATH_TO_YAML_FILE
+#               $PEER_DOMAIN_NAME
+#               $CHANNEL_ID_NAME
+# Example:      start_peer.sh -f /pathTo/file.yaml -d peer0.unibw.de -c peerCl
 # -------------------------------------------------------------------------------------------------------------------
 docker-compose -f $DOCKER_COMPOSE_FILE up -d $DOCKER_SERVICES
 docker ps -a
-
-

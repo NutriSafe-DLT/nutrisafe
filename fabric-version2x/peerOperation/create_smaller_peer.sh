@@ -67,7 +67,7 @@ done
 # Parameter:    $PATH_TO_YAML_FILE
 #               $PEER_DOMAIN_NAME
 #               $CHANNEL_ID_NAME
-# Example:      create_peer.sh -f /pathTo/file.yaml -d peer0.unibw.de -c peerCl
+# Example:      start_peer.sh -f /pathTo/file.yaml -d peer0.unibw.de -c peerCl
 # -------------------------------------------------------------------------------------------------------------------
 docker-compose -f $DOCKER_COMPOSE_FILE up -d $DOCKER_SERVICES
 docker ps -a
