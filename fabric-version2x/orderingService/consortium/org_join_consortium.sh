@@ -46,6 +46,7 @@ function printHelp() {
   echo "Usage: "
   echo "  org_join_consortium.sh <[-f <path for .yaml file>]>"
   echo "    -o <Display name of organization> - e.g. Brangus"
+  echo "    -c <Display name of consortium to join> - e.g. Logistics"
   echo "  org_join_consortium.sh -h (print this message)"
 }
 # -------------------------------------------------------------------------------------------------------------------
