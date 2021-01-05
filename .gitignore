@@ -9,3 +9,4 @@ fabric-version2x/applications/.DS_Store
 fabric-version2x/chaincode/hyperledger/fabric/.DS_Store
 fabric-version2x/chaincode/hyperledger/fabric/orderer/Deoni_update_in_envelope.pb
 fabric-version2x/configTransactions/org.json
+.idea/*

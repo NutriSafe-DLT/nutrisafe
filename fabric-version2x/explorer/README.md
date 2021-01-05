@@ -1,1 +1,1 @@
-# This subdirectory should be moved to another project. 
+# UPDATE: Moved files to repository [Nutrisafe-Explorer](https://github.com/NutriSafe-DLT/nutrisafe-explorer)
