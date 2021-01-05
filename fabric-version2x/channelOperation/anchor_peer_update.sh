@@ -32,14 +32,26 @@ TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
 
-
+#####################################################################################################################
+# printHelp()
+#####################################################################################################################
+function printHelp() {
+  echo "Usage: "
+  echo "  anchor_peer_update.sh [-f <path for .yaml file>] [-d <peer domain name] [-c <channelID name>]>"
+  echo "    -h or ? prints this message"
+  echo "    -o domain name of joining organization"
+  echo "    -c <Docker Container Name>"
+  echo "    -i <ChannelID Name> - ChannelID Name"
+  echo "    -t <Path to certificate file for orderer> "
+  echo " Example: anchor_peer_update.sh -o Salers -c cli.deoni.de -i trackandtrace -t /etc/certs/tlsca.orderer.de-cert.pem"
+}
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
 
 
 # Parameters for organization and container
-while getopts "h?o:c:i:x" opt; do
+while getopts "h?o:c:i:t:" opt; do
   case "$opt" in
   h | \?)
     printHelp

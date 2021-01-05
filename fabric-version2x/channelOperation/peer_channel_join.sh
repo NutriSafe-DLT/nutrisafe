@@ -38,15 +38,14 @@ TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 # -------------------------------------------------------------------------------------------------------------------
 function printHelp() {
   echo "Usage: "
-  echo "  peer_channel_join.sh <[-f <path for .yaml file>]>"
-  echo "    TODO"
+  echo "  peer_channel_join.sh [-t <Path to TLS Certficate for orderer>] [-n <Docker container name] [-o <Orderer FQDN>] [-c <channelID name>]"
   echo "  peer_channel_join.sh -h (print this message)"
 }
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?o:c:n:x" opt; do
+while getopts "h?o:c:n:t:" opt; do
   case "$opt" in
   h | \?)
     printHelp

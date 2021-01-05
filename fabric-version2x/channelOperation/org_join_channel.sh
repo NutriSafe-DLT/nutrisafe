@@ -32,6 +32,15 @@ TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
 
+# -------------------------------------------------------------------------------------------------------------------
+# Section:      printHelp()
+# -------------------------------------------------------------------------------------------------------------------
+function printHelp() {
+  echo "Usage: "
+  echo "  org_join_channel.sh [-o <Name of Joining Org>] [-n <Docker container name] [-c <channelID name>] [-t <Path to TLS Certficate for orderer>] "
+  echo "  org_join_channel.sh -h (print this message)"
+}
+
 
 #####################################################################################################################
 # Code                                                                                                              #
@@ -39,7 +48,7 @@ TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
 # Parameters for organization and container
-while getopts "h?o:c:n:x" opt; do
+while getopts "h?o:c:n:t:" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -119,6 +128,3 @@ docker exec $CONTAINER_NAME sh -c "rm ./modified_config.pb"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update.pb"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update.json"
 docker exec $CONTAINER_NAME sh -c "rm ./org_update_in_envelope.json"
-
-
-
