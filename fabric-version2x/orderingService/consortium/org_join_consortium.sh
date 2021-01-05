@@ -35,6 +35,8 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 
 ### Name of the consortium to be joined ###
 CONSORTIUM_NAME=TrackAndTrace
+### PATH to TLS CERT Orderer Node inside the above mentioned container  ###
+TLS_CERT_ORDERER="/etc/hyperledger/msp/orderer/tls/ca.crt"
 
 
 
@@ -65,6 +67,8 @@ while getopts "h?o:c:x" opt; do
   c)
     CONSORTIUM_NAME=$OPTARG
     ;;
+  t)
+    TLS_CERT_ORDERER=$OPTARG
   esac
 done
 
@@ -93,7 +97,7 @@ configtxgen -printOrg $JOINING_ORGANISATION > ../../configTransactions/org.json
 #docker exec $CONTAINER_NAME echo $CORE_PEER_ADDRESS
 
 # Fetch the newest config block on the cli container #
-docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt "
+docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile $TLS_CERT_ORDERER"
 
 
 # Translate the protobuf into json and removing irrelevant parts #

@@ -25,6 +25,8 @@ CONTAINER_NAME=cli.deoni.de
 CHANNEL_ID=trackandtrace
 ### Address of an orderer node ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
+### PATH to TLS CERT Orderer Node inside the above mentioned container  ###
+TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 
 
@@ -52,6 +54,9 @@ while getopts "h?o:c:i:x" opt; do
   i)
     CHANNEL_ID=$OPTARG
     ;;
+  t)
+    TLS_CERT_ORDERER=$OPTARG
+    ;;
   esac
 done
 
@@ -66,7 +71,7 @@ export FABRIC_CFG_PATH=$CFG_PATH
 
 
 # Fetch the newest config block on the cli container #
-docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
+docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile $TLS_CERT_ORDERER"
 
 
 # Translate the protobuf into json and removing irrelevant parts #
