@@ -63,7 +63,7 @@ done
 # Section:      docker-compose, docker
 # Description:  Docker-Compose, docker
 # Parameter:    $PATH_CONFIG_DIR
-# Example:      create_cli.sh -f ./docker_compose_cli_unibw.yaml -d cliUnibwOrderer
+# Example:      start_cli.sh -f ./docker_compose_cli_unibw.yaml -d cliUnibwOrderer
 # -------------------------------------------------------------------------------------------------------------------
 docker-compose -f $DOCKER_COMPOSE_FILE up -d $DOCKER_SERVICES
 docker ps -a

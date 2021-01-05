@@ -33,6 +33,8 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 CONSORTIUM_NAME=Logistics
 ### Name of the transaction file ###
 TRANSACTION_FILE=./$CONSORTIUM_NAME"_creation.pb"
+### PATH to TLS CERT Orderer Node inside the above mentioned container  ###
+TLS_CERT_ORDERER="/etc/hyperledger/msp/orderer/tls/ca.crt"
 
 
 
@@ -45,7 +47,7 @@ TRANSACTION_FILE=./$CONSORTIUM_NAME"_creation.pb"
 
 
 # Fetch the newest config block on the cli container #
-docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile /etc/hyperledger/msp/orderer/tls/ca.crt "
+docker exec $CONTAINER_NAME sh -c "peer channel fetch config ./config_block.pb -o $ORDERER_ADDRESS -c $CHANNEL_ID --tls --cafile $TLS_CERT_ORDERER"
 
 
 # Translate the protobuf into json and removing irrelevant parts #

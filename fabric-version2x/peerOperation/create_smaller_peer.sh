@@ -37,7 +37,7 @@ function printHelp() {
   echo "Usage: "
   echo "  create_peer.sh [-f <path for .yaml file>] [-d <peer domain name] [-c <channelID name>]>"
   echo "    -f <Path to .yaml File> - specify yaml path"
-  echo "    -d <Peer Domainname> - peer domain address"
+  echo "    -d <Peer Domainname> - peer domain address e.g. peer0.company.de"
   echo "    -c <ChannelID Name> - ChannelID Name"
   echo "  create_peer.sh -h (print this message)"
 }
@@ -46,7 +46,7 @@ function printHelp() {
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?d:f:c:p:x" opt; do
+while getopts "h?d:f:" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -67,7 +67,7 @@ done
 # Parameter:    $PATH_TO_YAML_FILE
 #               $PEER_DOMAIN_NAME
 #               $CHANNEL_ID_NAME
-# Example:      create_peer.sh -f /pathTo/file.yaml -d peer0.unibw.de -c peerCl
+# Example:      start_peer.sh -f /pathTo/file.yaml -d peer0.unibw.de -c peerCl
 # -------------------------------------------------------------------------------------------------------------------
 docker-compose -f $DOCKER_COMPOSE_FILE up -d $DOCKER_SERVICES
 docker ps -a

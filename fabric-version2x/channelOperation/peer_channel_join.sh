@@ -29,6 +29,8 @@ CHANNEL_ID=trackandtrace
 ### Address of the orderer ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
 
+### PATH to TLS CERT Orderer Node inside the above mentioned container  ###
+TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      printHelp()
@@ -36,15 +38,14 @@ ORDERER_ADDRESS=orderer.unibw.de:7050
 # -------------------------------------------------------------------------------------------------------------------
 function printHelp() {
   echo "Usage: "
-  echo "  peer_channel_join.sh <[-f <path for .yaml file>]>"
-  echo "    TODO"
+  echo "  peer_channel_join.sh [-t <Path to TLS Certficate for orderer>] [-n <Docker container name] [-o <Orderer FQDN>] [-c <channelID name>]"
   echo "  peer_channel_join.sh -h (print this message)"
 }
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?o:c:n:x" opt; do
+while getopts "h?o:c:n:t:" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -59,6 +60,9 @@ while getopts "h?o:c:n:x" opt; do
   n)
     CONTAINER_NAME=$OPTARG
     ;;
+  t)
+    TLS_CERT_ORDERER=$OPTARG
+    ;;
   esac
 done
 
@@ -66,7 +70,7 @@ done
 # Code                                                                                                              #
 #####################################################################################################################
 
-docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem
+docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile $TLS_CERT_ORDERER
 sleep 10
 echo "Peer joining Channel/n"
 docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block" 

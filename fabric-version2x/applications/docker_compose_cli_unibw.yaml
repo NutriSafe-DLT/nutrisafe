@@ -44,7 +44,4 @@ services:
       - ../creatingCryptoMaterial/crypto-config/ordererOrganizations/unibw.de/users/Admin@unibw.de/:/etc/hyperledger/msp/orderer
     networks:
       - orderingservice_basic
-    #depends_on:
-    #  - orderer.example.com
-    #  - peer0.org1.example.com
-    #  - couchdb
+

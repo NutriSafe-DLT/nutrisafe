@@ -1,0 +1,1 @@
+# UPDATE: Moved files to repository [Nutrisafe-Explorer](https://github.com/NutriSafe-DLT/nutrisafe-explorer)

@@ -20,8 +20,8 @@
 # Description:  Default parameters
 # -------------------------------------------------------------------------------------------------------------------
 PATH_TO_YAML_FILE=./crypto_config_authority.yaml
-ORGANISATION_TYPE=peerOrganization
-ORGANISATION_DOMAIN=authority.de
+ORGANIZATION_TYPE=peerOrganization
+ORGANIZATION_DOMAIN=authority.de
 
 # -------------------------------------------------------------------------------------------------------------------
 # Section:      printHelp()
@@ -39,7 +39,7 @@ function printHelp() {
 # Section:      Parameters
 # Description:  List of script parameters
 # -------------------------------------------------------------------------------------------------------------------
-while getopts "h?f:d:x" opt; do
+while getopts "h?f:d:t:x" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -50,6 +50,9 @@ while getopts "h?f:d:x" opt; do
     ;;
   d)
     ORGANIZATION_DOMAIN=$OPTARG
+    ;;
+  t)
+    ORGANIZATION_TYPE=$OPTARG
     ;;
   esac
 done
@@ -68,8 +71,8 @@ done
 if cryptogen extend --config=$PATH_TO_YAML_FILE ; then
   echo "Successfully generated crypto material!"
   echo "Copying public certificates for Admin user..."
-  cp "./crypto-config/"$ORGANISATION_TYPE"s/"$ORGANISATION_DOMAIN/tlsca/tlsca.$ORGANISATION_DOMAIN"-cert.pem" "./crypto-config/"$ORGANISATION_TYPE"s/"$ORGANISATION_DOMAIN/users/"Admin@"$ORGANISATION_DOMAIN/tls/tlsca.$ORGANISATION_DOMAIN"-cert.pem"
-  cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANISATION_TYPE"s/"$ORGANISATION_DOMAIN/users/"Admin@"$ORGANISATION_DOMAIN/tls/tlsca.unibw.de"-cert.pem"
+  cp "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/tlsca/tlsca.$ORGANIZATION_DOMAIN"-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.$ORGANIZATION_DOMAIN"-cert.pem"
+  cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.unibw.de"-cert.pem"
 else
   echo "Something went wrong with the crypto material generation, please check output and logs."
 fi
