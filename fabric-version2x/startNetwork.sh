@@ -195,3 +195,8 @@ cd ../operationsService/
 ./start_prometheus.sh
 
 echo -e "🚀 Successfully started 🚀"
+
+inecho -e "⌛Populating initial data model... ⌛"
+cd ../../demodata/
+python generate_demodata.py headless init
+echo -e "✅ Data model initialization complete! ✅
