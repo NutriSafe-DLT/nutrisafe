@@ -8,12 +8,14 @@ import requests
 import os
 import time
 import getpass
+import sys
 from consolemenu import *
 from consolemenu.items import *
 
 currentToken = 'NONE'
 ORGANIZATIONS_LIST = ["DeoniMSP","BrangusMSP","PinzgauerMSP","AuthorityMSP","DurocMSP"]
 SECONDS_TO_WAIT_FOR_HTTP_REQUESTS = 30
+USAGE = "Usage: python " + sys.argv[0] + " for interactive OR python " + sys.argv[0] + " headless init"
 apiPassword = ''
 
 
@@ -219,17 +221,27 @@ def get_auth_token():
     else:
         print(r.status_code)
         return False
-   
-menu = ConsoleMenu("Demo data generator for NutriSafe V0.2", "Please select type of generation")
 
-initialization_item = FunctionItem("Initialize data model", init_demo_datastructures)
-scenario_based_item = FunctionItem("Scenario-based: Soft Cheese", generate_scenario, ["scenarioCheese.json"])
-random_based_item = FunctionItem("Random generation of objects", generate_random_objects)
-menu.append_item(initialization_item)
-menu.append_item(scenario_based_item)
-menu.append_item(random_based_item)
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        menu = ConsoleMenu("Demo data generator for NutriSafe V0.2", "Please select type of generation")
 
-menu.show()
+        initialization_item = FunctionItem("Initialize data model", init_demo_datastructures)
+        scenario_based_item = FunctionItem("Scenario-based: Soft Cheese", generate_scenario, ["scenarioCheese.json"])
+        random_based_item = FunctionItem("Random generation of objects", generate_random_objects)
+        menu.append_item(initialization_item)
+        menu.append_item(scenario_based_item)
+        menu.append_item(random_based_item)
+        menu.show()
+    if len(sys.argv) > 2:
+     if sys.argv[1] == "headless" and sys.argv[2] == "init":
+         print("Starting data structure initialization...")
+         init_demo_datastructures()
+     else:
+         raise SystemExit(USAGE)
+    else:
+        raise SystemExit(USAGE)
+       
 
 
 
