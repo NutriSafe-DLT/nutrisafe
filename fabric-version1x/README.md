@@ -187,5 +187,5 @@ cd creatingCryptoMaterial
 ```
 4. Stop Network
 ```
-./stopNetwork.sh
+./removeNetwork.sh
 ```
