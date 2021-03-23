@@ -90,7 +90,7 @@ curl -sSL http://bit.ly/2ysbOFE | bash -s
 ```
 3. Stop Network
 ```
-./stopNetwork.sh
+./removeNetwork.sh
 ```
 
 ### Chaincode development

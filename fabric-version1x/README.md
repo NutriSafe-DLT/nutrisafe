@@ -149,7 +149,7 @@ Please note that this configuration has been tested with macOS 10.15, it may als
 ## Prerequisites
 git is usually included with the Xcode SDK, so you may not need to install it explicitly if you have the SDK active. If you use brew as a package manager you probably already have this installed.
 
-````
+```
 xcode-select --install
 ```
 
@@ -157,7 +157,7 @@ Docker can be obtained in the macOS-Version on the official website, please note
 
 As a package manager we also recommend brew or ports. In this documentation we have tested with brew, so make sure you have this installed on your mac (you need _admin_ permissions to do this, so do not attempt to install with user permissions only).
 
-````
+```
 brew install jq
 ```
 
@@ -165,7 +165,7 @@ brew install jq
 First go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation)
 
 OR with brew (if installed correctly NO admin permissions are needed):
-````
+```
 brew install golang
 ```
 ## Clone NutriSafe GIT Repository
@@ -174,17 +174,18 @@ git clone <path_to_nutrisafe_repo>
 
 ## NutriSafe Network
 1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
-````
-cd creatingCryptoMaterial
-for filename in ./*.yaml ; do
-  ./create_crypto_peer_organisation.sh -f $filename
-done
 ```
-2. Start Network
+cd creatingCryptoMaterial
+```
+2. Run `process_yaml.sh`
+```
+./process_yaml.sh
+```
+3. Start Network
 ```
 ./startNetwork.sh
 ```
-3. Stop Network
+4. Stop Network
 ```
-./stopNetwork.sh
+./removeNetwork.sh
 ```
