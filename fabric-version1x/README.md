@@ -104,9 +104,7 @@ git clone <path_to_nutrisafe_repo>
 Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
 ```
 cd creatingCryptoMaterial
-for filename in ./*.yaml ; do
-  ./create_crypto_peer_organisation.sh -f $filename
-done
+
 ```
 2. Start Network
 ```
@@ -177,9 +175,9 @@ git clone <path_to_nutrisafe_repo>
 ```
 cd creatingCryptoMaterial
 ```
-2. Run `process_yaml.sh`
+2. Run `generate_crypto_materials_allorgs.sh`
 ```
-./process_yaml.sh
+./generate_crypto_materials_allorgs.sh
 ```
 3. Start Network
 ```
