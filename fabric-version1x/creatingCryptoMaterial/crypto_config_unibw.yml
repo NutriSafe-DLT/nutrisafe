@@ -5,7 +5,7 @@
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Reimers, Andreas Hermann, Razvan Hrestic
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -28,4 +28,6 @@ OrdererOrgs:
     ### Has to be changed to the organisational domain ###
     Domain: unibw.de
     Specs:
+      - Hostname: orderer
+      - Hostname: orderer1
       - Hostname: orderer2

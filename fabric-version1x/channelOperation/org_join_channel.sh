@@ -22,7 +22,7 @@ JOINING_ORGANISATION=Salers
 ### which has the rights to allow an organisation to join the channel.                                           ###
 CONTAINER_NAME=cli.deoni.de
 ### Name of the  channel ###
-CHANNEL_ID=cheese
+CHANNEL_ID=trackandtrace
 ### Address of an orderer node ###
 ORDERER_ADDRESS=orderer.unibw.de:7050
 

@@ -12,3 +12,8 @@ fabric-version2x/configTransactions/org.json
 .idea/*
 demodata/.DS_Store
 fabric-version2x/configTransactions/*.tx
+fabric-version1x/configTransactions/*.pb
+fabric-version1x/configTransactions/*.block
+fabric-version1x/configTransactions/org.json
+fabric-version1x/configTransactions/*.*
+fabric-version1x/creatingCryptoMaterial/crypto-config/*

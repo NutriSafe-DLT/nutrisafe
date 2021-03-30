@@ -26,19 +26,31 @@
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
+dockerimages=$(docker ps -aq)
+if [[ -n "$dockerimages" ]]; 
+then
+    ### Stop all docker containers (reverse creation order)
+    docker stop ns_prometheus
+    docker rm ns_prometheus
+    cd peerOperation/
+    docker-compose -f docker_compose_peer_cli_couchdb_deoni.yaml down
+    cd ../applications/
+    docker-compose -f docker_compose_cli_unibw.yaml down
+    cd ../orderingService/
+    docker-compose -f docker_compose_orderer_unibw.yaml down
+ 
+    ### Remove old chaincode images
+    docker rmi $(docker images | grep dev | tr -s ' ' | cut -d ' ' -f 3) &> /dev/null
+    cd ..
+else
+    echo "No docker images to delete..." 
+fi
 
-### Stop all docker containers
-docker stop $(docker ps -aq)
 
-### Remove all docker containers
-docker rm $(docker ps -aq)
-
-### Remove old chaincode images
-docker rmi $(docker images | grep dev | tr -s ' ' | cut -d ' ' -f 3)
-
-### Remove all files from configTransactions
+### Remove all files from configTransactions but the README file
 cd configTransactions/
+pwd
 shopt -s extglob
-sudo rm !(README.md)
+rm -f !(README.md|newRaftNode)
 
 echo "See you next time! 👋"
