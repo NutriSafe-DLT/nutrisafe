@@ -26,9 +26,15 @@
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
-
-### Stop all docker containers
-docker stop $(docker ps -aq)
+dockerimages=$(docker ps -aq)
+if [[ -n "$dockerimages" ]]; 
+then
+    ### Stop all docker containers
+    docker stop $dockerimages
+else
+    echo "No docker images to delete..."
+    exit
+fi
 
 ### Remove all docker containers
 docker rm $(docker ps -aq)
