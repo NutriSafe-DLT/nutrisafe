@@ -8,7 +8,7 @@
 # This work is licensed under a Creative Commons Attribution 4.0 International License
 # (http://creativecommons.org/licenses/by/4.0/).
 #
-# Author(s): Tim Reimers, Andreas Hermann
+# Author(s): Tim Hoiß, Andreas Hermann
 # NutriSafe Research Project
 # Institute for Protection and Dependability
 # Department of Computer Science
@@ -70,9 +70,9 @@ done
 # Code                                                                                                              #
 #####################################################################################################################
 
-docker exec $CONTAINER_NAME peer channel fetch config -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile $TLS_CERT_ORDERER
+docker exec $CONTAINER_NAME peer channel fetch oldest -c $CHANNEL_ID -o $ORDERER_ADDRESS --tls --cafile $TLS_CERT_ORDERER
 sleep 10
 echo "Peer joining Channel/n"
-docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_config.block" 
+docker exec $CONTAINER_NAME peer channel join -b "./"$CHANNEL_ID"_oldest.block" 
 
 CHANNEL_ID=cheese
