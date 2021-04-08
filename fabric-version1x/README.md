@@ -166,6 +166,17 @@ OR with brew (if installed correctly NO admin permissions are needed):
 ```
 brew install golang
 ```
+
+#### Install specific hyperledger fabric and ca version
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
+```
+
+In order to run further scripts e.g. cryptogen etc. you need to add the fabric-samples/bin to the PATH environment variable.
+```
+export PATH=<path to download location>/bin:$PATH
+```
+
 ## Clone NutriSafe GIT Repository
 
 git clone <path_to_nutrisafe_repo>
