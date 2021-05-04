@@ -17,3 +17,4 @@ fabric-version1x/configTransactions/*.block
 fabric-version1x/configTransactions/org.json
 fabric-version1x/configTransactions/*.*
 fabric-version1x/creatingCryptoMaterial/crypto-config/*
+automation/playbook/files/id_rsa.export
