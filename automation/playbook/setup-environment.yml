@@ -25,55 +25,42 @@
         # If you're using apt on Ubuntu, change focal for your machine's actual codename
         # If you're not using apt at all, you'll have to change the next steps to install
         # Docker using a different method.
-        #- name: Add Docker apt repo
-        #  apt_repository:
-        #    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
-        #    state: present
+        - name: Add Docker apt repo
+          apt_repository:
+            repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+            state: present
     
-        #- name: Install deployment dependencies (apt)
-        #  apt:
-        #    update_cache: yes
-        #    allow_unauthenticated: yes
-        #    name:
-        #      - python3-pip
-        #      - xz-utils
+        - name: Install deployment dependencies (apt)
+          apt:
+            update_cache: yes
+            allow_unauthenticated: yes
+            name:
+              - python3-pip
+              - xz-utils
         #      # Allows Ansible to become an unprivileged user
         #      # https://github.com/georchestra/ansible/issues/55#issuecomment-588313638
-        #      - acl
+              - acl
 
-        #- name: Install Docker and Docker Compose (apt)
-        #  apt:
-        #    update_cache: yes
-        #    allow_unauthenticated: yes
-        #    name:
-        #      - docker-ce 
-        #      - docker-ce-cli 
-        #      - containerd.io 
-        #      - docker-compose
+        - name: Install Docker and Docker Compose (apt)
+          apt:
+            update_cache: yes
+            allow_unauthenticated: yes
+            name:
+              - docker-ce 
+              - docker-ce-cli 
+              - containerd.io 
+              - docker-compose
 
-        #- name: Install docker library dependency (pip)
-        #  pip:
-        #    name: docker
+        - name: Install docker library dependency (pip)
+          pip:
+            name: docker
     
-        - name: Create unprivileged user for deploying and running services
-          user:
-            name: deploy
-            shell: /bin/bash
-            groups:
-              # Allow deploy to run Docker and Docker Compose
-              - docker
-    
-        - name: Create SSH directory for the deploy user
-          file:
-            path: /home/deploy/.ssh
-            state: directory
-            mode: 0700
-            owner: deploy
         
-        #- name: Create SSHD config subdirectory
-        #  file:
-        #    path: /etc/ssh/sshd_config.d
-        #    state: directory  
+        
+        - name: Create SSHD config subdirectory
+          file:
+            path: /etc/ssh/sshd_config.d
+            state: directory  
     
         # Don't allow the deploy user to set their authorized keys! Otherwise, it can escape from
         # its one-command jail.
@@ -90,58 +77,24 @@
             line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
             regexp: "^github\\.com"
 
-        - name: ensure github.com is a known host for root
-          lineinfile:
-            dest: "/home/deploy/.ssh/known_hosts"
-            create: yes
-            state: present
-            line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
-            regexp: "^github\\.com"
-
-        - name: add github ssh key
-          copy:
-              src: files/id_rsa.export
-              dest: /home/deploy/.ssh/id_rsa.github
-              owner: deploy
-              group: deploy
-              mode: 0600
-          
-        - name: configure ssh to use ansible key for github.com
-          template:
-              src: ssh_config.j2
-              dest: /home/deploy/.ssh/config
-              owner: deploy
-              group: deploy
-              mode: 0644
-
         - name: Cleanup git repo target directory
           file:
             state: absent
-            path: home/deploy/nutrisafe
+            path: "/home/{{ vm_ssh_user }}/nutrisafe-test"
 
         - name: Create Github directory for the deploy user
           file:
-            path: /home/deploy/nutrisafe
+            path: "/home/{{ vm_ssh_user }}/nutrisafe-test"
             state: directory
             mode: 0700
-            owner: deploy
+            owner: "{{ vm_ssh_user }}"
 
         # This action does not currently work, this is why we use the shell action below.
         - name: Clone Nutrisafe repository from github
           become: true
-          become_user: deploy
+          become_user: "{{ vm_ssh_user }}"
           git: 
-            repo: git@github.com:nutrisafe-dlt/nutrisafe.git 
-            dest: /home/deploy/nutrisafe
+            repo: "git@github.com:NutriSafe-DLT/nutrisafe.git" 
+            dest: "/home/{{ vm_ssh_user }}/nutrisafe-test"
             version: feature-fix-macos-chaincode
             accept_hostkey: yes
-
-        #- name: Test SSH
-        #  become: true
-        #  become_user: deploy
-        #  shell: ssh -i /home/deploy/.ssh/id_rsa.git -T git@github.com
-
-        #- name: Clone the repository
-        #  become: true
-        #  become_user: deploy
-        #  shell: GIT_SSH_COMMAND="ssh -i /home/deploy/.ssh/id_rsa.github -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git clone git@github.com:nutrisafe-dlt/nutrisafe.git --branch feature-fix-macos-chaincode --single-branch /home/deploy/nutrisafe
