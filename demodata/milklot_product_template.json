@@ -1,0 +1,9 @@
+{
+    "id": "MILK10",
+    "pdc": "",
+    "product": "milk",
+    "amount": "100",
+    "unit": "Liter",
+    "attributes": ["Quality"],
+    "attrValues": ["100"]
+}
