@@ -54,8 +54,6 @@
         - name: Install docker library dependency (pip)
           pip:
             name: docker
-    
-        
         
         - name: Create SSHD config subdirectory
           file:

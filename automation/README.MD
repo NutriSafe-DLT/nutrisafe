@@ -5,6 +5,16 @@
 Please use the following URL to install Ansible for your platform:
 <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible install documentation</a>
 
+## Set up SSH Agent on your host machine
+
+Start by instantiation of the ssh agent on your machine using this command, afterwards run ssh-add (you can skip the arguments if you just generated a standard SSH key).
+
+This solution uses SSH Agent Forwarding - this means that ansible will use your own SSH Certificates and these have to be configured in github as accepted keys, otherwise this will not work. On the other hand this is the most secure way because we do not include any private keys with the playbook itself.
+
+```
+eval `ssh-agent -s`
+ssh-add -K ~/.ssh/id_rsa
+```
 ## Run playbook(s)
 You need to store your username and password for docker hub in the local ansible-vault before you get started.
 
