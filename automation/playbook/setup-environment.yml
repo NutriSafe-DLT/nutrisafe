@@ -69,7 +69,10 @@
         #    src: ./authorized_keys_file.conf
         #    dest: /etc/ssh/sshd_config.d/authorized_keys_file.conf
 
-        - name: ensure github.com is a known host
+        - name: Install go 
+          command: snap install go --classic
+        
+        - name: Ensure github.com is a known host
           lineinfile:
             dest: "/home/{{ vm_ssh_user }}/.ssh/known_hosts"
             create: yes
@@ -89,7 +92,7 @@
             mode: 0700
             owner: "{{ vm_ssh_user }}"
 
-        # This action does not currently work, this is why we use the shell action below.
+        
         - name: Clone Nutrisafe repository from github
           become: true
           become_user: "{{ vm_ssh_user }}"
@@ -98,3 +101,24 @@
             dest: "/home/{{ vm_ssh_user }}/nutrisafe-test"
             version: feature-fix-macos-chaincode
             accept_hostkey: yes
+
+        - name: Clone Nutrisafe Chaincode repository from github
+          become: true
+          become_user: "{{ vm_ssh_user }}"
+          git: 
+            repo: "git@github.com:NutriSafe-DLT/nutrisafe-chaincode.git" 
+            dest: "/home/{{ vm_ssh_user }}/nutrisafe-test/fabric-version2x/chaincode/nutrisafe-chaincode"
+            accept_hostkey: yes
+
+        # This action downloads V2.2 Hyperledger binaries 
+        - name: Bootstrap Hyperledger Fabric V22
+          become: true
+          become_user: "{{ vm_ssh_user }}"
+          shell:
+            cmd: curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh | bash -s -- -d
+            chdir: "/home/{{ vm_ssh_user }}"
+
+        # Synchronize fabric dirs
+        - name: Copy downloaded hyperledger binaries
+          command: cp -r "/home/{{ vm_ssh_user }}/fabric-samples/." "/usr/fabric/bin22/"
+

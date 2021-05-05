@@ -1,0 +1,13 @@
+---
+    - hosts: all
+      become: yes
+      become_user: rhdev
+      tasks:
+        - name: Start Network V2
+          shell:
+            cmd: ./startNetwork.sh
+            chdir: "/home/{{ vm_ssh_user }}/nutrisafe-test/fabric-version2x"
+          environment:
+            PATH: $PATH:/usr/fabric/bin22/bin
+          args: 
+            executable: /bin/bash

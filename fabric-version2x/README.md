@@ -21,6 +21,11 @@ We used an UBUNTU 18.04 Server instance.
 
 After setting up the server, the connections and the development environment, we started to install the necessary tools for a running Hyperledger Fabric network (see <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html">HL Fabric Docs</a>).
   
+Minimum hardware requirements:
+
+- 2 vCPUs
+- 8 GB RAM
+- Use Disk/Partition should have at least 15 GB free space (at least for the standard scenario)
 
 ## Prerequisites
 
