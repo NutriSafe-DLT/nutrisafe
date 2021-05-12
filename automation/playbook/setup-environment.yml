@@ -90,14 +90,14 @@
             mode: 0700
             owner: "{{ vm_ssh_user }}"
 
-        
+        # Uncomment the version attribute when e.g. using a specific branch
         - name: Clone Nutrisafe repository from github
           become: true
           become_user: "{{ vm_ssh_user }}"
           git: 
             repo: "git@github.com:NutriSafe-DLT/nutrisafe.git" 
             dest: "/home/{{ vm_ssh_user }}/nutrisafe-test"
-            version: feature-fix-macos-chaincode
+            #version: feature-fix-macos-chaincode
             accept_hostkey: yes
 
         - name: Clone Nutrisafe Chaincode repository from github
