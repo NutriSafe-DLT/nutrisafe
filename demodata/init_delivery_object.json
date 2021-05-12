@@ -1,0 +1,4 @@
+{
+    "product":"delivery",
+    "attributes":["barcode","lotid","bestbeforedate","state"]
+}

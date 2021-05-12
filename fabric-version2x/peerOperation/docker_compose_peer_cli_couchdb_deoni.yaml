@@ -60,7 +60,7 @@ services:
       - 7051:7051
       - 7053:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/peers/peer0.deoni.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.deoni.de
@@ -98,7 +98,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/deoni.de/users/Admin@deoni.de/:/etc/hyperledger/msp/users/admin/
@@ -151,7 +151,7 @@ services:
       - 7061:7051
       - 7063:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/peers/peer0.salers.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.salers.de
@@ -189,7 +189,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/salers.de/users/Admin@salers.de:/etc/hyperledger/msp/users/admin/
@@ -241,7 +241,7 @@ services:
       - 7071:7051
       - 7073:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/peers/peer0.brangus.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.brangus.de
@@ -279,7 +279,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/brangus.de/users/Admin@brangus.de:/etc/hyperledger/msp/users/admin/
@@ -330,7 +330,7 @@ services:
       - 7081:7051
       - 7083:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/peers/peer0.pinzgauer.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.pinzgauer.de
@@ -368,7 +368,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/pinzgauer.de/users/Admin@pinzgauer.de:/etc/hyperledger/msp/users/admin/
@@ -420,7 +420,7 @@ services:
       - 7091:7051
       - 7093:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/peers/peer0.tuxer.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.tuxer.de
@@ -458,7 +458,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/tuxer.de/users/Admin@tuxer.de:/etc/hyperledger/msp/users/admin/
@@ -510,7 +510,7 @@ services:
       - 7101:7051
       - 7103:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/peers/peer0.authority.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.authority.de
@@ -548,7 +548,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/authority.de/users/Admin@authority.de:/etc/hyperledger/msp/users/admin/
@@ -600,7 +600,7 @@ services:
       - 7111:7051
       - 7113:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/peers/peer0.schwarzfuss.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.schwarzfuss.de
@@ -638,7 +638,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ./../chaincode/:/opt/gopath/src/github.com/
       - ./../configTransactions/:/opt/gopath/src/github.com/hyperledger/fabric/peer
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/schwarzfuss.de/users/Admin@schwarzfuss.de:/etc/hyperledger/msp/users/admin/
@@ -690,7 +690,7 @@ services:
       - 7121:7051
       - 7123:7053
     volumes:
-      - /var/run/:/host/var/run/
+      - /var/run/docker.sock:/host/var/run/docker.sock
       - ../creatingCryptoMaterial/crypto-config/peerOrganizations/duroc.de/peers/peer0.duroc.de:/etc/hyperledger/msp/peer
     depends_on:
       - couchdb.duroc.de

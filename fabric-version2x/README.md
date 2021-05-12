@@ -21,6 +21,11 @@ We used an UBUNTU 18.04 Server instance.
 
 After setting up the server, the connections and the development environment, we started to install the necessary tools for a running Hyperledger Fabric network (see <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html">HL Fabric Docs</a>).
   
+Minimum hardware requirements:
+
+- 2 vCPUs
+- 8 GB RAM
+- Use Disk/Partition should have at least 15 GB free space (at least for the standard scenario)
 
 ## Prerequisites
 
@@ -42,7 +47,7 @@ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent softwa
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo apt-key fingerprint 0EBFCD88
+sudo apt-key fingerprint 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
 
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable"
 
@@ -68,16 +73,21 @@ Follow the instructions on <a href="https://github.com/golang/go/wiki/Ubuntu">go
 sudo snap install go --classic
 ```
 
-Set the environment variables
+Set the environment variables for GO
 ```
 $ export GOROOT=/usr/local/go
 $ export GOPATH=/home/ubuntu/Dev/fabric-samples/
 $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ```
 
-### Download hyperledger/fabric-samples
+### Download hyperledger/fabric-samples and setup environment variables
 ```
-curl -sSL http://bit.ly/2ysbOFE | bash -s
+curl -sSL http://bit.ly/2ysbOFE | bash -s 2.2.1
+```
+OR directly bootstrap to version 2.2
+
+```
+sudo curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh | sudo bash -s -- -d
 ```
 
 ### Clone GIT Repository
@@ -114,7 +124,8 @@ docker rm $(docker ps -a -q)
 1. Installing Docker
 2. Installing Golang --> set Paths 
 3. Cloning of the fabric-samples git repo
-4. execute https://github.com/hyperledger/fabric/blob/release-1.4/scripts/bootstrap.sh
+4. execute https://github.com/hyperledger/fabric/blob/release-2.2/scripts/bootstrap.sh
 
-
-
+```
+sudo curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh | sudo bash -s -- -d
+```

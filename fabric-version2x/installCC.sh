@@ -146,7 +146,7 @@ do
          exit 1
      fi
   fi
-  sleep 2s
+  sleep 8s
  CC_PACKAGE_ID=$(docker exec cli.deoni.de bash -c "peer lifecycle chaincode queryinstalled | grep Label| sort | tr -s ' '| cut -d ' ' -f 3 | cut -d , -f 1 | tail -n1")
   echo "Chaincode ID ${CC_PACKAGE_ID}"
   echo "Approve on '$i'"
@@ -163,10 +163,9 @@ docker exec cli.deoni.de bash -c "peer lifecycle chaincode checkcommitreadiness 
 PEER_CONFIG_COMMANDSEGMENT=""
 for ((i=0;i<"${#peer_addresses[@]}";++i)) ;
 do
-  echo $i
   PEER_CONFIG_COMMANDSEGMENT+=" --peerAddresses ${peer_addresses[i]} --tlsRootCertFiles ${peer_certfiles[i]}"
 done
-echo $PEER_CONFIG_COMMANDSEGMENT
+
 docker exec cli.deoni.de bash -c "peer lifecycle chaincode commit --collections-config /opt/gopath/src/github.com/'$CCNAME'/$collections_filename --signature-policy $SIGNATURE_POLICY -o orderer.unibw.de:7050 --channelID '$CHANNEL' --name '$CCNAME' --version '$CCVERSION' --sequence '$SEQUENCE' --tls --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem $PEER_CONFIG_COMMANDSEGMENT"
 docker exec cli.deoni.de bash -c "peer lifecycle chaincode querycommitted --channelID '$CHANNEL' --name '$CCNAME' --cafile /etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 

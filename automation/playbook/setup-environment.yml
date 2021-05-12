@@ -1,0 +1,122 @@
+---
+    - hosts: all
+      become: yes
+      become_user: root
+      tasks:
+        # Most of the initial tasks follow the instructions here: https://docs.docker.com/engine/install/ubuntu/
+        # for install Docker Engine on Ubuntu.
+    
+        # Packages needs to use HTTPS apt repos
+        - name: Prepare to add Docker apt repo
+          apt:
+            name:
+              - apt-transport-https
+              - ca-certificates
+              - curl
+              - gnupg-agent
+              - software-properties-common
+    
+        - name: Add Docker repo key
+          apt_key:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+            state: present
+    
+        # If you're using apt on Ubuntu, change focal for your machine's actual codename
+        # If you're not using apt at all, you'll have to change the next steps to install
+        # Docker using a different method.
+        - name: Add Docker apt repo
+          apt_repository:
+            repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+            state: present
+    
+        - name: Install deployment dependencies (apt)
+          apt:
+            update_cache: yes
+            allow_unauthenticated: yes
+            name:
+              - python3-pip
+              - xz-utils
+        #      # Allows Ansible to become an unprivileged user
+        #      # https://github.com/georchestra/ansible/issues/55#issuecomment-588313638
+              - acl
+
+        - name: Install Docker and Docker Compose (apt)
+          apt:
+            update_cache: yes
+            allow_unauthenticated: yes
+            name:
+              - docker-ce 
+              - docker-ce-cli 
+              - containerd.io 
+              - docker-compose
+
+        - name: Install docker library dependency (pip)
+          pip:
+            name: docker
+        
+        - name: Create SSHD config subdirectory
+          file:
+            path: /etc/ssh/sshd_config.d
+            state: directory  
+    
+        # Don't allow the deploy user to set their authorized keys! Otherwise, it can escape from
+        # its one-command jail.
+        #- name: Configure SSHD to read authorized keys from /etc/ssh/authorized_keys/<user>
+        #  copy:
+        #    src: ./authorized_keys_file.conf
+        #    dest: /etc/ssh/sshd_config.d/authorized_keys_file.conf
+
+        - name: Install go 
+          command: snap install go --classic
+        
+        - name: Ensure github.com is a known host
+          lineinfile:
+            dest: "/home/{{ vm_ssh_user }}/.ssh/known_hosts"
+            create: yes
+            state: present
+            line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+            regexp: "^github\\.com"
+
+        - name: Cleanup git repo target directory
+          file:
+            state: absent
+            path: "/home/{{ vm_ssh_user }}/nutrisafe-test"
+
+        - name: Create Github directory for the deploy user
+          file:
+            path: "/home/{{ vm_ssh_user }}/nutrisafe-test"
+            state: directory
+            mode: 0700
+            owner: "{{ vm_ssh_user }}"
+
+        
+        - name: Clone Nutrisafe repository from github
+          become: true
+          become_user: "{{ vm_ssh_user }}"
+          git: 
+            repo: "git@github.com:NutriSafe-DLT/nutrisafe.git" 
+            dest: "/home/{{ vm_ssh_user }}/nutrisafe-test"
+            version: feature-fix-macos-chaincode
+            accept_hostkey: yes
+
+        - name: Clone Nutrisafe Chaincode repository from github
+          become: true
+          become_user: "{{ vm_ssh_user }}"
+          git: 
+            repo: "git@github.com:NutriSafe-DLT/nutrisafe-chaincode.git" 
+            dest: "/home/{{ vm_ssh_user }}/nutrisafe-test/fabric-version2x/chaincode/nutrisafe-chaincode"
+            accept_hostkey: yes
+
+        # This action downloads V2.2 Hyperledger binaries 
+        - name: Bootstrap Hyperledger Fabric V22
+          become: true
+          become_user: "{{ vm_ssh_user }}"
+          shell:
+            cmd: curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh | bash -s -- -d
+            chdir: "/home/{{ vm_ssh_user }}"
+
+        # Synchronize fabric dirs
+        - name: Copy downloaded hyperledger binaries
+          command: cp -r "/home/{{ vm_ssh_user }}/fabric-samples/." "/usr/fabric/bin22/"
+

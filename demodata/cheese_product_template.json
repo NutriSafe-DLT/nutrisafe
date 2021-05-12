@@ -1,0 +1,9 @@
+{
+    "id": "CHEESE123",
+    "pdc": "",
+    "product": "cheese",
+    "amount": "100",
+    "unit": "Package",
+    "attributes": ["Quality"],
+    "attrValues": ["100"]
+}
