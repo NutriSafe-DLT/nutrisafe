@@ -110,9 +110,9 @@ cd creatingCryptoMaterial
 ```
 ./startNetwork.sh
 ```
-3. Stop Network
+3. In case you wish to remove the network use the below command:
 ```
-./stopNetwork.sh
+./removeNetwork.sh
 ```
 
 ### Chaincode development
@@ -142,7 +142,7 @@ docker rm $(docker ps -a -q)
 # Development MacOS
 
 ## Environment
-Please note that this configuration has been tested with macOS 10.15, it may also work with previous versions.
+Please note that this configuration has been tested with macOS 10.15 and 11.2 (Big Sur) it may also work with previous versions.
 
 ## Prerequisites
 git is usually included with the Xcode SDK, so you may not need to install it explicitly if you have the SDK active. If you use brew as a package manager you probably already have this installed.
@@ -152,17 +152,33 @@ xcode-select --install
 ```
 
 Docker can be obtained in the macOS-Version on the official website, please note that docker-composer will be installed automatically when installing docker.
+[Here is the link to the docker website to download Docker Desktop](https://www.docker.com/get-started)
 
 As a package manager we also recommend brew or ports. In this documentation we have tested with brew, so make sure you have this installed on your mac (you need _admin_ permissions to do this, so do not attempt to install with user permissions only).
+
+### Installation with Brew
+
+To install brew you can go to [The Brew Website](https://brew.sh) or directly run:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+After installing brew run this:
 
 ```
 brew install jq
 ```
 
-### Install Go (golang)
+### OR Installation directly from the website (without Brew)
+
+If you prefer to install jq directly from the product website please use [this URL](https://stedolan.github.io/jq/)
+
+### Install Go (golang) without Brew
 First go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation)
 
-OR with brew (if installed correctly NO admin permissions are needed):
+### OR Go installation with Brew
+
+Install command (if installed correctly NO admin permissions are needed):
 ```
 brew install golang
 ```
@@ -171,6 +187,19 @@ brew install golang
 ```
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
 ```
+Examples: 
+- For Version 1.4 with the corresponding fabric-ca version. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 1.4.6
+```
+
+- For Version 2.2 you may use the example below. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 2.2.1
+```
+When newer builds are available e.g. 1.4.12 you may use this instead of the example above and it usually will work. If, however, the minor version number increases e.g. 2.3 instead of 2.2 it may be that you will experience some issues.
 
 In order to run further scripts e.g. cryptogen etc. you need to add the fabric-samples/bin to the PATH environment variable.
 ```
@@ -179,12 +208,16 @@ export PATH=<path to download location>/bin:$PATH
 
 ## Clone NutriSafe GIT Repository
 
+
+```
 git clone <path_to_nutrisafe_repo>
+```
 
 ## NutriSafe Network
 1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
 ```
-cd creatingCryptoMaterial
+cd <name_of_repository>/fabric-version1x/creatingCryptoMaterial
+//e.g. for nutrisafe repository this will be "cd nutrisafe/fabric-version1x/creatingCryptoMaterial"
 ```
 2. Run `generate_crypto_materials_allorgs.sh`
 ```
@@ -192,9 +225,10 @@ cd creatingCryptoMaterial
 ```
 3. Start Network
 ```
+cd .. //this will switch to the folder above (example from creatingCryptoMaterial to fabric-version1x)
 ./startNetwork.sh
 ```
-4. Stop Network
+4. In case you wish to remove the network use the below command:
 ```
 ./removeNetwork.sh
 ```
