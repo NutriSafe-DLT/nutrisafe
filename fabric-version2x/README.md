@@ -147,7 +147,14 @@ Docker can be obtained in the macOS-Version on the official website, please note
 
 As a package manager we also recommend brew or ports. In this documentation we have tested with brew, so make sure you have this installed on your mac (you need _admin_ permissions to do this, so do not attempt to install with user permissions only).
 
-### Installation with Brew
+### Prerequisite installation directly from the website (without Brew)
+
+If you prefer to install jq directly from the product website please use [this URL](https://stedolan.github.io/jq/)
+
+For the Golang package go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation).
+
+
+## OR Prerequisite Installation with Brew
 
 To install brew you can go to [The Brew Website](https://brew.sh) or directly run:
 ```
@@ -158,19 +165,6 @@ After installing brew run this:
 
 ```
 brew install jq
-```
-
-### OR Installation directly from the website (without Brew)
-
-If you prefer to install jq directly from the product website please use [this URL](https://stedolan.github.io/jq/)
-
-### Install Go (golang) without Brew
-First go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation)
-
-### OR Go installation with Brew
-
-Install command (if installed correctly NO admin permissions are needed):
-```
 brew install golang
 ```
 
@@ -219,7 +213,19 @@ cd <name_of_repository>/fabric-version1x/creatingCryptoMaterial
 cd .. //this will switch to the folder above (example from creatingCryptoMaterial to fabric-version1x)
 ./startNetwork.sh
 ```
-4. In case you wish to remove the network use the below command:
+4. Download chaincode (in this example we download the NutriSafe chaincode but you can also use your own chaincode here)
+```
+cd chaincode //switch to the chaincode subfolder 
+git clone https://github.com/NutriSafe-DLT/nutrisafe-chaincode.git 
+cd ..
+./installCC.sh
+```
+If you are using your own repository then you need to pass the name to the installCC.sh script as follows:
+./installCC.sh -c <my_chaincode_name>
+This assumes that you have java chaincode. If you are using go chaincode you can also specifiy this:
+./installCC.sh -c <my_chaincode_name> -n go
+
+5. In case you wish to remove the network use the below command:
 ```
 ./removeNetwork.sh
 ```

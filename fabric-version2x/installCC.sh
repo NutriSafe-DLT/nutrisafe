@@ -41,7 +41,7 @@ LARGE_COLLECTIONS_FILENAME="collections.json"
 SMALL_COLLECTIONS_FILENAME="collections_small.json"
 
 # Parameters for organization and container
-while getopts "h?l:c:v:s:q" opt; do
+while getopts "h?l:c:v:s:q:n" opt; do
   case "$opt" in
   l)
     LABEL=$OPTARG
@@ -54,6 +54,9 @@ while getopts "h?l:c:v:s:q" opt; do
     ;;
   s)
     NETSIZE=$OPTARG
+    ;;
+  n)
+    LANGUAGE=$OPTARG
     ;;
   esac
 done
