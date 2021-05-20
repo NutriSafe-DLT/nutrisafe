@@ -225,6 +225,9 @@ If you are using your own repository then you need to pass the name to the insta
 This assumes that you have java chaincode. If you are using go chaincode you can also specifiy this:
 ./installCC.sh -c <my_chaincode_name> -n go
 
+This is what it should look like if the script completes successfully:
+[InstallCC successful]: https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/installcc_linux.jpg "Screenshot"
+
 5. In case you wish to remove the network use the below command:
 ```
 ./removeNetwork.sh
