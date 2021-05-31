@@ -226,7 +226,7 @@ This assumes that you have java chaincode. If you are using go chaincode you can
 ./installCC.sh -c <my_chaincode_name> -n go
 
 This is what it should look like if the script completes successfully:
-![InstallCC successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/installcc_linux.jpg "Screenshot")
+![InstallCC successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_chaincode_installation.png "Screenshot")
 
 5. In case you wish to remove the network use the below command:
 ```

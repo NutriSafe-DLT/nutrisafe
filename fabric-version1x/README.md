@@ -222,7 +222,14 @@ cd <name_of_repository>/fabric-version1x/creatingCryptoMaterial
 cd .. //this will switch to the folder above (example from creatingCryptoMaterial to fabric-version1x)
 ./startNetwork.sh
 ```
+On sucessful completion of the start script,the final output should look like the screenshot below:
+![startnetwork successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_startnetwork.png)
+
+
 4. In case you wish to remove the network use the below command:
 ```
 ./removeNetwork.sh
 ```
+Once the script runs successfully, this is how the final output should look like:
+
+![removenetwork successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_removenetwork.png)
