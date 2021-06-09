@@ -30,55 +30,58 @@ The levels not used, but recommended for end-users:
 Not all components use all levels of testing. Thus, it is possible for e.g. the Production Dashboard to have unit tests, integration tests and usability tests, however the network setup scripts only need a special case of usability tests. 
 
 # TEST ITEMS / ARTIFACTS
+
 The NutriSafe artifacts to be tested are as follows:
 
-1.	NutriSafe deployment scripts (network)
+1.  NutriSafe deployment scripts (network)
      
-	 a.	Runnable on target environments for the scenarios Track and Trace, Cheese, Coffee (?)
+	 a.Runnable on target environments for the scenarios Track and Trace, Cheese, Coffee (?)
 
-     b.	For each relevant script: existence of documentation for IT users
+     b.For each relevant script: existence of documentation for IT users
 
 2.	DEMO script
 
-     a.	Generation of random data for scenario Cheese
+     a.Generation of random data for scenario Cheese
 	   
-     b.	Generation of data for scripted scenario
+     b.Generation of data for scripted scenario
 
-     c.	Existence of documentation for IT users
+     c.Existence of documentation for IT users
 3.	NutriSafe images (docker)
 
-     a.	Deployment on target environments (image runs and does not exit)
+     a.Deployment on target environments (image runs and does not exit)
 
-     b. For each image: existence of documentation for IT users.
+     b.For each image: existence of documentation for IT users.
 
 4.	NutriSafe chaincode
 
-     a. Unit tests (partially provided by partners)
+     a.Unit tests (partially provided by partners)
 
-     b. Existence of documentation for IT users (installation using script)
+     b.Existence of documentation for IT users (installation using script)
 
 5.	NutriSafe Dashboard
      
-	  a. Unit test framework
+	  a.Unit test framework
 
-      b. Some unit tests - automated
+      b.Some unit tests - automated
 
-      c. Integration tests (REST API,  Chaincode) - automated
+      c.Integration tests (REST API,  Chaincode) - automated
 
-      d .	User Interface tests (manual, checklist)
+      d .User Interface tests (manual, checklist)
+
 6.	All components
 
-	a. Performance or load testing recommendations / guidelines (no actual scripts or tests)
+	  a.Performance or load testing recommendations / guidelines (no actual scripts or tests)
 
-    b.	Security and penetration testing recommendations / guidelines (no actual script or tests)
+      b.Security and penetration testing recommendations / guidelines (no actual script or tests)
 
-    c. System test – scenario-based
+      c.System test – scenario-based
 
-    d. Simulation as a test for scenario validity.
+      d.Simulation as a test for scenario validity.
 
-    e.Serious games as a test for the security concept and awareness of risks and attack vectors.
+      e.Serious games as a test for the security concept and awareness of risks and attack vectors.
 
 # NON-TEST ITEMS EXCLUDED FROM SCOPE
+
 These elements are specifically NOT included here and will not be performed because of limitations in the current research project. Users of the code can modify this scope as they see fit.
 1.	NutriSafe REST API (limited, some tests already in place)
 
@@ -125,8 +128,7 @@ For Webapplications: Browser – Chrome, Firefox
 
 Regarding versioning there are a few details to be documented here. The NutriSafe-Ecosystem uses semantic versioning  as the basic
 
-
- 
+![versioningsystem](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/An%20overview%20of%20the%20versioning%20system%20and%20dependencies%20between%20components.png)
 
 
 
@@ -147,8 +149,9 @@ The actual NutriSafe scenarios are described in the Toolkit. Of these we include
 
 
 ### SCENARIO SOFT CHEESE
+
+![softcheesesupplychain](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/A%20system%20representation%20of%20the%20soft%20cheese%20supply%20chain.png)
  
-Figure 2 -A system representation of the soft cheese supply chain.
 
 
 ### PERSONAS
