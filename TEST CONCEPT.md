@@ -128,7 +128,7 @@ For Webapplications: Browser – Chrome, Firefox
 
 Regarding versioning there are a few details to be documented here. The NutriSafe-Ecosystem uses semantic versioning  as the basic
 
-![versioningsystem](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/An%20overview%20of%20the%20versioning%20system%20and%20dependencies%20between%20components.png)
+![versioningsystem]()
 
 
 
