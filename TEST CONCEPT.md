@@ -3,10 +3,14 @@
 # INTRODUCTION
 
 The NutriSafe Toolkit is meant to offer several software artifacts as well as guidance to practitioners in the industry. While we strive to make the software as easy to use as possible, a certain amount of complexity remains. In order to better understand how the product works and later how to extend it, one also needs to know how it should be tested. In this document we will be documenting our principles and scenarios for testing, as well as test strategies and tools employed. We based the structure of this document on the existing ISO/IEC/IEEE norm (ISO/IEC 2013) and it is loosely comparable to the Test Plan but also include Test Policy aspects.
+&nbsp;
+ &nbsp;
 
 # HOW TO USE THIS DOCUMENT
 
 Please review and update this document at least once per release (or iteration if you are using agile methods). The document should have a specified release correspondence and cannot be assumed to be valid for newer iterations or versions.
+&nbsp;
+ &nbsp;
 
 # CHALLENGES FOR THE TEST PLAN
 
@@ -15,6 +19,9 @@ Please review and update this document at least once per release (or iteration i
 2. Multiple “moving parts” (code, scripts, APIs etc.) make it difficult to create a uniform plan.
 
 3. No “customer” but a set of requirements and scenarios.
+
+&nbsp;
+ &nbsp;
 
 # TESTING LEVELS
 
@@ -28,6 +35,9 @@ The levels not used, but recommended for end-users:
 -	Acceptance tests
 -	Performance tests
 Not all components use all levels of testing. Thus, it is possible for e.g. the Production Dashboard to have unit tests, integration tests and usability tests, however the network setup scripts only need a special case of usability tests. 
+
+&nbsp;
+ &nbsp;
 
 # TEST ITEMS / ARTIFACTS
 
@@ -80,6 +90,9 @@ The NutriSafe artifacts to be tested are as follows:
 
       e.Serious games as a test for the security concept and awareness of risks and attack vectors.
 
+      &nbsp;
+      &nbsp;
+
 # NON-TEST ITEMS EXCLUDED FROM SCOPE
 
 These elements are specifically NOT included here and will not be performed because of limitations in the current research project. Users of the code can modify this scope as they see fit.
@@ -107,6 +120,9 @@ These elements are specifically NOT included here and will not be performed beca
 
     c. Database testing (relevant for REST API)
 
+    &nbsp;
+ &nbsp;
+
 # SUPPORTED ENVIRONMENTS FOR TESTING
 
 Linux OS (Ubuntu): 18, 20
@@ -128,15 +144,18 @@ For Webapplications: Browser – Chrome, Firefox
 
 Regarding versioning there are a few details to be documented here. The NutriSafe-Ecosystem uses semantic versioning  as the basic
 
-![versioningsystem]()
+![versioningsystem](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/An%20overview%20of%20the%20versioning%20system%20and%20dependencies%20between%20components.png)
 
-
+&nbsp;
+ &nbsp;
 
 # EXPLICITLY UNSUPPORTED ENVIRONMENTS
 
 We do not currently support Kubernetes rollouts, although the scenario is clearly supported by Hyperledger Fabric itself. 
 
 MacOS may also be used. Our own internal tests have shown that deployment is possible on Docker for macOS. This should hold for Windows-based installations but we have not tested this.
+&nbsp;
+ &nbsp;
 
 
 # TEST SCENARIOS
@@ -146,6 +165,9 @@ The actual NutriSafe scenarios are described in the Toolkit. Of these we include
 1.	Soft Cheese (Track and Trace)
 2.	Logistics (Efficient information sharing/collaboration)
 3.	Custom / Network only
+
+&nbsp;
+ &nbsp;
 
 
 ### SCENARIO SOFT CHEESE
@@ -160,92 +182,106 @@ In order to determine which target roles and people are considered when designin
 
 
 |Dinah|Decision Maker (Producer)|
-|------:|-------|
-|![Decision_maker](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/An%20overview%20of%20the%20versioning%20system%20and%20dependencies%20between%20components.png)|Takes appropriate decisions based on the data available on the Dashboard.
+|:------|:-------|
+|![Decision_maker](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png)|Takes appropriate decisions based on the data available on the Dashboard.
+||Needs basic understanding of the web technology and blockchain. 
+||Basic training for the product required.
+ 
+ &nbsp;
+ &nbsp;
+
+|Pauline|Production Manager|
+|:------|:------------|
+|![Production_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png)|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.
+ ||Needs basic understanding of the web technology and blockchain. 
+ ||Basic training for the product required.
+
+  &nbsp;
+ &nbsp;
+
+|Darren|Disposition and Services|
+|:------|:------------|
+ ![Dispostion_and_Services](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png)	|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.
 ||Needs basic understanding of the web technology and blockchain. 
 ||Basic training for the product required.
 
-
-Pauline	Production Manager
-
- 	Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was done but incorrectly entry as 50 liters in the system, this data can be corrected.
-
-    Needs basic understanding of the web technology and blockchain. 
-
-	Basic training for the product required.
+ &nbsp;
+ &nbsp;
 
 
+|Izzy|IT Administrator|
+|:------|:------------|
+![IT_Administrator](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/IT%20Administrator.png)|Responsible for setting up and maintaining the infrastructure. 
+||The administrator ensures that internal IT structure of the organization remains up-to-date. 
+||Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
-Darren	Disposition and Services 
- 	Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.
-Needs basic understanding of the web technology and blockchain. 
-Basic training for the product required.
-
-
-Izzy	IT Administrator
-
- 	Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. 
-Should have at least vocational computer education along with understanding of the web technology and blockchain.
+ &nbsp;
+ &nbsp;
 
 
+|Neele|Network Manager|
+|:------|:------------| 
+![Network_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Manager%20.png)|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.
+||Needs basic understanding of the web technology and blockchain.
 
-Neele	Network Manager 
- 
-
-	Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.
-Needs basic understanding of the web technology and blockchain.
-
-
-
-
-Nathan	Network Support 
-
- 
-	Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.
-The network support personnel should 
-
-Darlene	Developer 
- 	The developers are responsible to write new smart contracts or change/update/fix the existing chain code.
- The developer should have a bachelor degree in computer science with strong background in software and backend development
-
-Quinn	Quality Manager
- 	Input completed production quantity into the system.
-Updates system to Raise quality issues/alert in the system.
-Needs basic understanding of the web technology and blockchain.
+ &nbsp;
+ &nbsp;
 
 
+|Nathan|Network Support| 
+|:------|:------------| 
+![Network_Support](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Support%20.png)|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.
+||The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
+ &nbsp;
+ &nbsp;
 
+|Darlene|Developer|
+|:------|:------------| 
+|![Developer](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Developer%20.png)|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.
+||The developer should have a bachelor degree in computer science with strong background in software and backend development
 
+ &nbsp;
+ &nbsp;
 
+|Quinn|Quality Manager|
+|:------|:------------| 
+|![Quality_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png)|Input completed production quantity into the system.
+||Updates system to Raise quality issues/alert in the system.
+||Needs basic understanding of the web technology and blockchain.
 
-Don	Driver
- 	Responsible for acknowledging the delivery of the goods in the system.
-Needs basic computer knowledge and training to use the application.
+ &nbsp;
+ &nbsp;
 
+|Don|Driver|
+|:------|:------------| 
+|![Driver](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Driver.png)|Responsible for acknowledging the delivery of the goods in the system.
+||Needs basic computer knowledge and training to use the application.
 
-Wilhelm	Warehouse Manager
+ &nbsp;
+ &nbsp;
 
- 	Responsible for acknowledging the receipt of the goods in the system.
-Needs basic computer knowledge and training to use the application.
+|Wilhelm|Warehouse Manager|
+|:------|:------------| 
+![Warehouse_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png)|Responsible for acknowledging the receipt of the goods in the system.
+||Needs basic computer knowledge and training to use the application.
 
+ &nbsp;
+ &nbsp;
 
+|Warda|Wholesaler/Distributors/Retailer/Logistic|
+|:------|:------------| 
+![Wholesaler](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png)|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer.
+||Raise quality issues/complain in the system.
+||A basic understanding of technology usage is sufficient and training to use the application.
 
+ &nbsp;
+ &nbsp;
 
-
-
-
-
-Warda	Wholesaler/Distributors/Retailer/Logistic 
- 	They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer.
-Raise quality issues/complain in the system.
-A basic understanding of technology usage is sufficient and training to use the application.
-
-
-
-Chris	Customer 
- 	Raise quality issues/complain in the system.
-A basic understanding of technology usage is sufficient.
+|Chris|Customer| 
+|:------|:------------| 
+![Customer](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Customer%20.png)|Raise quality issues/complain in the system.
+||A basic understanding of technology usage is sufficient.
 
 
 # RISKS AND MITIGATION
@@ -255,7 +291,6 @@ Risks are listed here.
 |   Risk   |    Migitation|
 |:----------|:-------------|
 |Container-Hosts behavior might differ when used on similar operating systems e.g. DebIzzy, RedHat, Windows, macOS|Reduce supported scope on the broadest available and stable technology
-
 
 
 
