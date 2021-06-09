@@ -71,8 +71,8 @@ done
 if cryptogen extend --config=$PATH_TO_YAML_FILE ; then
   echo "Successfully generated crypto material!"
   echo "Copying public certificates for Admin user..."
-  cp "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/tlsca/tlsca.$ORGANIZATION_DOMAIN"-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.$ORGANIZATION_DOMAIN"-cert.pem"
-  cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.unibw.de"-cert.pem"
+  cp "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN.de/tlsca/tlsca.$ORGANIZATION_DOMAIN".de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN.de/users/"Admin@"$ORGANIZATION_DOMAIN.de/tls/tlsca.$ORGANIZATION_DOMAIN".de-cert.pem"
+  cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN.de/users/"Admin@"$ORGANIZATION_DOMAIN.de/tls/tlsca.unibw.de"-cert.pem"
 else
   echo "Something went wrong with the crypto material generation, please check output and logs."
 fi
