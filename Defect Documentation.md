@@ -8,13 +8,13 @@ Follow the below steps for documentation of an issue-
 
 3.On the new issue page,
       
-    a.Title-Give a short and clear, self explanatory title.
+     a.Title-Give a short and clear, self explanatory title.
 
      b.Body/Write- 
-    i.)This part of the issue should clearly indicate the platform/version on which the issue was found.
-    ii)Steps to reproduce the defect.
-    iii) Actual and expected result.
-     iv) Screenshot or videos explaining the steps for reproducing the issue.
+       i.)This part of the issue should clearly indicate the platform/version on which the issue was found.
+       ii)Steps to reproduce the defect.
+       iii) Actual and expected result.
+       iv) Screenshot or videos explaining the steps for reproducing the issue.
 
      c.Click on Submit new issue button.
 
