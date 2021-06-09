@@ -1,4 +1,4 @@
-Every issue should to be documented for in the git repository for reporting purpose.
+Every issue should to be documented in the git repository for reporting purpose.
 
 Follow the below steps for documentation of an issue-
 
