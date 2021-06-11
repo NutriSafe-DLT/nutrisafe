@@ -235,8 +235,7 @@ In order to determine which target roles and people are considered when designin
 
 |Quinn|Quality Manager|
 |:------:|:------------:| 
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues/alert in the system.
-|Needs basic understanding of the web technology and blockchain.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
