@@ -184,7 +184,7 @@ In order to determine which target roles and people are considered when designin
 |Dinah|Decision Maker (Producer)|
 |:------|:-------|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision"
-	 title="Decision" width="100" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+	 title="Decision" width="150" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
