@@ -183,21 +183,21 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:------|:-------|
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" width="200" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" width="200" height="100"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
 
 |Pauline|Production Manager|
 |:------|:------------|
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png" alt="Production" title="Prodution" width="200" height="100" />)|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png" alt="Production" title="Prodution" width="200" height="100" />|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
   &nbsp;
  &nbsp;
 
 |Darren|Disposition and Services|
 |:------|:------------|
- |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" width="200" height="100" />)	|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" width="200" height="100"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
@@ -205,7 +205,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 |:------|:------------|
-![IT_Administrator](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/IT%20Administrator.png)|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="200" height="100"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -213,7 +213,7 @@ In order to determine which target roles and people are considered when designin
 
 |Neele|Network Manager|
 |:------|:------------| 
-![Network_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Manager%20.png)|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="200" height="100"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -221,21 +221,21 @@ In order to determine which target roles and people are considered when designin
 
 |Nathan|Network Support| 
 |:------|:------------| 
-![Network_Support](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Support%20.png)|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="200" height="100"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
 
 |Darlene|Developer|
 |:------|:------------| 
-|![Developer](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Developer%20.png)|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Developer%20.png" alt="Developer" title="Developer" width="200" height="100"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
 
 |Quinn|Quality Manager|
 |:------|:------------| 
-|![Quality_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png)|Input completed production quantity into the system. Updates system to Raise quality issues/alert in the system.
+||<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues/alert in the system.
 ||Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
@@ -243,14 +243,14 @@ In order to determine which target roles and people are considered when designin
 
 |Don|Driver|
 |:------|:------------| 
-|![Driver](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Driver.png)|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Driver.png" alt="Driver" title="Driver" width="200" height="100"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Wilhelm|Warehouse Manager|
 |:------|:------------| 
-![Warehouse_Manager](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png)|Responsible for acknowledging the receipt of the goods in the system.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="200" height="100"/>|Responsible for acknowledging the receipt of the goods in the system.
 Needs basic computer knowledge and training to use the application.
 
  &nbsp;
@@ -258,7 +258,7 @@ Needs basic computer knowledge and training to use the application.
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 |:------|:------------| 
-![Wholesaler](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png)|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="200" height="100"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.
 ||A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
@@ -266,7 +266,7 @@ Needs basic computer knowledge and training to use the application.
 
 |Chris|Customer| 
 |:------|:------------| 
-![Customer](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Customer%20.png)|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Customer%20.png" alt="Customer" title="Customer" width="200" height="100"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 
 # RISKS AND MITIGATION
