@@ -183,21 +183,21 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:------|:-------|
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" width="150" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" width="200" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
 
 |Pauline|Production Manager|
 |:------|:------------|
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png" alt="Production" title="Prodution" width="150" height="100" />)|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png" alt="Production" title="Prodution" width="200" height="100" />)|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
   &nbsp;
  &nbsp;
 
 |Darren|Disposition and Services|
 |:------|:------------|
- |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" width="150" height="100" />)	|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" width="200" height="100" />)	|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
