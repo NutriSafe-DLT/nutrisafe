@@ -26,6 +26,6 @@ Please follow the below steps for reporting an issue-
    &nbsp;
 
    <img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/Issue%20screenshot.png" alt="Issue"
-	 title="Issue" width="300" height="450" />
+	 title="Issue" width="500" height="500" />
 
  
