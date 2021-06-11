@@ -177,16 +177,14 @@ The actual NutriSafe scenarios are described in the Toolkit. Of these we include
 
 
 ### PERSONAS
-<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision"
-	 title="Decision" width="100" height="100" />
 
 In order to determine which target roles and people are considered when designing the system we need a sketch of their typical skills, company function etc. A good description of how and why we use personas can be found at (Pruitt and Adlin 2006)
 
 
 |Dinah|Decision Maker (Producer)|
 |:------|:-------|
-|!)|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/Issue%20screenshot.png" alt="Issue"
-	 title="Issue" width="900" height="850" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision"
+	 title="Decision" width="100" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
