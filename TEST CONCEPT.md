@@ -235,8 +235,8 @@ In order to determine which target roles and people are considered when designin
 
 |Quinn|Quality Manager|
 |:------|:------------| 
-||<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues/alert in the system.
-||Needs basic understanding of the web technology and blockchain.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues/alert in the system.
+|Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -250,16 +250,14 @@ In order to determine which target roles and people are considered when designin
 
 |Wilhelm|Warehouse Manager|
 |:------|:------------| 
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="200" height="100"/>|Responsible for acknowledging the receipt of the goods in the system.
-Needs basic computer knowledge and training to use the application.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="200" height="100"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 |:------|:------------| 
-|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="200" height="100"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.
-||A basic understanding of technology usage is sufficient and training to use the application.
+|<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="200" height="100"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
