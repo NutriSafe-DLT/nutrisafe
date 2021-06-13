@@ -18,7 +18,7 @@ Instructions for setting up the development environment for linux and for MacOS.
 
 # Development LINUX
 ## Environment 
-We used an UBUNTU 18.04 Server instance.
+We used an UBUNTU 20.04 Server instance.
 
 After setting up the server, the connections and the development environment, we started to install the necessary tools for a running Hyperledger Fabric network (see <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html">HL Fabric Docs</a>).
   
@@ -100,20 +100,51 @@ export PATH=<path to download location>/bin:$PATH
 git clone <path_to_nutrisafe_repo>
 
 ### NutriSafe Network
-1. Generate crypto materials
-Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
+1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
 ```
-cd creatingCryptoMaterial
+cd <name_of_repository>/fabric-version2x/creatingCryptoMaterial
+//e.g. for nutrisafe repository this will be "cd nutrisafe/fabric-version2x/creatingCryptoMaterial"
+```
+Run `generate_crypto_materials_allorgs.sh`
+```
+./generate_crypto_materials_allorgs.sh
+```
+On successful completion of the script, the final output should look like the below screenshot:
 
-```
+![crypto](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_crypto_materials.png)
+
 2. Start Network
 ```
 ./startNetwork.sh
 ```
-3. In case you wish to remove the network use the below command:
+On sucessful completion of the start script,the final output should look like the screenshot below:
+
+![start network](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_startnetwork.png)
+
+
+3. Download chaincode (in this example we download the NutriSafe chaincode but you can also use your own chaincode here)
+```
+cd chaincode //switch to the chaincode subfolder 
+git clone https://github.com/NutriSafe-DLT/nutrisafe-chaincode.git 
+cd ..
+./installCC.sh
+```
+If you are using your own repository then you need to pass the name to the installCC.sh script as follows:
+./installCC.sh -c <my_chaincode_name>
+This assumes that you have java chaincode. If you are using go chaincode you can also specifiy this:
+./installCC.sh -c <my_chaincode_name> -n go
+
+This is what it should look like if the script completes successfully:
+
+![chaincode](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/unbuntu_chaincode.png)
+
+4. In case you wish to remove the Network
 ```
 ./removeNetwork.sh
 ```
+On successful removal of the network, the output should look like the below screenshot:
+
+![Removenetwork](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_removenetwork.png)
 
 ### Chaincode development
 Install gcc compiler
@@ -217,12 +248,17 @@ cd <name_of_repository>/fabric-version1x/creatingCryptoMaterial
 ```
 ./generate_crypto_materials_allorgs.sh
 ```
+On successful completion of the script, the final output should look like the below screenshot:
+
+![crypto](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_crypto_materials.png)
+
 3. Start Network
 ```
 cd .. //this will switch to the folder above (example from creatingCryptoMaterial to fabric-version1x)
 ./startNetwork.sh
 ```
 On sucessful completion of the start script,the final output should look like the screenshot below:
+
 ![startnetwork successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_startnetwork.png)
 
 
