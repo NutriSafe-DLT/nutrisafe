@@ -440,8 +440,8 @@ vTest description**|Run Command in “./removeNetwork.sh” in cmd
 **Tested item**/functionality|removeNetwork.sh
 **Test level**|Integration
 **Hyperledger Version**|2.2
-**Platform (OS)|**Linux Ubuntu 20.04
-T**est description**|Run Command in “./removeNetwork.sh” in cmd
+**Platform (OS)**|Linux Ubuntu 20.04
+**Test description**|Run Command in “./removeNetwork.sh” in cmd
 **Persona**|Izzy/IT-Administrator
 **Pre-conditions**|Network should be set up
 **Post-conditions**|The command should start executing
