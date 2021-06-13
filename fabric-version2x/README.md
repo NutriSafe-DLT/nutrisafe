@@ -104,7 +104,7 @@ Run `generate_crypto_materials_allorgs.sh`
 ```
 On successful completion of the script, the final output should look like the below screenshot:
 
-![crypto](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_crypto_materials.png)
+![crypto](../assets/images/ubuntu_crypto_materials.png)
 
 2. Start Network
 ```
@@ -112,7 +112,7 @@ On successful completion of the script, the final output should look like the be
 ```
 On sucessful completion of the start script,the final output should look like the screenshot below:
 
-![start network](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_startnetwork.png)
+![start network](../assets/images/ubuntu_startnetwork.png)
 
 
 3. Download chaincode (in this example we download the NutriSafe chaincode but you can also use your own chaincode here)
@@ -129,7 +129,7 @@ This assumes that you have java chaincode. If you are using go chaincode you can
 
 This is what it should look like if the script completes successfully:
 
-![chaincode](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/unbuntu_chaincode.png)
+![chaincode](../assets/images/unbuntu_chaincode.png)
 
 4. In case you wish to remove the Network
 ```
@@ -137,7 +137,7 @@ This is what it should look like if the script completes successfully:
 ```
 On successful removal of the network, the output should look like the below screenshot:
 
-![Removenetwork](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_removenetwork.png)
+![Removenetwork](../assets/images/ubuntu_removenetwork.png)
 
 ### Chaincode development
 Install gcc compiler
@@ -246,7 +246,7 @@ Run `generate_crypto_materials_allorgs.sh`
 ```
 On successful completion of the script, the final output should look like the below screenshot:
 
-![crypto](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_crypto_materials.png)
+![crypto](../assets/images/macOS_crypto_materials.png)
 
 2. Start Network
 ```
@@ -255,7 +255,7 @@ cd .. //this will switch to the folder above (example from creatingCryptoMateria
 ```
 On sucessful completion of the start script,the final output should look like the screenshot below:
 
-![startnetwork successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_startnetwork.png)
+![startnetwork successful](../assets/images/macOS_startnetwork.png)
 
 3. Download chaincode (in this example we download the NutriSafe chaincode but you can also use your own chaincode here)
 ```
@@ -271,7 +271,7 @@ This assumes that you have java chaincode. If you are using go chaincode you can
 
 This is what it should look like if the script completes successfully:
 
-![InstallCC successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_chaincode_installation.png "Screenshot")
+![InstallCC successful](../assets/images/macOS_chaincode_installation.png "Screenshot")
 
 4. In case you wish to remove the network use the below command:
 ```
@@ -280,4 +280,4 @@ This is what it should look like if the script completes successfully:
 
 Once the script runs successfully, this is how the final output should look like:
 
-![removenetwork successful](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/macOS_removenetwork.png)
+![removenetwork successful](../assets/images/macOS_removenetwork.png)
