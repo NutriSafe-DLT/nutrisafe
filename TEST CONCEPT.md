@@ -23,18 +23,21 @@
 - [RECOMMENDATIONS](#recommendations)
 - [METHODOLOGY OF THIS DOCUMENT + REFERENCES](#methodology-of-this-document-+-references)
 
-
+&nbsp;
+&nbsp;
 
 
 ## INTRODUCTION
 
 The NutriSafe Toolkit is meant to offer several software artifacts as well as guidance to practitioners in the industry. While we strive to make the software as easy to use as possible, a certain amount of complexity remains. In order to better understand how the product works and later how to extend it, one also needs to know how it should be tested. In this document we will be documenting our principles and scenarios for testing, as well as test strategies and tools employed. We based the structure of this document on the existing ISO/IEC/IEEE norm (ISO/IEC 2013) and it is loosely comparable to the Test Plan but also include Test Policy aspects.
+
 &nbsp;
  &nbsp;
 
 ## HOW TO USE THIS DOCUMENT
 
 Please review and update this document at least once per release (or iteration if you are using agile methods). The document should have a specified release correspondence and cannot be assumed to be valid for newer iterations or versions.
+
 &nbsp;
  &nbsp;
 
@@ -165,6 +168,9 @@ Hyperledger Fabric versions: 1.4, 2.2.1 (Long Term Support)
 
 For Webapplications: Browser – Chrome, Firefox
 
+&nbsp;
+&nbsp;
+
 
 # VERSIONING FOR THE NUTRISAFE COMPONENTS AND SYSTEM
 
@@ -180,6 +186,7 @@ Regarding versioning there are a few details to be documented here. The NutriSaf
 We do not currently support Kubernetes rollouts, although the scenario is clearly supported by Hyperledger Fabric itself. 
 
 MacOS may also be used. Our own internal tests have shown that deployment is possible on Docker for macOS. This should hold for Windows-based installations but we have not tested this.
+
 &nbsp;
  &nbsp;
 
@@ -200,7 +207,8 @@ The actual NutriSafe scenarios are described in the Toolkit. Of these we include
 
 ![softcheesesupplychain](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/A%20system%20representation%20of%20the%20soft%20cheese%20supply%20chain.png)
  
-
+&nbsp;
+&nbsp;
 
 ### PERSONAS
 
@@ -291,6 +299,8 @@ In order to determine which target roles and people are considered when designin
 :--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Customer%20.png" alt="Customer" title="Customer" width="200" height="100"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
+&nbsp;
+&nbsp;
 
 ## RISKS AND MITIGATION
 
@@ -298,13 +308,18 @@ Risks are listed here.
 
 |   Risk   |    Migitation|
 |:----------|:-------------|
-|Container-Hosts behavior might differ when used on similar operating systems e.g. DebIzzy, RedHat, Windows, macOS|Reduce supported scope on the broadest available and stable technology
+|Container-Hosts behavior might differ when used on similar operating systems e.g. DebIzzy, RedHat, Windows, macOS|Reduce supported scope on the broadest available and stable technology.
 
+&nbsp;
+&nbsp;
 
 
 ## TEST DELIVERABLES
 1.	Test artifacts for automated test
 2.	Templates for manual or semi-manual tests
+
+&nbsp;
+&nbsp;
 	
 
 ## DETAILED TEST LIST 
@@ -313,134 +328,139 @@ In the table below one can find a detailed list of which tests should be run on 
 
 Run type = either Manual, partly automated (e.g. scripted, but the script should be triggered manually), fully automated (e.g. part of the build/deploy pipeline).
 
+&nbsp;
+&nbsp;
+
 ### SYSTEM UNDER TEST = NUTRISAFE DEPLOYMENT SCRIPTS
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|startNetwork.sh
-Test level|	Integration
-Hyperledger Version|1.4
-Platform (OS)|macOS
-Test description|Run command in “./startNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Docker, jq, golang, Hyperledger fabric sample should be installed
-Post-conditions|The command should start executing
-Expected result|Network should be running
+**Tested item/functionality**|startNetwork.sh
+**Test level**|Integration
+**Hyperledger** Version|1.4
+**Platform (OS)**|macOS
+**Test description**|Run command in “./startNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be running
+
 &nbsp;
 &nbsp;
 
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|startNetwork.sh
-Test level|	Integration
-Hyperledger Version|2.2
-Platform (OS)|macOS
-Test description|Run command in “./startNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Docker, jq, golang, Hyperledger fabric sample should be installed
-Post-conditions|The command should start executing
-Expected result|Network should be running
+**Tested item/functionality**|startNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|2.2
+**Platform (OS)**|macOS
+**Test description**|Run command in “./startNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be running
 &nbsp;
 &nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|startNetwork.sh
-Test level|	Integration
-Hyperledger Version|1.4
-Platform (OS)|Linux Ubuntu 20.04
-Test description|Run command in “./startNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Docker, jq, golang, Hyperledger fabric sample should be installed
-Post-conditions|The command should start executing
-Expected result|Network should be running
+**Tested item/functionality**|startNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|1.4
+**Platform (OS)**|Linux Ubuntu 20.04
+**Test description**|Run command in “./startNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be running
 &nbsp;
 &nbsp;
 
 
-|Header|Details|
-|:-----|:-------|
-Tested item/functionality|startNetwork.sh
-Test level|	Integration
-Hyperledger Version|2.2
-Platform (OS)|Linux Ubuntu 20.04
-Test description|Run command in “./startNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Docker, jq, golang, Hyperledger fabric sample should be installed
-Post-conditions|The command should start executing
-Expected result|Network should be running
-&nbsp;
-&nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|removeNetwork.sh
-Test level|	Integration
-Hyperledger Version|1.4
-Platform (OS)|macOS
-Test description|Run Command in “./removeNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Network should be set up
-Post-conditions|The command should start executing
-Expected result|Network should be stopped
+**Tested item/functionality**|startNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|2.2
+**Platform (OS)**|Linux Ubuntu 20.04
+**Test description**|Run command in “./startNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be running
 &nbsp;
 &nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|removeNetwork.sh
-Test level|	Integration
-Hyperledger Version|2.2
-Platform (OS)|macOS
-Test description|Run Command in “./removeNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Network should be set up
-Post-conditions|The command should start executing
-Expected result|Network should be stopped
+**Tested item/functionality**|removeNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|1.4
+**Platform (OS)**|macOS
+vTest description**|Run Command in “./removeNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Network should be set up
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be stopped
 &nbsp;
 &nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|removeNetwork.sh
-Test level|	Integration
-Hyperledger Version|1.4
-Platform (OS)|Linux Ubuntu 20.04
-Test description|Run Command in “./removeNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Network should be set up
-Post-conditions|The command should start executing
-Expected result|Network should be stopped
+**Tested item/functionality**|removeNetwork.sh
+**Test level**|Integration
+**Hyperledger Version|**2.2
+**Platform (OS)**|macOS
+**Test description**|Run Command in “./removeNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Network should be set up
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be stopped
 &nbsp;
 &nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|removeNetwork.sh
-Test level|	Integration
-Hyperledger Version|2.2
-Platform (OS)|Linux Ubuntu 20.04
-Test description|Run Command in “./removeNetwork.sh” in cmd
-Persona|Izzy/IT-Administrator
-Pre-conditions|Network should be set up
-Post-conditions|The command should start executing
-Expected result|Network should be stopped
+**Tested item/functionality**|removeNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|1.4
+**Platform (OS)**|Linux Ubuntu 20.04
+**Test description**|Run Command in “./removeNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Network should be set up
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be stopped
 &nbsp;
 &nbsp;
 
 |Header|Details|
 |:-----|:-------|
-Tested item/functionality|installCC.sh (Installs Chaincode on the Network)
-Test level|	Integration
-Test description|Attempt to install and deploy java or go chaincode packages on the NutriSafe network. 
-Persona|Izzy/IT-Administrator
-Pre-conditions|Network is set up and running via startNetwork.sh. User has downloaded chaincode or created it in the chaincode subdirectory. Chaincode is compatible with current network versions.
-Post-conditions|The command should start executing
-Expected result|Nutrisafe-chaincode (if not otherwise specified in the parameters) is installed. Additional container is created in Docker – can check with docker ps).
+**Tested item**/functionality|removeNetwork.sh
+**Test level**|Integration
+**Hyperledger Version**|2.2
+**Platform (OS)|**Linux Ubuntu 20.04
+T**est description**|Run Command in “./removeNetwork.sh” in cmd
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Network should be set up
+**Post-conditions**|The command should start executing
+**Expected result**|Network should be stopped
+&nbsp;
+&nbsp;
 
+|Header|Details|
+|:-----|:-------|
+**Tested item/functionality**|installCC.sh (Installs Chaincode on the Network)
+**Test level**|Integration
+**Test description**|Attempt to install and deploy java or go chaincode packages on the NutriSafe network. 
+**Persona**|Izzy/IT-Administrator
+**Pre-conditions**|Network is set up and running via startNetwork.sh. User has downloaded chaincode or created it in the chaincode subdirectory. Chaincode is compatible with current network versions.
+**Post-conditions**|The command should start executing
+**Expected result**|Nutrisafe-chaincode (if not otherwise specified in the parameters) is installed. Additional container is created in Docker – can check with docker ps).
 
-
+&nbsp;
+&nbsp;
 
 ### SYSTEM UNDER TEST = DEMO SCRIPT
 Tbd
@@ -474,7 +494,10 @@ Test description	Option 3: Generate random products according to pre-defined JSO
 Persona	Izzy/IT-Administrator
 Pre-conditions	Python at least 2.7. Recommended Python 3.
 Post-conditions	
-Expected result	
+Expected result
+
+&nbsp;
+&nbsp;
 
 ### SYSTEM UNDER TEST = NUTRISAFE IMAGES (DOCKER)
 Tbd
@@ -486,12 +509,18 @@ Pre-conditions
 Post-conditions	
 Expected result	
 
+&nbsp;
+&nbsp;
+
 
 ## RECOMMENDATIONS
 
 In this section we provide recommendations for topics which cannot otherwise be specifically treated as we are building our Toolkit but would normally be treated in a test concept.
 SKILL PROFILE FOR TESTERS
 tbd
+
+&nbsp;
+&nbsp;
 
 ## METHODOLOGY OF THIS DOCUMENT + REFERENCES
 
