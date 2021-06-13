@@ -360,6 +360,7 @@ Run type = either Manual, partly automated (e.g. scripted, but the script should
 **Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be running
+
 &nbsp;
 &nbsp;
 
@@ -374,10 +375,9 @@ Run type = either Manual, partly automated (e.g. scripted, but the script should
 **Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be running
+
 &nbsp;
 &nbsp;
-
-
 
 |Header|Details|
 |:-----|:-------|
@@ -390,6 +390,7 @@ Run type = either Manual, partly automated (e.g. scripted, but the script should
 **Pre-conditions**|Docker, jq, golang, Hyperledger fabric sample should be installed
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be running
+
 &nbsp;
 &nbsp;
 
@@ -399,11 +400,12 @@ Run type = either Manual, partly automated (e.g. scripted, but the script should
 **Test level**|Integration
 **Hyperledger Version**|1.4
 **Platform (OS)**|macOS
-vTest description**|Run Command in “./removeNetwork.sh” in cmd
+**Test description**|Run Command in “./removeNetwork.sh” in cmd
 **Persona**|Izzy/IT-Administrator
 **Pre-conditions**|Network should be set up
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be stopped
+
 &nbsp;
 &nbsp;
 
@@ -411,13 +413,14 @@ vTest description**|Run Command in “./removeNetwork.sh” in cmd
 |:-----|:-------|
 **Tested item/functionality**|removeNetwork.sh
 **Test level**|Integration
-**Hyperledger Version|**2.2
+**Hyperledger Version**|2.2
 **Platform (OS)**|macOS
 **Test description**|Run Command in “./removeNetwork.sh” in cmd
 **Persona**|Izzy/IT-Administrator
 **Pre-conditions**|Network should be set up
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be stopped
+
 &nbsp;
 &nbsp;
 
@@ -432,6 +435,7 @@ vTest description**|Run Command in “./removeNetwork.sh” in cmd
 **Pre-conditions**|Network should be set up
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be stopped
+
 &nbsp;
 &nbsp;
 
@@ -446,6 +450,7 @@ vTest description**|Run Command in “./removeNetwork.sh” in cmd
 **Pre-conditions**|Network should be set up
 **Post-conditions**|The command should start executing
 **Expected result**|Network should be stopped
+
 &nbsp;
 &nbsp;
 
