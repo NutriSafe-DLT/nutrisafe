@@ -1,18 +1,44 @@
+# Test Concept 
+
+## Sections
+- [INTRODUCTION](#introduction)
+- [HOW TO USE THIS DOCUMENT](#how-to-use-this-document)
+- [CHALLENGES FOR THE TEST PLAN
+](#challenges-for-the-test-plan)
+- [TESTING LEVELS](#testing-levels)
+- [TEST ITEMS / ARTIFACTS](#test-items-/-artifacts)
+- [NON-TEST ITEMS EXCLUDED FROM SCOPE](#non-test-items-excluded-from-scope)
+- [SUPPORTED ENVIRONMENTS FOR TESTING](#supported-environments-for-testing)
+- [VERSIONING FOR THE NUTRISAFE COMPONENTS AND SYSTEM](#versioning-for-the-nutrisafe-components-and-system)
+- [EXPLICITLY UNSUPPORTED ENVIRONMENTS](#explicitly-unsupported-environments)
+- [TEST SCENARIOS](#test-scenarios)
+     - [SCENARIO SOFT CHEESE](#scenario-soft-cheese)
+     - [PERSONAS](#personas)
+- [RISKS AND MITIGATION](#risks-and-mitigation)
+[TEST DELIVERABLES](#test-deliverables)
+- [DETAILED TEST LIST](#detailed-test-list)
+     - [SYSTEM UNDER TEST = NUTRISAFE DEPLOYMENT SCRIPTS](#system-under-test-=-nutrisafe-deployment-scripts)
+     - [SYSTEM UNDER TEST = DEMO SCRIPT](#system-under-test-=-demo-script)
+     - [SYSTEM UNDER TEST = NUTRISAFE IMAGES (DOCKER)](#system-under-test-=-nutrisafe-images-(docker))
+- [RECOMMENDATIONS](#recommendations)
+- [METHODOLOGY OF THIS DOCUMENT + REFERENCES](#methodology-of-this-document-+-references)
 
 
-# INTRODUCTION
+
+
+## INTRODUCTION
 
 The NutriSafe Toolkit is meant to offer several software artifacts as well as guidance to practitioners in the industry. While we strive to make the software as easy to use as possible, a certain amount of complexity remains. In order to better understand how the product works and later how to extend it, one also needs to know how it should be tested. In this document we will be documenting our principles and scenarios for testing, as well as test strategies and tools employed. We based the structure of this document on the existing ISO/IEC/IEEE norm (ISO/IEC 2013) and it is loosely comparable to the Test Plan but also include Test Policy aspects.
 &nbsp;
  &nbsp;
 
-# HOW TO USE THIS DOCUMENT
+## HOW TO USE THIS DOCUMENT
 
 Please review and update this document at least once per release (or iteration if you are using agile methods). The document should have a specified release correspondence and cannot be assumed to be valid for newer iterations or versions.
 &nbsp;
  &nbsp;
 
-# CHALLENGES FOR THE TEST PLAN
+## CHALLENGES FOR THE TEST PLAN
 
 1. Blockchain technology in general and Hyperledger Fabric in particular are still complex. One cannot assume that even trained IT specialists and practitioners are familiar with it.
 
@@ -23,7 +49,7 @@ Please review and update this document at least once per release (or iteration i
 &nbsp;
  &nbsp;
 
-# TESTING LEVELS
+## TESTING LEVELS
 
 This chapter describes which test levels will be used within this document. Typical testing levels (as mentioned by  (Copeland 2004)) are (in order from small to large) unit testing, integration testing, system testing and acceptance testing. A test strategy e.g. black box testing involves going through the levels and evaluating the appropriate component at the appropriate abstraction level.
 The levels used by this document:
@@ -39,7 +65,7 @@ Not all components use all levels of testing. Thus, it is possible for e.g. the 
 &nbsp;
  &nbsp;
 
-# TEST ITEMS / ARTIFACTS
+## TEST ITEMS / ARTIFACTS
 
 The NutriSafe artifacts to be tested are as follows:
 
@@ -93,7 +119,7 @@ The NutriSafe artifacts to be tested are as follows:
       &nbsp;
       &nbsp;
 
-# NON-TEST ITEMS EXCLUDED FROM SCOPE
+## NON-TEST ITEMS EXCLUDED FROM SCOPE
 
 These elements are specifically NOT included here and will not be performed because of limitations in the current research project. Users of the code can modify this scope as they see fit.
 1.	NutriSafe REST API (limited, some tests already in place)
@@ -123,7 +149,7 @@ These elements are specifically NOT included here and will not be performed beca
     &nbsp;
  &nbsp;
 
-# SUPPORTED ENVIRONMENTS FOR TESTING
+## SUPPORTED ENVIRONMENTS FOR TESTING
 
 Linux OS (Ubuntu): 18, 20
 
@@ -149,7 +175,7 @@ Regarding versioning there are a few details to be documented here. The NutriSaf
 &nbsp;
  &nbsp;
 
-# EXPLICITLY UNSUPPORTED ENVIRONMENTS
+## EXPLICITLY UNSUPPORTED ENVIRONMENTS
 
 We do not currently support Kubernetes rollouts, although the scenario is clearly supported by Hyperledger Fabric itself. 
 
@@ -158,7 +184,7 @@ MacOS may also be used. Our own internal tests have shown that deployment is pos
  &nbsp;
 
 
-# TEST SCENARIOS
+## TEST SCENARIOS
 
 The actual NutriSafe scenarios are described in the Toolkit. Of these we include the following scenarios for our testing:
 
@@ -182,21 +208,21 @@ In order to determine which target roles and people are considered when designin
 
 
 |Dinah|Decision Maker (Producer)|
-|:------:|:-------:|
+|:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" width="200" height="100"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
 
 |Pauline|Production Manager|
-|:------:|:------------:|
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Production_manager.png" alt="Production" title="Prodution" width="200" height="100" />|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
   &nbsp;
  &nbsp;
 
 |Darren|Disposition and Services|
-|:------:|:------------:|
+:--------:|:---------:|
  |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" width="200" height="100"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
@@ -204,7 +230,7 @@ In order to determine which target roles and people are considered when designin
 
 
 |Izzy|IT Administrator|
-|:------:|:------------:|
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="200" height="100"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
@@ -212,7 +238,7 @@ In order to determine which target roles and people are considered when designin
 
 
 |Neele|Network Manager|
-|:------:|:------------:| 
+:--------:|:---------:| 
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="200" height="100"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
@@ -220,53 +246,53 @@ In order to determine which target roles and people are considered when designin
 
 
 |Nathan|Network Support| 
-|:------:|:------------:| 
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="200" height="100"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
 
 |Darlene|Developer|
-|:------:|:------------:| 
+|:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Developer%20.png" alt="Developer" title="Developer" width="200" height="100"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
 
 |Quinn|Quality Manager|
-|:------:|:------------:| 
+|:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="200" height="100"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
 
 |Don|Driver|
-|:------:|:------------:| 
+:--------:|:---------:| 
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Driver.png" alt="Driver" title="Driver" width="200" height="100"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Wilhelm|Warehouse Manager|
-|:------:|:------------:| 
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="200" height="100"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
-|:------:|:------------:| 
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="200" height="100"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Chris|Customer| 
-|:------:|:------------:| 
+:--------:|:---------:|
 |<img src="https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/personas/Customer%20.png" alt="Customer" title="Customer" width="200" height="100"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 
-# RISKS AND MITIGATION
+## RISKS AND MITIGATION
 
 Risks are listed here.
 
@@ -276,18 +302,18 @@ Risks are listed here.
 
 
 
-# TEST DELIVERABLES
+## TEST DELIVERABLES
 1.	Test artifacts for automated test
 2.	Templates for manual or semi-manual tests
 	
 
-# DETAILED TEST LIST 
+## DETAILED TEST LIST 
 
 In the table below one can find a detailed list of which tests should be run on which functionality.
 
 Run type = either Manual, partly automated (e.g. scripted, but the script should be triggered manually), fully automated (e.g. part of the build/deploy pipeline).
 
-###  SYSTEM UNDER TEST = NUTRISAFE DEPLOYMENT SCRIPTS
+### SYSTEM UNDER TEST = NUTRISAFE DEPLOYMENT SCRIPTS
 
 |Header|Details|
 |:-----|:-------|
@@ -461,13 +487,13 @@ Post-conditions
 Expected result	
 
 
-# RECOMMENDATIONS
+## RECOMMENDATIONS
 
 In this section we provide recommendations for topics which cannot otherwise be specifically treated as we are building our Toolkit but would normally be treated in a test concept.
 SKILL PROFILE FOR TESTERS
 tbd
 
-# METHODOLOGY OF THIS DOCUMENT + REFERENCES
+## METHODOLOGY OF THIS DOCUMENT + REFERENCES
 
 Copeland, Lee. 2004. A Practitioner’s Guide to Software Test Design. Boston: STQE Publishing. 
 ISO/IEC. 2013. “ISO/IEC/IEEE 29119-3:2013, Part 3: Test Documentation.” ISO/IEC.
