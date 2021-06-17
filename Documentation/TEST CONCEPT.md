@@ -217,7 +217,7 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" style="min-width: 100px; max-height: 100px; width=200px"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="../assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" style="min-width: 100px; max-height: 100px;"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
@@ -297,7 +297,7 @@ In order to determine which target roles and people are considered when designin
 
 |Chris|Customer| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Customer%20.png" alt="Customer" title="Customer" wstyle="min-width: 100px; max-height: 100px"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="../assets/images/personas/Customer%20.png" alt="Customer" title="Customer" style="min-width: 100px; max-height: 100px"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 &nbsp;
 &nbsp;
