@@ -6,7 +6,6 @@ Please follow the below steps for reporting an issue-
 2. Click on the New issue button
 3. On the new issue page:
    &nbsp;
-    &nbsp;
 
   a. Title-Give a short and clear, self explanatory title.
 
