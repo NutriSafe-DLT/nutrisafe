@@ -6,7 +6,7 @@ Please follow the below steps for reporting an issue-
 
    2. Click on the New issue button
 
-   3. On the new issue page,
+   3. On the new issue page:
       
      1. Title-Give a short and clear, self explanatory title.
 
@@ -18,7 +18,7 @@ Please follow the below steps for reporting an issue-
 
      3. Click on the Submit button.
 
-     4. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it, otherwise leave it blank.
+     4. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
 
      
 
