@@ -5,7 +5,7 @@ Please follow the below steps for reporting an issue-
 1. Go the repository ->Click on the Issues tab
 2. Click on the New issue button
 3. On the new issue page:
-   &nbsp:
+   &nbsp;
 
   a. Title-Give a short and clear, self explanatory title.
 
