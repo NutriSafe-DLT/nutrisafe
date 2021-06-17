@@ -2,26 +2,20 @@ Every issue should to be documented in the git repository for reporting purpose.
 
 Please follow the below steps for reporting an issue-
 
-   1. Go the repository ->Click on the Issues tab
-
-   2. Click on the New issue button
-
-   3. On the new issue page:
+1. Go the repository ->Click on the Issues tab
+2. Click on the New issue button
+3. On the new issue page:
       
-     1. Title-Give a short and clear, self explanatory title.
-
-     2. Body/Write- 
-       1. This part of the issue should clearly indicate the platform/version on which the issue was found.
-       2. Steps to reproduce the defect.
-       3. Actual and expected result.
-       4. Screenshot or videos explaining the steps for reproducing the issue.
-
-     3. Click on the Submit button.
-
-     4. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
+ 1. Title-Give a short and clear, self explanatory title.
+ 2. Body/Write- 
+  1. This part of the issue should clearly indicate the platform/version on which the issue was found.
+  2. Steps to reproduce the defect.
+  3. Actual and expected result.
+  4. Screenshot or videos explaining the steps for reproducing the issue.
+ 3. Click on the Submit button.
+ 4. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
 
      
-
    ### The issue should look like the below screenshot, once it is documented.
    &nbsp;
 
