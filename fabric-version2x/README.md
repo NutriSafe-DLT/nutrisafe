@@ -106,16 +106,6 @@ $ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ```
 
-### Download hyperledger/fabric-samples and setup environment variables
-```
-curl -sSL http://bit.ly/2ysbOFE | bash -s 2.2.1
-```
-OR directly bootstrap to version 2.2
-
-```
-sudo curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh | sudo bash -s -- -d
-```
-
 ### Clone GIT Repository
 
 ### NutriSafe Network
