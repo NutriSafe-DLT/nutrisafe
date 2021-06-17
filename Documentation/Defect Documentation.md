@@ -6,21 +6,21 @@ Please follow the below steps for reporting an issue-
 2. Click on the New issue button
 3. On the new issue page:
       
- a. Title-Give a short and clear, self explanatory title.
+  a. Title-Give a short and clear, self explanatory title.
 
- &nbsp;
- b. Body/Write- 
+  &nbsp;
+  b. Body/Write- 
 
-  1. This part of the issue should clearly indicate the platform/version on which the issue was found.
-  2. Steps to reproduce the defect.
-  3. Actual and expected result.
-  4. Screenshot or videos explaining the steps for reproducing the issue.
+   1. This part of the issue should clearly indicate the platform/version on which the issue was found.
+   2. Steps to reproduce the defect.
+   3. Actual and expected result.
+   4. Screenshot or videos explaining the steps for reproducing the issue.
 
 &nbsp;
- c. Click on the Submit button.
+  c. Click on the Submit button.
 
  &nbsp; 
- d. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
+  d. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
 
      
    ### The issue should look like the below screenshot, once it is documented.
