@@ -7,6 +7,7 @@ Please follow the below steps for reporting an issue-
 3. On the new issue page:
       
  a. Title-Give a short and clear, self explanatory title.
+
  &nbsp;
  b. Body/Write- 
 
@@ -14,8 +15,10 @@ Please follow the below steps for reporting an issue-
   2. Steps to reproduce the defect.
   3. Actual and expected result.
   4. Screenshot or videos explaining the steps for reproducing the issue.
+
 &nbsp;
  c. Click on the Submit button.
+
  &nbsp; 
  d. Once the issue is submitted, you may assign the issue to yourself if your are able to resolve it otherwise leave it blank.
 
