@@ -231,7 +231,7 @@ In order to determine which target roles and people are considered when designin
 
 |Darren|Disposition and Services|
 :--------:|:---------:|
- |<img src="../assets/images/personas/Disposition%20and%20Services%20.png" alt="Disposition" title="Disposition" style="min-width: 100px; max-height: 100px"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="../assets/images/personas/DispositionandServices.png" alt="Disposition" title="Disposition" style="min-width: 100px; max-height: 100px"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
