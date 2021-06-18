@@ -262,7 +262,7 @@ In order to determine which target roles and people are considered when designin
 
 |Darlene|Developer|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Developer%20.png" alt="Developer" title="Developer" style="min-width: 100px; max-height: 100px"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
+|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" style="min-width: 100px; max-height: 100px"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
