@@ -217,14 +217,14 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Decision_Maker.png" alt="Decision" title="Decision" style="min-width: 100px; max-height: 100px"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="../assets/images/personas/DecisionMaker.png" alt="Decision" title="Decision" style="min-width: 100px; max-height: 100px"/>|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
 
 |Pauline|Production Manager|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Production_manager.png" alt="Disposition" title="Disposition" style="min-width: 100px; max-height: 100px"/>|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+|<img src="../assets/images/personas/ProductionManager.png" alt="ProductionManager" title="ProductionManager" style="min-width: 100px; max-height: 100px"/>|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
   &nbsp;
  &nbsp;
