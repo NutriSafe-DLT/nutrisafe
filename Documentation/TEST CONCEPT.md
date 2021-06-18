@@ -297,7 +297,7 @@ In order to determine which target roles and people are considered when designin
 
 |Chris|Customer| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Customer%20.png" alt="Customer" title="Customer" style="min-width: 100px; max-height: 100px"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" style="min-width: 100px; max-height: 100px"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 &nbsp;
 &nbsp;
