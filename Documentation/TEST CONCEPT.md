@@ -239,7 +239,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 :--------:|:---------:|
-|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="350" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="370" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -247,7 +247,7 @@ In order to determine which target roles and people are considered when designin
 
 |Neele|Network Manager|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="300" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="280" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
