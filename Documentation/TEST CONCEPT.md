@@ -276,28 +276,28 @@ In order to determine which target roles and people are considered when designin
 
 |Don|Driver|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="150" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="200" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Wilhelm|Warehouse Manager|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="150" height="110"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="../assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="200" height="110"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="250" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
+|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="400" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Chris|Customer| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="300" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="150" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 &nbsp;
 &nbsp;
