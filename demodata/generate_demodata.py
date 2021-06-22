@@ -205,7 +205,7 @@ def api_postasadmin_with_method(methodname, payload):
 
 def get_auth_token():
     API_ENDPOINT = 'http://137.193.65.47:8080/auth'
-    if (apiPassword.count < 1):
+    if len(apiPassword) < 1 :
         print("Aborting, password empty or too short...")
         return False
     # data to be sent to api 
