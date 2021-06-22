@@ -239,7 +239,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 :--------:|:---------:|
-|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="370" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="400" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -255,14 +255,14 @@ In order to determine which target roles and people are considered when designin
 
 |Nathan|Network Support| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="450" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
+|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="480" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
 
 |Darlene|Developer|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="250" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
+|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="300" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
