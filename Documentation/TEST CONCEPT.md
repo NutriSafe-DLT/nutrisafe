@@ -255,21 +255,21 @@ In order to determine which target roles and people are considered when designin
 
 |Nathan|Network Support| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="480" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
+|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="490" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
 
 |Darlene|Developer|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="300" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
+|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="320" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
 
 |Quinn|Quality Manager|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="250" height="110"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="270" height="110"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -290,14 +290,14 @@ In order to determine which target roles and people are considered when designin
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="400" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
+|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="600" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Chris|Customer| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="150" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="200" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 &nbsp;
 &nbsp;
