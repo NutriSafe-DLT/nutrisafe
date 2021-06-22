@@ -239,7 +239,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 :--------:|:---------:|
-|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="330" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="350" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -247,7 +247,7 @@ In order to determine which target roles and people are considered when designin
 
 |Neele|Network Manager|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="250" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="300" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -255,7 +255,7 @@ In order to determine which target roles and people are considered when designin
 
 |Nathan|Network Support| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="400" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
+|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="450" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
