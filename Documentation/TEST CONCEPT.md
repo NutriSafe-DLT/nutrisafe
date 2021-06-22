@@ -276,7 +276,7 @@ In order to determine which target roles and people are considered when designin
 
 |Don|Driver|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="230" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="210" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
