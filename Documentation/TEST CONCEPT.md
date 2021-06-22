@@ -217,21 +217,21 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/DecisionMaker.png" alt="Decision" title="Decision" width="400" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+|<img src="../assets/images/personas/DecisionMaker.png" alt="Decision" title="Decision" width="200" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
  
  &nbsp;
  &nbsp;
 
 |Pauline|Production Manager|
 :--------:|:---------:|
-|<img src="../assets/images/personas/ProductionManager.png" alt="ProductionManager" title="ProductionManager" width="750" height="110"/>|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+|<img src="../assets/images/personas/ProductionManager.png" alt="ProductionManager" title="ProductionManager" width="400" height="110"/>|Takes action on the available data to ensure data correctness. For example, if the milk delivery of 60 liters was made but incorrectly entry of 50 liters was done in the system, this data can be corrected.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
   &nbsp;
  &nbsp;
 
 |Darren|Disposition and Services|
 :--------:|:---------:|
- |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="500" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="250" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
@@ -239,7 +239,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 :--------:|:---------:|
-|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="600" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="300" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -247,7 +247,7 @@ In order to determine which target roles and people are considered when designin
 
 |Neele|Network Manager|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="400" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/Network%20Manager%20.png" alt="Network_manager" title="Network_manager" width="200" height="110"/>|Responsible for overseeing and managing supply chain along with ensuring operation efficiently for greater productivity.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
@@ -255,42 +255,42 @@ In order to determine which target roles and people are considered when designin
 
 |Nathan|Network Support| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="800" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
+|<img src="../assets/images/personas/Network%20Support%20.png" alt="Network_support" title="Network_support" width="300" height="110"/>|Responsible for supporting and handling organizational network, handling tickets and offering first level support.Example, for a small producer, setting up the network.The network support personnel should have in-depth knowledge of computer newtork, basic understanding of the network traffic involved in blockchain-networks and how they are structured at component level
 
  &nbsp;
  &nbsp;
 
 |Darlene|Developer|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="600" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
+|<img src="../assets/images/personas/Developer.png" alt="Developer" title="Developer" width="250" height="110"/>|The developers are responsible to write new smart contracts or change/update/fix the existing chain code.The developer should have a bachelor degree in computer science with strong background in software and backend development
 
  &nbsp;
  &nbsp;
 
 |Quinn|Quality Manager|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="500" height="110"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/Quality%20Manager.png" alt="Quality" title="Quality" width="250" height="110"/>|Input completed production quantity into the system. Updates system to Raise quality issues or alerts in the system.Needs basic understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
 
 |Don|Driver|
 :--------:|:---------:| 
-|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="400" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="../assets/images/personas/Driverimage.png" alt="Driver" title="Driver" width="150" height="110"/>|Responsible for acknowledging the delivery of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Wilhelm|Warehouse Manager|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="400" height="110"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
+|<img src="../assets/images/personas/Warehouse%20Manager.png" alt="Warehouse" title="Warehouse" width="150" height="110"/>|Responsible for acknowledging the receipt of the goods in the system.Needs basic computer knowledge and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="1000" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
+|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="250" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
