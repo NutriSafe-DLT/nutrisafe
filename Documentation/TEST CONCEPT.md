@@ -217,8 +217,8 @@ In order to determine which target roles and people are considered when designin
 
 |Dinah|Decision Maker (Producer)|
 |:--------:|:---------:|
-|<img src="../assets/images/personas/DecisionMaker.png" alt="Decision" title="Decision" width="200" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
- 
+|<img src="../assets/images/personas/DecisionMaker.png" alt="Decision" title="Decision" width="300" height="100" />|Takes appropriate decisions based on the data available on the Dashboard.Needs basic understanding of the web technology and blockchain.Basic training for the product required.
+
  &nbsp;
  &nbsp;
 
@@ -231,7 +231,7 @@ In order to determine which target roles and people are considered when designin
 
 |Darren|Disposition and Services|
 :--------:|:---------:|
- |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="250" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="350" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
