@@ -231,7 +231,7 @@ In order to determine which target roles and people are considered when designin
 
 |Darren|Disposition and Services|
 :--------:|:---------:|
- |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="300" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
+ |<img src="../assets/images/personas/DispositionandServices%20.png" alt="Disposition" title="Disposition" width="330" height="110"/>|Places orders in the system on behalf of the retailer/intermediate body for production/delivery of the goods from the producer.Needs basic understanding of the web technology and blockchain. Basic training for the product required.
 
  &nbsp;
  &nbsp;
@@ -239,7 +239,7 @@ In order to determine which target roles and people are considered when designin
 
 |Izzy|IT Administrator|
 :--------:|:---------:|
-|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="350" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
+|<img src="../assets/images/personas/IT%20Administrator.png" alt="Administrator" title="Administrator" width="330" height="110"/>|Responsible for setting up and maintaining the infrastructure. The administrator ensures that internal IT structure of the organization remains up-to-date. Should have at least vocational computer education along with understanding of the web technology and blockchain.
 
  &nbsp;
  &nbsp;
