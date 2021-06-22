@@ -290,14 +290,14 @@ In order to determine which target roles and people are considered when designin
 
 |Warda|Wholesaler/Distributors/Retailer/Logistic|
 :--------:|:---------:|
-|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="550" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
+|<img src="../assets/images/personas/Wholesaler:Distributors:Retailer:Logistic%20.png" alt="Wholesaler" title="Wholesaler" width="500" height="110"/>|They are responsible for updating the system and storing the information of the inventory received and distributed from producer to retailer to customer. Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient and training to use the application.
 
  &nbsp;
  &nbsp;
 
 |Chris|Customer| 
 :--------:|:---------:|
-|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="180" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
+|<img src="../assets/images/personas/Customerimage.png" alt="Customer" title="Customer" width="150" height="110"/>|Raise quality issues/complain in the system.A basic understanding of technology usage is sufficient.
 
 &nbsp;
 &nbsp;
