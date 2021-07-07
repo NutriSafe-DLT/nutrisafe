@@ -43,12 +43,12 @@ def generate_scenario(fileName):
         productFiles = [f for f in os.listdir('./scenario/' + folderName + '/' + 'products' + '/' + productName )]
         print(productFiles)
         for prodFileName in productFiles:
-            createObjectFromJSONFile ( os.path.join(product_dir , prodFileName.encode('utf-8')) )
+            createObjectFromJSONFile ( os.path.join(product_dir , prodFileName ) )
     relations_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),'scenario', folderName, 'relations')
     relationFiles = [f for f in os.listdir(relations_dir)]
     print(relationFiles)
     for relFileName in relationFiles:
-        createRelationFromJSONFile( relFileName.encode('utf-8') )
+        createRelationFromJSONFile( relFileName )
     scenarioFile.close()
 
 def createObjectFromJSONFile (objFileName):
