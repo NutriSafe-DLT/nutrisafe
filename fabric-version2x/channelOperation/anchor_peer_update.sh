@@ -37,21 +37,23 @@ TLS_CERT_ORDERER="/etc/hyperledger/msp/users/admin/tls/tlsca.unibw.de-cert.pem"
 #####################################################################################################################
 function printHelp() {
   echo "Usage: "
-  echo "  anchor_peer_update.sh [-f <path for .yaml file>] [-d <peer domain name] [-c <channelID name>]>"
+  echo "  anchor_peer_update.sh [-o <joining org as defined in configtx.yaml>] [-c <cli container name>] [-i <channelID name>] [-t <tlscert odererer>] [-p <path to configtx.yaml>] [-a <orderer address>]"
   echo "    -h or ? prints this message"
   echo "    -o domain name of joining organization"
   echo "    -c <Docker Container Name>"
   echo "    -i <ChannelID Name> - ChannelID Name"
   echo "    -t <Path to certificate file for orderer> "
-  echo " Example: anchor_peer_update.sh -o Salers -c cli.deoni.de -i trackandtrace -t /etc/certs/tlsca.orderer.de-cert.pem"
+  echo "    -p <Path to configtx.yaml> "
+  echo "    -a orderer address "
 }
+
 #####################################################################################################################
 # Code                                                                                                              #
 #####################################################################################################################
 
 
 # Parameters for organization and container
-while getopts "h?o:c:i:t:" opt; do
+while getopts "h?o:c:i:t:p:a:" opt; do
   case "$opt" in
   h | \?)
     printHelp
@@ -68,6 +70,12 @@ while getopts "h?o:c:i:t:" opt; do
     ;;
   t)
     TLS_CERT_ORDERER=$OPTARG
+    ;;
+  p)
+    CFG_PATH=$OPTARG
+    ;;
+  a)
+    ORDERER_ADDRESS=$OPTARG
     ;;
   esac
 done
