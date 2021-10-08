@@ -18,7 +18,7 @@ Instructions for setting up the development environment for linux and for MacOS.
 
 # Development LINUX
 ## Environment 
-We used an UBUNTU 18.04 Server instance.
+We used an UBUNTU 20.04 Server instance.
 
 After setting up the server, the connections and the development environment, we started to install the necessary tools for a running Hyperledger Fabric network (see <a href="https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html">HL Fabric Docs</a>).
   
@@ -59,90 +59,116 @@ sudo chmod +x /usr/local/bin/docker-compose
 $ sudo usermod -aG docker <your-user>  
 Error message = Got permission denied while trying to connect to the Docker daemon socket at ...
 ```
-### Installing jq
 
-```
-sudo apt-get install jq
-```
+### Prerequisite installation directly from the website (without Brew)
 
-### Installing golang
-Follow the instructions on <a href="https://github.com/golang/go/wiki/Ubuntu">golang</a>
+If you prefer to install jq directly from the product website please use [this URL](https://stedolan.github.io/jq/)
 
-```
-sudo snap install go --classic
-```
+For the Golang package go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation).
 
-Set the environment variables
+
+### OR Prerequisite Installation with Brew
+
+To install brew you can go to [The Brew Website](https://brew.sh) or directly run:
 ```
-$ export GOROOT=/usr/local/go
-$ export GOPATH=/home/ubuntu/Dev/fabric-samples/
-$ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Download hyperledger/fabric-samples
-The script below will create a fabric-samples directory in your current directory and automatically downloads the LATEST version of the Fabric. If you want a specific version see below.
+After installing brew run this:
 
-You can see what the script does at https://raw.githubusercontent.com/hyperledger/fabric/release-2.2/scripts/bootstrap.sh or execute it in unshortened form without the bit.ly link.
 ```
-curl -sSL http://bit.ly/2ysbOFE | bash -s
+brew install jq
+brew install golang
 ```
+
 #### Install specific hyperledger fabric and ca version
 ```
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
 ```
+Examples: 
+- For Version 1.4 with the corresponding fabric-ca version. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 1.4.6
+```
+
+- For Version 2.2 you may use the example below. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 2.2.1
+```
+When newer builds are available e.g. 1.4.12 you may use this instead of the example above and it usually will work. If, however, the minor version number increases e.g. 2.3 instead of 2.2 it may be that you will experience some issues.
 
 In order to run further scripts e.g. cryptogen etc. you need to add the fabric-samples/bin to the PATH environment variable.
 ```
-export PATH=<path to download location>/bin:$PATH
+$ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 ```
+
 ### Clone NutriSafe GIT Repository
 
 git clone <path_to_nutrisafe_repo>
 
 ### NutriSafe Network
-1. Generate crypto materials
-Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
+1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
 ```
-cd creatingCryptoMaterial
+cd <name_of_repository>/fabric-version2x/creatingCryptoMaterial
+//e.g. for nutrisafe repository this will be "cd nutrisafe/fabric-version2x/creatingCryptoMaterial"
+```
+Run `generate_crypto_materials_allorgs.sh`
+```
+./generate_crypto_materials_allorgs.sh
+```
+On successful completion of the script, the final output should look like the below screenshot:
 
-```
+![crypto](https://github.com/NutriSafe-DLT/nutrisafe/blob/documentation-cleanup-and-update/assets/images/ubuntu_crypto_materials.png)
+
 2. Start Network
 ```
 ./startNetwork.sh
 ```
-3. Stop Network
+On sucessful completion of the start script,the final output should look like the screenshot below:
+
+![start network](../assets/images/ubuntu_startnetwork.png)
+
+
+3. Download chaincode (in this example we download the NutriSafe chaincode but you can also use your own chaincode here)
 ```
-./stopNetwork.sh
+cd chaincode //switch to the chaincode subfolder 
+git clone https://github.com/NutriSafe-DLT/nutrisafe-chaincode.git 
+cd ..
+./installCC.sh
 ```
+If you are using your own repository then you need to pass the name to the installCC.sh script as follows:
+./installCC.sh -c <my_chaincode_name>
+This assumes that you have java chaincode. If you are using go chaincode you can also specifiy this:
+./installCC.sh -c <my_chaincode_name> -n go
+
+This is what it should look like if the script completes successfully:
+
+![chaincode](../assets/images/unbuntu_chaincode.png)
+
+4. In case you wish to remove the Network
+```
+./removeNetwork.sh
+```
+On successful removal of the network, the output should look like the below screenshot:
+
+![Removenetwork](../assets/images/ubuntu_removenetwork.png)
 
 ### Chaincode development
-Install gcc compiler
-```
-apt-get install build-essential
-```
+  [For chaincode please refer to this link.](https://github.com/NutriSafe-DLT/nutrisafe-chaincode.git)
 
 ### Helpful docker commands
 Stop all docker containers
 ```
 docker stop $(docker ps -a -q)
 ```
-Remove all docker containers
-```
-docker rm $(docker ps -a -q)
-```
-
-###
-
-1. Installing Docker
-2. Installing Golang --> set Paths 
-3. Cloning of the fabric-samples git repo
-4. execute https://github.com/hyperledger/fabric/blob/release-1.4/scripts/bootstrap.sh
-
 
 # Development MacOS
 
 ## Environment
-Please note that this configuration has been tested with macOS 10.15, it may also work with previous versions.
+Please note that this configuration has been tested with macOS 10.15 and 11.2 (Big Sur) it may also work with previous versions.
 
 ## Prerequisites
 git is usually included with the Xcode SDK, so you may not need to install it explicitly if you have the SDK active. If you use brew as a package manager you probably already have this installed.
@@ -152,18 +178,28 @@ xcode-select --install
 ```
 
 Docker can be obtained in the macOS-Version on the official website, please note that docker-composer will be installed automatically when installing docker.
+[Here is the link to the docker website to download Docker Desktop](https://www.docker.com/get-started)
 
 As a package manager we also recommend brew or ports. In this documentation we have tested with brew, so make sure you have this installed on your mac (you need _admin_ permissions to do this, so do not attempt to install with user permissions only).
 
+### Prerequisite installation directly from the website (without Brew)
+
+If you prefer to install jq directly from the product website please use [this URL](https://stedolan.github.io/jq/)
+
+For the Golang package go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation).
+
+
+## OR Prerequisite Installation with Brew
+
+To install brew you can go to [The Brew Website](https://brew.sh) or directly run:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+After installing brew run this:
+
 ```
 brew install jq
-```
-
-### Install Go (golang)
-First go to https://golang.org/doc/install#install and download the Mac package (admin rights needed for installation)
-
-OR with brew (if installed correctly NO admin permissions are needed):
-```
 brew install golang
 ```
 
@@ -171,6 +207,19 @@ brew install golang
 ```
 curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
 ```
+Examples: 
+- For Version 1.4 with the corresponding fabric-ca version. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 1.4.6
+```
+
+- For Version 2.2 you may use the example below. The -d parameter tells the script to skip the download of docker images and is quicker and saves you some disk space.
+
+```
+curl -sSL https://bit.ly/2ysbOFE | bash -s -- -d 2.2.1
+```
+When newer builds are available e.g. 1.4.12 you may use this instead of the example above and it usually will work. If, however, the minor version number increases e.g. 2.3 instead of 2.2 it may be that you will experience some issues.
 
 In order to run further scripts e.g. cryptogen etc. you need to add the fabric-samples/bin to the PATH environment variable.
 ```
@@ -179,22 +228,39 @@ export PATH=<path to download location>/bin:$PATH
 
 ## Clone NutriSafe GIT Repository
 
+
+```
 git clone <path_to_nutrisafe_repo>
+```
 
 ## NutriSafe Network
 1. Generate crypto materials (specify yaml config file. Default is pinzgauer.de)
 ```
-cd creatingCryptoMaterial
+cd <name_of_repository>/fabric-version1x/creatingCryptoMaterial
+//e.g. for nutrisafe repository this will be "cd nutrisafe/fabric-version1x/creatingCryptoMaterial"
 ```
 2. Run `generate_crypto_materials_allorgs.sh`
 ```
 ./generate_crypto_materials_allorgs.sh
 ```
+On successful completion of the script, the final output should look like the below screenshot:
+
+![crypto](../assets/images/macOS_crypto_materials.png)
+
 3. Start Network
 ```
+cd .. //this will switch to the folder above (example from creatingCryptoMaterial to fabric-version1x)
 ./startNetwork.sh
 ```
-4. Stop Network
+On sucessful completion of the start script,the final output should look like the screenshot below:
+
+![startnetwork successful](../assets/images/macOS_startnetwork.png)
+
+
+4. In case you wish to remove the network use the below command:
 ```
 ./removeNetwork.sh
 ```
+Once the script runs successfully, this is how the final output should look like:
+
+![removenetwork successful](../assets/images/macOS_removenetwork.png)

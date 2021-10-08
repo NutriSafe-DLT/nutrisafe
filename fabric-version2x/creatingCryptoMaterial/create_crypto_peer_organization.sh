@@ -67,12 +67,13 @@ done
 # RM command below is faulty.
 #rm -rf "./crypto-config/"$ORGANISATION_TYPE"/"$ORGANISATION_DOMAIN/*
 
-
-if cryptogen extend --config=$PATH_TO_YAML_FILE ; then
-  echo "Successfully generated crypto material!"
-  echo "Copying public certificates for Admin user..."
-  cp "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/tlsca/tlsca.$ORGANIZATION_DOMAIN"-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.$ORGANIZATION_DOMAIN"-cert.pem"
-  cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN/users/"Admin@"$ORGANIZATION_DOMAIN/tls/tlsca.unibw.de"-cert.pem"
+if cryptogen generate --config=$PATH_TO_YAML_FILE ; then
+  echo "Successfully generated crypto material for $ORGANIZATION_DOMAIN"
+  if [ "$ORGANIZATION_TYPE" = "peerOrganization" ] ; then
+    echo "Copying public certificates for Admin user..."
+    cp "./crypto-config/ordererOrganizations/unibw.de/tlsca/tlsca.unibw.de-cert.pem" "./crypto-config/"$ORGANIZATION_TYPE"s/"$ORGANIZATION_DOMAIN".de/users/Admin@"$ORGANIZATION_DOMAIN".de/tls/"
+  fi
 else
   echo "Something went wrong with the crypto material generation, please check output and logs."
 fi
+
